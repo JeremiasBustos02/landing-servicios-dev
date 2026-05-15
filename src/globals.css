@@ -1074,58 +1074,31 @@
   }
 
   /* ── Collapse / expand description ──────────────────────── */
-  /*
-    Usamos max-height en lugar de grid-template-rows para iOS.
-    grid-template-rows genera stutter en Safari/WebKit porque
-    fuerza layout en cada frame. max-height + opacity en cambio
-    solo dispara el compositor.
-  */
-  .process__desc-wrap {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.35s ease;
-    opacity: 0;
-  }
-
-  .process__step--active .process__desc-wrap {
-    max-height: 300px;
-    opacity: 1;
-  }
-
-  .process__desc-inner {
-    /* vacío intencionalmente */
-  }
-
-  .process__step .step-body__desc {
-    padding-top: 0.5rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-size: 0.9375rem;
-  }
-
+  
   .process__accordion {
-    display: grid;
-    /* Empieza con altura 0 */
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .process__step--active .process__accordion {
-    /* Al activarse, crece al tamaño exacto de su contenido */
-    grid-template-rows: 1fr;
+    display: block;
+    width: 100%;
   }
 
   .process__accordion-inner {
-    overflow: hidden; /* Oculta el texto mientras el grid está en 0fr */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+
+  .process__step--active .process__accordion-inner {
+    max-height: 350px; 
+    opacity: 1;
   }
 
   .step-body__desc {
-    /* Le damos padding superior en lugar de margin, para que el 
-       grid-template-rows colapse perfectamente a cero sin dejar huecos */
     padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
     margin: 0;
     color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.9375rem;
   }
 
   /* ── Pillars (Metodología) ───────────────────────────────── */
