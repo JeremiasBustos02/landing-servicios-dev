@@ -47,8 +47,8 @@ export default function Hero() {
         </p>
 
         <div className="flex gap-4 justify-center flex-wrap">
-          <a href="#pricing"  className="btn-primary">Ver servicios</a>
-          <a href="#services" className="btn-secondary">¿Cómo trabajamos?</a>
+          <a href="#pricing"  className="btn-primary-blur">Ver servicios</a>
+          <a href="#services" className="btn-secondary-blur">¿Cómo trabajamos?</a>
         </div>
       </div>
       

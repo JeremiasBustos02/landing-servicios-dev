@@ -15,7 +15,7 @@ export default function Footer() {
             y definamos un plan de acción claro.
           </p>
           {/* Botón usando tu clase outline ya existente */}
-          <a href="#contact" className="btn-primary mt-4">
+          <a href="#contact" className="btn-primary-blur mt-4">
             Escríbenos por WhatsApp
           </a>
         </div>

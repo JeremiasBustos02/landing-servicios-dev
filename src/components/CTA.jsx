@@ -12,7 +12,7 @@ export default function CTA() {
           Vamos a construir una herramienta que trabaje por vos las 24 horas.
         </p>
 
-        <a href="#contact" className="btn-primary text-lg px-8 py-4">
+        <a href="#contact" className="btn-primary-blur text-lg px-8 py-4">
           Solicitar un presupuesto sin cargo
         </a>
 

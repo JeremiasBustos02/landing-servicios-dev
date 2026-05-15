@@ -27,7 +27,7 @@ export default function PricingCard({
         </ul>
       </div>
 
-      <a href="#contact" className={`w-full justify-center ${highlighted ? 'btn-primary' : 'btn-secondary'}`}>
+      <a href="#contact" className={`w-full justify-center ${highlighted ? 'btn-primary-blur' : 'btn-secondary-blur'}`}>
         Empezar proyecto
       </a>
     </div>

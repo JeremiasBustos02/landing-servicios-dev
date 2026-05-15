@@ -31,7 +31,7 @@ export default function Navbar() {
             {NAV_LINKS.map(l => (
               <a key={l.href} href={l.href} className="navbar-link">{l.label}</a>
             ))}
-            <a href="#contact" className="btn-primary">Contacto</a>
+            <a href="#contact" className="btn-primary-blur">Contacto</a>
           </nav>
 
           {/* ── Hamburger button ── */}
