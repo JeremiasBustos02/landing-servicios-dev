@@ -307,7 +307,11 @@
     border-radius: var(--radius-lg);
     padding: 1.25rem;
     box-shadow: var(--shadow-card);
-    transition: box-shadow var(--transition), transform var(--transition);
+    transition: 
+      background-color var(--transition),
+      border-color var(--transition),
+      box-shadow var(--transition), 
+      transform var(--transition);
   }
 
   .card:hover {
@@ -320,10 +324,48 @@
     border-color: var(--border-green);
   }
 
+  .card-highlighted:hover .btn-primary-blur{
+    background: var(--bg-green-soft);
+    color: var(--color-accent-deep);
+    border-color: var(--border-green);
+  }
+
   .card__description {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
+  }
+
+  .card:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .card:hover .card__description,
+  .card:hover .text-price,
+  .card:hover .feature-list {
+    color: var(--bg-green-soft);
+  }
+
+  .card:hover .section-label,
+  .card:hover .section-label-inv {
+    background-color: var(--bg-green-soft);
+    color: var(--color-accent-deep);
+    border-color: var(--bg-green-soft);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover .btn-secondary-blur {
+    background: var(--bg-green-soft);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-accent-deep);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
+  }
+
+  .card:hover .feature-list li::before {
+    background-color: var(--bg-green-soft);
   }
 
   @media (min-width: 1440px) {
