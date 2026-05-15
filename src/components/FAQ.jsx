@@ -13,7 +13,7 @@ export default function FAQ() {
   const toggle = i => setActive(active === i ? null : i)
 
   return (
-    <section id="faq" className="bg-section-off-white section">
+    <section id="faq" className="section isolate-wrapper">
       <div className="container">
 
         <div className="text-center flex flex-col items-center gap-4 mb-12 reveal-fade">

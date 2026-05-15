@@ -47,7 +47,7 @@ export default function Services() {
 
         <div className="services-divider reveal-fade items-start">
           <span className="section-label-inv">El proceso</span>
-          <h3 className="heading-md">¿Cómo es trabajar con nosotros?</h3>
+          <h3 className="heading-lg">¿Cómo es trabajar con nosotros?</h3>
         </div>
 
         <ProcessSteps />
