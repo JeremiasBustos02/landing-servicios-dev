@@ -18,7 +18,6 @@ export default function Services() {
         })
       },
       { 
-
         rootMargin: "-50% 0px -49% 0px",
         threshold: 0 
       }
@@ -44,20 +43,21 @@ export default function Services() {
         {/* Pilares Grid */}
         <div className="pillars-grid">
           {METHODOLOGY_PILLARS.map((pillar, i) => (
+            /* El reveal-fade se queda SOLO en el contenedor padre */
             <div key={i} className="pillar-card reveal-fade">
               
               <div className="flex items-center gap-4 mb-2">
-                <div className="pillar-card__icon reveal-fade">
+                <div className="pillar-card__icon">
                   {pillar.icon}
                 </div>
-                <h3 className="heading-md pillar-card__title leading-tight reveal-fade">{pillar.title}</h3>
+                <h3 className="heading-md pillar-card__title leading-tight">{pillar.title}</h3>
               </div>
               
-              <p className="pillar-card__desc mb-2 reveal-fade">{pillar.description}</p>
+              <p className="pillar-card__desc mb-2">{pillar.description}</p>
               
               <ul className="flex flex-col gap-3 mt-auto w-full pt-4 border-t border-black/5">
                 {pillar.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 reveal-fade">
+                  <li key={idx} className="flex items-start gap-3">
                     {feature.type === 'check' ? (
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5">
                         <path d="M20 6L9 17l-5-5"/>
@@ -68,13 +68,12 @@ export default function Services() {
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                       </svg>
                     )}
-                    <span className={`text-md reveal-fade ${feature.type === 'cross' ? 'line-through' : 'font-medium'}`}>
+                    <span className={`text-md ${feature.type === 'cross' ? 'line-through text-text-muted' : 'font-medium text-text-secondary'}`}>
                       {feature.text}
                     </span>
                   </li>
                 ))}
               </ul>
-
             </div>
           ))}
         </div>
@@ -115,10 +114,11 @@ export default function Services() {
                 className={['process__step', i === active && 'process__step--active'].filter(Boolean).join(' ')}
                 onClick={() => setActive(i)}
               >
-                <span className="step-body__number text-accent font-bold reveal-fade" style={{display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem'}}>
+                {/* LIMPIEZA: Quitamos reveal-fade de estos elementos internos para que no laguee */}
+                <span className="step-body__number text-accent font-bold" style={{display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem'}}>
                   Paso {step.number}
                 </span>
-                <h4 className="step-body__title heading-md reveal-fade" style={{fontSize: '1.25rem'}}>
+                <h4 className="step-body__title heading-md" style={{fontSize: '1.25rem'}}>
                   {step.title}
                 </h4>
                 
