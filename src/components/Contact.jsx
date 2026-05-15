@@ -22,7 +22,7 @@ export default function Contact() {
 
                         <h2 className="heading-xl">Tomemos un café virtual.</h2>
                         <p className="lead">
-                            Contame sobre tu negocio y qué tenés en mente. Te respondo rápido,
+                            Cuéntanos sobre tu negocio y qué tenés en mente. Te respondemos rápido,
                             sin compromiso y con una propuesta clara sobre la mesa.
                         </p>
 
@@ -57,7 +57,7 @@ export default function Contact() {
 
                     {/* COLUMNA DERECHA: Formulario */}
                     <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h3 className="heading-md mb-6">Enviame un mensaje</h3>
+                        <h3 className="heading-md mb-6">Envíenos un mensaje</h3>
 
                         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                             <div>
