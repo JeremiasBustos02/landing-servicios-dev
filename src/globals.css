@@ -248,7 +248,12 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      color 0.3s ease;
   }
 
   .btn-primary-blur:hover {
@@ -279,7 +284,12 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      color 0.3s ease;
   }
 
   .btn-secondary-blur:hover {
@@ -648,18 +658,18 @@
   /* ── Testimonials ────────────────────────────────────────── */
   .testimonial-card {
     width: clamp(280px, 80vw, 400px);
-    flex-shrink: 0; 
+    flex-shrink: 0;
     scroll-snap-align: center;
-    
+
     display: flex;
     flex-direction: column;
-    height: auto; 
-    
+    height: auto;
+
     background: var(--bg-white, #fff);
     border: 1px solid var(--border-light, #eee);
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
   .testimonial-card:hover {
@@ -973,7 +983,10 @@
     flex-shrink: 0;
   }
 
-  /* ── Process Layout ──────────────────────────────────────── */
+  /* ============================================================
+   PROCESS — Optimizado para mobile
+   ============================================================ */
+
   .process {
     display: flex;
     flex-direction: column;
@@ -981,40 +994,49 @@
 
   .process__step {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: stretch;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+
+    transition: opacity 0.25s ease;
   }
 
   .process__step:hover .step-body__title {
     color: var(--color-accent);
   }
 
-  /* ── Process Indicator (dots + lines) ───────────────────────── */
+  /* ── Indicator ───────────────────────────────────────────── */
+
   .process__indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
-    padding-top: 0.15rem; 
+
+    padding-top: 0.15rem;
   }
 
   .process__dot {
     width: 0.875rem;
     height: 0.875rem;
-    border-radius: 50%;
+
+    border-radius: 999px;
     border: 2px solid var(--border-light);
     background: var(--bg-white);
+
     padding: 0;
-    cursor: pointer;
     flex-shrink: 0;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+    transition:
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   .process__dot--active {
     border-color: var(--color-accent);
     background: var(--bg-white);
+
     box-shadow: 0 0 0 3px var(--border-green);
   }
 
@@ -1026,23 +1048,30 @@
   .process__line {
     width: 2px;
     flex-grow: 1;
-    background: var(--border-light);
-    border-radius: 2px;
+
     margin-top: 6px;
     margin-bottom: 6px;
-    transition: background-color 0.4s ease;
+
     min-height: 2.5rem;
+
+    border-radius: 999px;
+    background: var(--border-light);
+
+    transition: background-color 0.3s ease;
   }
 
   .process__line--done {
     background: var(--color-accent);
   }
 
-  /* ── Process Content (Text) ──────────────────────────────────── */
+  /* ── Content ─────────────────────────────────────────────── */
+
   .process__content {
     flex: 1;
+
     display: flex;
     flex-direction: column;
+
     padding-bottom: 1.5rem;
   }
 
@@ -1050,53 +1079,71 @@
     padding-bottom: 0;
   }
 
-  .process__step .step-body__title {
+  .step-body__number {
+    display: block;
+
+    margin-bottom: 0.25rem;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+
+    color: var(--color-accent);
+  }
+
+  .step-body__title {
+    margin-bottom: 0;
+
     color: var(--text-primary);
-    transition: color 0.3s ease;
+
+    transition: color 0.25s ease;
   }
 
   .process__step--active .step-body__title {
     color: var(--color-accent-dark);
   }
 
-  .step-body__title {
-    color: var(--text-primary);
-    transition: color 0.3s ease;
-    margin-bottom: 0; /* Quitamos el margin para controlarlo con el acordeón */
-  }
+  /* ============================================================
+   ACCORDION — versión fluida
+   ============================================================ */
 
-  .step-body__number {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--color-accent);
-  }
-
-  /* ── Collapse / expand description ──────────────────────── */
-  
   .process__accordion {
-    display: block;
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    transition: grid-template-rows 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+
     width: 100%;
   }
 
   .process__accordion-inner {
-    max-height: 0;
-    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(-4px);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .process__step--active .process__accordion {
+    grid-template-rows: 1fr;
   }
 
   .process__step--active .process__accordion-inner {
-    max-height: 350px; 
     opacity: 1;
+    transform: translateY(0);
   }
 
   .step-body__desc {
     padding-top: 0.75rem;
     padding-bottom: 0.5rem;
+
     margin: 0;
+
     color: var(--text-secondary);
+
     line-height: 1.7;
     font-size: 0.9375rem;
   }
@@ -1131,7 +1178,9 @@
     align-items: flex-start;
     gap: 1.25rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   .pillar-card:hover {
@@ -1202,20 +1251,24 @@
 
   /* ── Carrusel Simple y Estético ────────────────────── */
   .carousel-container {
-    width: 100vw; /* Usamos viewport width para que rompa el contenedor y vaya de lado a lado */
+    width: 100vw;
+    /* Usamos viewport width para que rompa el contenedor y vaya de lado a lado */
     margin-left: 50%;
     transform: translateX(-50%);
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: none; /* Oculta scrollbar en Firefox */
-    -ms-overflow-style: none; /* Oculta scrollbar en Edge */
-    padding-block: 2rem; /* Espacio para las sombras de las cards */
+    scrollbar-width: none;
+    /* Oculta scrollbar en Firefox */
+    -ms-overflow-style: none;
+    /* Oculta scrollbar en Edge */
+    padding-block: 2rem;
+    /* Espacio para las sombras de las cards */
     -webkit-overflow-scrolling: touch;
-    
+
     /* Magia del Scroll Snap Nativo */
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    
+
     /* Efecto de desvanecimiento elegante en los bordes */
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
@@ -1230,7 +1283,7 @@
     align-items: stretch;
     gap: 1.5rem;
     width: max-content;
-    padding-inline: max(1rem, calc((100vw - 1200px) / 2)); 
+    padding-inline: max(1rem, calc((100vw - 1200px) / 2));
   }
 
   .isolate-wrapper,
@@ -1238,28 +1291,75 @@
   .carousel-container {
     isolation: isolate;
   }
-}
 
-/* ── Utilidades ──────────────────────────────────────────── */
-@layer utilities {
-  .text-accent {
-    color: var(--color-accent);
+  /* ============================================================
+   MOBILE OPTIMIZATIONS
+   ============================================================ */
+
+  @media (max-width: 768px) {
+
+    /* El blur es MUY caro en mobile */
+    .pillar-card,
+    .btn-primary-blur,
+    .btn-secondary-blur,
+    .navbar,
+    .drawer-overlay {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    /* Sombras más livianas */
+    .pillar-card {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-primary-blur,
+    .btn-secondary-blur {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Menos gap = menos repaint */
+    .process__step {
+      gap: 1rem;
+    }
+
+    /* Reveal más liviano */
+    .reveal-fade {
+      transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+    }
+
+    .pillar-card,
+    .btn-primary-blur,
+    .btn-secondary-blur,
+    .navbar {
+      will-change: auto;
+    }
+
   }
 
-  .text-error {
-    color: var(--color-error);
-    font-weight: 500;
-  }
+  /* ── Utilidades ──────────────────────────────────────────── */
+  @layer utilities {
+    .text-accent {
+      color: var(--color-accent);
+    }
 
-  .bg-section-white {
-    background: var(--bg-white);
-  }
+    .text-error {
+      color: var(--color-error);
+      font-weight: 500;
+    }
 
-  .bg-section-off-white {
-    background: var(--bg-off-white);
-  }
+    .bg-section-white {
+      background: var(--bg-white);
+    }
 
-  .bg-section-green {
-    background: var(--bg-green-soft);
+    .bg-section-off-white {
+      background: var(--bg-off-white);
+    }
+
+    .bg-section-green {
+      background: var(--bg-green-soft);
+    }
   }
 }
