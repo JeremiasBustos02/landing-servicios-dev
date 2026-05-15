@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NAV_LINKS } from '../data/constants'
 
-
 export default function Navbar() {
   const [open,     setOpen]     = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -26,7 +25,6 @@ export default function Navbar() {
 
           <a href="#" className="navbar-logo" onClick={close}>milogo.</a>
 
-          {/* ── Desktop nav ── */}
           <nav className="navbar-links hidden md:flex gap-8 items-center font-medium">
             {NAV_LINKS.map(l => (
               <a key={l.href} href={l.href} className="navbar-link">{l.label}</a>
@@ -34,7 +32,6 @@ export default function Navbar() {
             <a href="#contact" className="btn-primary-blur">Contacto</a>
           </nav>
 
-          {/* ── Hamburger button ── */}
           <button
             className={`hamburger md:hidden ${open ? 'hamburger--open' : ''}`}
             onClick={() => setOpen(o => !o)}
@@ -49,14 +46,12 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ── Overlay ── */}
       <div
         className={`drawer-overlay ${open ? 'drawer-overlay--visible' : ''}`}
         onClick={close}
         aria-hidden="true"
       />
 
-      {/* ── Drawer ── */}
       <nav
         className={`drawer ${open ? 'drawer--open' : ''}`}
         aria-hidden={!open}
@@ -68,11 +63,7 @@ export default function Navbar() {
 
         <ul className="drawer__links">
           {NAV_LINKS.map((l, i) => (
-            <li
-              key={l.href}
-              className="drawer__item"
-              style={{ '--i': i }}
-            >
+            <li key={l.href} className="drawer__item" style={{ '--i': i }}>
               <a href={l.href} className="drawer__link" onClick={close}>
                 {l.label}
                 <span className="drawer__arrow">→</span>
