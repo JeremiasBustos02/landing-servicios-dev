@@ -39,10 +39,10 @@ export const PLANS = [
 ]
 
 export const NAV_LINKS = [
-  { href: '#services',     label: 'Servicios'   },
+  { href: '#services', label: 'Servicios' },
   { href: '#testimonials', label: 'Testimonios' },
-  { href: '#pricing',      label: 'Precios'     },
-  { href: '#faq',          label: 'FAQ'         },
+  { href: '#pricing', label: 'Precios' },
+  { href: '#faq', label: 'FAQ' },
 ]
 
 export const FAQS = [
@@ -95,9 +95,12 @@ export const METHODOLOGY_PILLARS = [
     title: (
       <>Sin <span className="text-error font-bold">tecnicismos</span>, solo <span className="text-accent font-bold">resultados</span></>
     ),
-    description: (
-      <>Nos enfocamos en <span className="font-bold">soluciones reales</span>. No te mareamos con palabras raras ni funcionalidades que no vas a usar. Construimos webs que cargan rápido, se ven bien en cualquier pantalla y sobre todo, cumplen su objetivo: <span className="text-accent font-bold">conseguir clientes</span>.</>
-    )
+    description: "Construimos herramientas que cargan al instante y cumplen su objetivo principal: conseguir clientes.",
+    features: [
+      { text: "Carga instantánea asegurada", type: "check" },
+      { text: "Diseño enfocado en conversiones", type: "check" },
+      { text: "Palabras raras o humo", type: "cross" }
+    ]
   },
   {
     icon: (
@@ -107,9 +110,12 @@ export const METHODOLOGY_PILLARS = [
       </svg>
     ),
     title: "Procesos ágiles y claros",
-    description: (
-      <><span className="text-error font-bold">Odiamos las vueltas</span> tanto como vos. <span className="font-bold">Trabajo por etapas claras y con comunicación directa</span>. Vas a saber siempre en qué punto estamos, sin sorpresas en el presupuesto ni fechas de entrega que se estiran para siempre. Nuestra meta es que tengas tu web lista en <span className="font-bold">tiempo récord.</span></>
-    )
+    description: "Vas a saber siempre en qué punto estamos, sin sorpresas en el presupuesto ni fechas que se estiran.",
+    features: [
+      { text: "Fechas de entrega estrictas", type: "check" },
+      { text: "Comunicación directa por Meet y WhatsApp", type: "check" },
+      { text: "Vueltas innecesarias", type: "cross" }
+    ]
   }
 ];
 
@@ -151,6 +157,6 @@ export const FOOTER_LINKS = {
 
 export const CONTACT_INFO = {
   email: "hola@midominio.com",
-  whatsapp: "+5492266483093", 
+  whatsapp: "+5492266483093",
   whatsappLink: "https://wa.me/5492266483093?text=Hola!%20Vengo%20de%20tu%20web%20y%20me%20gustar%C3%ADa%20hacerte%20una%20consulta."
 }

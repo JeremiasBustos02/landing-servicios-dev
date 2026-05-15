@@ -1120,7 +1120,7 @@
   .pillar-card__desc {
     color: var(--text-secondary);
     line-height: 1.6;
-    font-size: 0.9375rem;
+    font-size: 1.2 rem;
   }
 
   /* ── Layout para Services ────────────────────────────────── */
