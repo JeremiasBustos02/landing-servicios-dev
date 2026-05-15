@@ -16,7 +16,7 @@ export default function FAQ() {
     <section id="faq" className="bg-section-off-white section">
       <div className="container">
 
-        <div className="text-center flex flex-col items-center gap-4 mb-12">
+        <div className="text-center flex flex-col items-center gap-4 mb-12 reveal-fade">
           <span className="section-label">FAQ</span>
           <h2 className="heading-lg">Preguntas frecuentes</h2>
           <p className="lead mx-auto">
@@ -24,7 +24,7 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 max-w-4xl mx-auto">
+        <div className="flex flex-col gap-4 max-w-4xl mx-auto reveal-fade">
           {FAQS.map((faq, i) => (
             <div key={i} className={`faq-card ${active === i ? 'is-open' : ''}`}>
               <button className="faq-summary" onClick={() => toggle(i)}>

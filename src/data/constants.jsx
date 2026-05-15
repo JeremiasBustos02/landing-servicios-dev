@@ -87,27 +87,28 @@ export const TESTIMONIALS = [
 
 export const METHODOLOGY_PILLARS = [
   {
-    title: <>
-        Sin <span className="text-error font-bold">tecnicismos</span>, solo<span className="text-accent font-bold"> resultados</span> 
-      </>,
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    title: (
+      <>Sin <span className="text-error font-bold">tecnicismos</span>, solo <span className="text-accent font-bold">resultados</span></>
+    ),
     description: (
-      <>
-        Nos enfocamos en <span className="font-bold">soluciones reales</span>. No te mareamos con palabras raras ni 
-        funcionalidades que no vas a usar. Construimos webs que cargan rápido, se 
-        ven bien en cualquier pantalla y sobre todo, cumplen su objetivo: 
-        <span className="text-accent font-bold"> conseguir clientes</span>.
-      </>
+      <>Nos enfocamos en <span className="font-bold">soluciones reales</span>. No te mareamos con palabras raras ni funcionalidades que no vas a usar. Construimos webs que cargan rápido, se ven bien en cualquier pantalla y sobre todo, cumplen su objetivo: <span className="text-accent font-bold">conseguir clientes</span>.</>
     )
   },
   {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9 11l3 3L22 4" />
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+      </svg>
+    ),
     title: "Procesos ágiles y claros",
     description: (
-      <>
-       <span className="text-error font-bold"> Odiamos las vueltas</span> tanto como vos. <span className="font-bold">Trabajo por etapas claras y con comunicación 
-        directa</span>. Vas a saber siempre en qué punto estamos, sin sorpresas en el presupuesto 
-        ni fechas de entrega que se estiran para siempre. Nuestra meta es que tengas tu web 
-        lista en <span className="font-bold">tiempo récord.</span>
-      </>
+      <><span className="text-error font-bold">Odiamos las vueltas</span> tanto como vos. <span className="font-bold">Trabajo por etapas claras y con comunicación directa</span>. Vas a saber siempre en qué punto estamos, sin sorpresas en el presupuesto ni fechas de entrega que se estiran para siempre. Nuestra meta es que tengas tu web lista en <span className="font-bold">tiempo récord.</span></>
     )
   }
 ];

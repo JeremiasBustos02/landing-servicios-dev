@@ -14,10 +14,8 @@ export default function Contact() {
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
                     {/* COLUMNA IZQUIERDA: Textos y Contacto Directo */}
-                    {/* 1. Le sacamos el items-start a este div padre */}
-                    <div className="flex flex-col gap-6 text-left">
+                    <div className="flex flex-col gap-6 text-left reveal-fade">
 
-                        {/* 2. Le agregamos self-start SOLO a esta etiqueta */}
                         <span className="section-label self-start">Contacto</span>
 
                         <h2 className="heading-xl">Tomemos un café virtual.</h2>
@@ -29,7 +27,6 @@ export default function Contact() {
                         {/* Contenedor de los botones */}
                         <div className="flex flex-col gap-4 mt-4">
 
-                            {/* Botón de Email (Ahora es un botón limpio, igual que el de WA) */}
                             <a
                                 href={`mailto:${CONTACT_INFO.email}`}
                                 className="flex items-center justify-center gap-3 w-full p-4 rounded-xl bg-white border border-gray-200 text-gray-800 font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all shadow-sm hover:shadow-md"
@@ -40,7 +37,6 @@ export default function Contact() {
                                 correo@dominio.com
                             </a>
 
-                            {/* Botón Gigante de WhatsApp */}
                             <a
                                 href={CONTACT_INFO.whatsappLink}
                                 target="_blank"
@@ -56,7 +52,7 @@ export default function Contact() {
                     </div>
 
                     {/* COLUMNA DERECHA: Formulario */}
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal-fade">
                         <h3 className="heading-md mb-6">Envíenos un mensaje</h3>
 
                         <form onSubmit={handleSubmit} className="flex flex-col gap-5">

@@ -5,15 +5,14 @@ export default function Testimonials() {
         <section id="testimonials" className="section">
             <div className="container border-t border-black/20 mt-4 pt-16">
                 <div className="flex flex-col items-start gap-4 mb-6 text-left">
-                    <span className="section-label-inv">Casos de exito</span>
-                    <h2 className="heading-lg">Lo que dicen quienes ya confiaron</h2>
+                    <span className="section-label-inv reveal-fade">Casos de exito</span>
+                    <h2 className="heading-lg reveal-fade">Lo que dicen quienes ya confiaron</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {TESTIMONIALS.map((item, index) => (
-                        <div key={index} className="testimonial-card">
+                        <div key={index} className="testimonial-card reveal-fade">
                             
-                            {/* Ícono de comillas decorativo */}
                             <svg 
                                 width="32" height="32" viewBox="0 0 24 24" fill="currentColor" 
                                 style={{ color: 'var(--border-green)' }} 

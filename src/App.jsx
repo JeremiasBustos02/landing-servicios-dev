@@ -1,4 +1,5 @@
 import './index.css'
+import { useScrollReveal } from './components/useScrollReveal'
 
 import Navbar       from './components/Navbar'
 import Hero         from './components/Hero'
@@ -12,6 +13,8 @@ import Contact      from './components/Contact'
 import Footer       from './components/Footer'
 
 export default function App() {
+  useScrollReveal()
+
   return (
     <>
       <Navbar />
@@ -28,6 +31,7 @@ export default function App() {
         <FAQ />
         <Contact />
       </main>
+      
       <Footer />
     </>
   )
