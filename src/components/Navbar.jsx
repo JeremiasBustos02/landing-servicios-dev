@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react'
+import { NAV_LINKS } from '../data/constants'
 
-const NAV_LINKS = [
-  { href: '#services',     label: 'Servicios'   },
-  { href: '#testimonials', label: 'Testimonios' },
-  { href: '#pricing',      label: 'Precios'     },
-  { href: '#faq',          label: 'FAQ'         },
-]
 
 export default function Navbar() {
   const [open,     setOpen]     = useState(false)

@@ -38,6 +38,13 @@ export const PLANS = [
   },
 ]
 
+export const NAV_LINKS = [
+  { href: '#services',     label: 'Servicios'   },
+  { href: '#testimonials', label: 'Testimonios' },
+  { href: '#pricing',      label: 'Precios'     },
+  { href: '#faq',          label: 'FAQ'         },
+]
+
 export const FAQS = [
   {
     pregunta: "¿Cuánto tiempo tarda el desarrollo?",
