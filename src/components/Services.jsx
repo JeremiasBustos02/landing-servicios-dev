@@ -1,58 +1,39 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { METHODOLOGY_PILLARS, STEPS } from '../data/constants'
 
 export default function Services() {
   const [active, setActive] = useState(0)
   const stepRefs = useRef([])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = stepRefs.current.indexOf(entry.target)
-            if (index !== -1) setActive(index)
-          }
-        })
-      },
-      { 
-        rootMargin: "-50% 0px -49% 0px",
-        threshold: 0 
-      }
-    )
-    
-    stepRefs.current.forEach(el => {
-      if (el) observer.observe(el)
-    })
-    
-    return () => observer.disconnect()
-  }, [])
+  const handleStepClick = (index) => {
+    setActive(index);
+    // Hacemos scroll suave nativo hacia el paso seleccionado
+    stepRefs.current[index]?.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'center' 
+    });
+  };
 
   return (
-    <section id="services" className="section">
+    <section id="services" className="section isolate-wrapper">
       <div className="container">
 
-        {/* Encabezado Metodología */}
         <div className="services-header reveal-fade">
           <span className="section-label-inv">Qué ofrecemos</span>
           <h2 className="heading-lg">Nuestra metodología</h2>
         </div>
 
-        {/* Pilares Grid */}
         <div className="pillars-grid">
           {METHODOLOGY_PILLARS.map((pillar, i) => (
-            /* El reveal-fade se queda SOLO en el contenedor padre */
             <div key={i} className="pillar-card reveal-fade">
-              
               <div className="flex items-center gap-4 mb-2">
                 <div className="pillar-card__icon">
                   {pillar.icon}
                 </div>
                 <h3 className="heading-md pillar-card__title leading-tight">{pillar.title}</h3>
               </div>
-              
               <p className="pillar-card__desc mb-2">{pillar.description}</p>
               
               <ul className="flex flex-col gap-3 mt-auto w-full pt-4 border-t border-black/5">
@@ -78,15 +59,12 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Separador Proceso */}
         <div className="services-divider reveal-fade items-start">
           <span className="section-label-inv">El proceso</span>
           <h3 className="heading-md">¿Cómo es trabajar con nosotros?</h3>
         </div>
 
-        {/* Proceso (Línea de tiempo) */}
         <div className="process">
-          
           <div className="process__track reveal-fade">
             {STEPS.map((step, i) => (
               <div key={i} className="process__track-item">
@@ -96,7 +74,7 @@ export default function Services() {
                     i < active && 'process__dot--done',
                     i === active && 'process__dot--active',
                   ].filter(Boolean).join(' ')}
-                  onClick={() => setActive(i)}
+                  onClick={() => handleStepClick(i)}
                   aria-label={`Ir al paso ${step.number}: ${step.title}`}
                 />
                 {i < STEPS.length - 1 && (
@@ -106,24 +84,23 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="process__steps reveal-fade">
+          {/* Agregamos el scroll-snap al contenedor nativo */}
+          <div className="process__steps reveal-fade snap-y snap-mandatory">
             {STEPS.map((step, i) => (
               <div
                 key={step.number}
                 ref={el => { stepRefs.current[i] = el }}
-                className={['process__step', i === active && 'process__step--active'].filter(Boolean).join(' ')}
-                onClick={() => setActive(i)}
+                className={['process__step snap-center', i === active && 'process__step--active'].filter(Boolean).join(' ')}
+                onClick={() => handleStepClick(i)}
               >
-                {/* LIMPIEZA: Quitamos reveal-fade de estos elementos internos para que no laguee */}
                 <span className="step-body__number text-accent font-bold" style={{display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem'}}>
                   Paso {step.number}
                 </span>
                 <h4 className="step-body__title heading-md" style={{fontSize: '1.25rem'}}>
                   {step.title}
                 </h4>
-                
                 <div className="process__desc-wrap">
-                  <div className="process__desc-inner ">
+                  <div className="process__desc-inner">
                     <p className="step-body__desc">{step.description}</p>
                   </div>
                 </div>

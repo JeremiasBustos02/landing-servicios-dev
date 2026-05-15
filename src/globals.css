@@ -1060,12 +1060,12 @@
 
   /* ── Collapse / expand description ──────────────────────── */
   .process__desc-wrap {
-  display: grid;
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  transition: grid-template-rows 0.35s ease;
-  will-change: grid-template-rows;
-}
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.35s ease;
+    will-change: grid-template-rows;
+  }
 
   .process__step--active .process__desc-wrap {
     grid-template-rows: 1fr;
@@ -1102,24 +1102,28 @@
   }
 
   .pillar-card {
-  background: rgba(34, 197, 94, 0.05);
-  
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  transform: translateZ(0);
-  will-change: transform, backdrop-filter;
-  
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top-color: rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
+    background: rgba(34, 197, 94, 0.05);
+
+    /* Prefijos completos y Forzado de GPU */
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    transform: translateZ(0);
+
+    /* Stacking context requerido para que el filtro no desaparezca */
+    position: relative;
+    z-index: 10;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
 
   .pillar-card:hover {
     transform: translateY(-2px);
@@ -1201,7 +1205,14 @@
     display: flex;
     align-items: stretch;
     gap: 1.5rem;
-    width: 100%;
+    width: max-content;
+    animation: scroll-infinite 40s linear infinite;
+  }
+
+  .carousel-track:hover,
+  .carousel-track:active,
+  .carousel-track:focus-within {
+    animation-play-state: paused;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -1217,6 +1228,13 @@
     to {
       transform: translateX(calc(-50% - 0.75rem));
     }
+  }
+
+  .isolate-wrapper,
+  .mesh-wrapper,
+  .carousel-container {
+    isolation: isolate;
+    /* Salva el blur al crear un nuevo contexto de apilamiento */
   }
 }
 
