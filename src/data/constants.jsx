@@ -45,11 +45,11 @@ export const FAQS = [
   },
   {
     pregunta: "¿Tengo que pagar un mantenimiento mensual?",
-    respuesta: "No es obligatorio. Yo te entrego la web funcionando al 100% y es tuya. Si querés que yo me encargue de mantenerla actualizada, hacer backups y gestionar el servidor mes a mes, te ofrezco un abono opcional. La decisión es tuya."
+    respuesta: "No es obligatorio. Te entregamos la web funcionando al 100% y es tuya. Si querés que nos encarguemos de mantenerla actualizada, hacer backups y gestionar el servidor mes a mes, te ofrecemos un abono opcional. La decisión es tuya."
   },
   {
     pregunta: "No entiendo nada de tecnología, ¿es un problema?",
-    respuesta: "Para nada. Ese es mi trabajo. Yo me encargo de todo el lado técnico: dominio, hosting, código y configuraciones. Vos solo tenés que contarme sobre tu negocio y qué querés lograr."
+    respuesta: "Para nada. Ese es nuestro trabajo. Nos encargamos de todo el lado técnico: dominio, hosting, código y configuraciones. Vos solo tenés que contarnos sobre tu negocio y qué querés lograr."
   },
   {
     pregunta: "¿Cómo es la forma de pago?",
