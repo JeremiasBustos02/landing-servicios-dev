@@ -1,7 +1,70 @@
+'use client'
+
+import { useRef, useState, useEffect } from 'react'
 import { TESTIMONIALS } from "../data/constants"
 
 export default function Testimonials() {
-    const infiniteTestimonials = [...TESTIMONIALS, ...TESTIMONIALS];
+    const infiniteTestimonials = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
+    
+    const trackRef = useRef(null);
+    // Este estado solo lo usamos para cambiar el cursor de la manito abierta a la manito cerrada
+    const [isDraggingState, setIsDraggingState] = useState(false);
+    
+    // Centralizamos todas las variables de movimiento en una referencia para evitar re-renderizados
+    const dragState = useRef({
+        isDragging: false,
+        startX: 0,
+        scrollLeft: 0,
+        isHovered: false
+    });
+
+    useEffect(() => {
+        const track = trackRef.current;
+        if (!track) return;
+
+        let animationId;
+        
+        const autoScroll = () => {
+            // Leemos directo de la referencia, sin depender de cierres de estado (stale closures)
+            if (!dragState.current.isDragging && !dragState.current.isHovered) {
+                track.scrollLeft += 1; 
+            }
+
+            const singleSetWidth = track.scrollWidth / 3;
+            
+            if (track.scrollLeft >= singleSetWidth * 2) {
+                track.scrollLeft -= singleSetWidth;
+            } else if (track.scrollLeft <= 0) {
+                track.scrollLeft += singleSetWidth;
+            }
+
+            animationId = requestAnimationFrame(autoScroll);
+        };
+
+        animationId = requestAnimationFrame(autoScroll);
+
+        return () => cancelAnimationFrame(animationId);
+    }, []);
+
+    const handleMouseDown = (e) => {
+        dragState.current.isDragging = true;
+        dragState.current.startX = e.pageX - trackRef.current.offsetLeft;
+        dragState.current.scrollLeft = trackRef.current.scrollLeft;
+        setIsDraggingState(true);
+    };
+
+    const handleMouseMove = (e) => {
+        if (!dragState.current.isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - trackRef.current.offsetLeft;
+        const walk = (x - dragState.current.startX) * 1.5;
+        trackRef.current.scrollLeft = dragState.current.scrollLeft - walk;
+    };
+
+    const handleMouseUpOrLeave = () => {
+        dragState.current.isDragging = false;
+        setIsDraggingState(false);
+    };
 
     return (
         <section id="testimonials" className="section overflow-hidden">
@@ -13,26 +76,40 @@ export default function Testimonials() {
                 </div>
 
                 <div className="carousel-container reveal-fade">
-                    <div className="carousel-track">
+                    <div 
+                        ref={trackRef}
+                        className={`carousel-track overflow-x-auto no-scrollbar select-none ${isDraggingState ? 'cursor-grabbing' : 'cursor-grab'}`}
+                        
+                        onMouseDown={handleMouseDown}
+                        onMouseMove={handleMouseMove}
+                        onMouseUp={handleMouseUpOrLeave}
+                        onMouseLeave={() => {
+                            handleMouseUpOrLeave();
+                            dragState.current.isHovered = false;
+                        }}
+                        onMouseEnter={() => dragState.current.isHovered = true}
+                        
+                        onTouchStart={() => dragState.current.isHovered = true}
+                        onTouchEnd={() => dragState.current.isHovered = false}
+                    >
                         {infiniteTestimonials.map((item, index) => (
                             <div 
                                 key={index} 
-                                className="testimonial-card w-[300px] md:w-[400px] shrink-0"
+                                className="testimonial-card h-auto w-[300px] md:w-[400px] shrink-0"
                             >
-                                
                                 <svg 
                                     width="32" height="32" viewBox="0 0 24 24" fill="currentColor" 
                                     style={{ color: 'var(--border-green)' }} 
-                                    className="mb-4"
+                                    className="mb-4 shrink-0 pointer-events-none"
                                 >
                                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                                 </svg>
 
-                                <p className="testimonial-text mb-6">
+                                <p className="testimonial-text mb-6 pointer-events-none">
                                     "{item.text}"
                                 </p>
 
-                                <div className="testimonial-author mt-auto">
+                                <div className="testimonial-author mt-auto pointer-events-none">
                                     <div className="avatar">
                                         {item.initials}
                                     </div>
@@ -45,12 +122,10 @@ export default function Testimonials() {
                                         </span>
                                     </div>
                                 </div>
-
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
         </section>
     )

@@ -1175,32 +1175,36 @@
   }
 
   /* ── Carrusel Infinito de Testimonios ────────────────────── */
-.carousel-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding-block: 1rem;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-.carousel-track {
-  display: flex;
-  align-items: stretch;
-  gap: 1.5rem;
-  width: max-content;
-  animation: scroll-infinite 40s linear infinite;
-}
-
-.carousel-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll-infinite {
-  to {
-    transform: translateX(calc(-50% - 0.75rem));
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-block: 1rem;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
-}
+
+  .carousel-track {
+    display: flex;
+    align-items: stretch;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes scroll-infinite {
+    to {
+      transform: translateX(calc(-50% - 0.75rem));
+    }
+  }
 }
 
 /* ── Utilidades ──────────────────────────────────────────── */
