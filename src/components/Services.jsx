@@ -1,52 +1,9 @@
 'use client'
 
-import { useRef, useState, useEffect, useCallback } from 'react'
-import { METHODOLOGY_PILLARS, STEPS } from '../data/constants'
+import { METHODOLOGY_PILLARS } from '../data/constants'
+import ProcessSteps from './ProcessSteps'
 
 export default function Services() {
-  const [active, setActive] = useState(0)
-  const stepRefs = useRef([])
-  const stepsContainerRef = useRef(null)
-  const isScrollingRef = useRef(false)
-
-  // Activar paso según scroll — sin scroll programático para evitar loops
-  useEffect(() => {
-    const container = stepsContainerRef.current
-    if (!container) return
-
-    const els = stepRefs.current.filter(Boolean)
-    if (!els.length) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (isScrollingRef.current) return
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = els.indexOf(entry.target)
-            if (idx !== -1) setActive(idx)
-          }
-        })
-      },
-      {
-        root: null,
-        rootMargin: '-35% 0px -45% 0px',
-        threshold: 0,
-      }
-    )
-
-    els.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
-  // Click en dot → scroll suave al paso
-  const handleDotClick = useCallback((index) => {
-    isScrollingRef.current = true
-    setActive(index)
-    stepRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    // Liberar lock después de que termine el scroll (~700 ms)
-    setTimeout(() => { isScrollingRef.current = false }, 750)
-  }, [])
-
   return (
     <section id="services" className="section isolate-wrapper">
       <div className="container">
@@ -93,53 +50,7 @@ export default function Services() {
           <h3 className="heading-md">¿Cómo es trabajar con nosotros?</h3>
         </div>
 
-        <div className="process">
-          {/* Track lateral de dots */}
-          <div className="process__track reveal-fade" aria-hidden="true">
-            {STEPS.map((step, i) => (
-              <div key={i} className="process__track-item">
-                <button
-                  className={[
-                    'process__dot',
-                    i < active  && 'process__dot--done',
-                    i === active && 'process__dot--active',
-                  ].filter(Boolean).join(' ')}
-                  onClick={() => handleDotClick(i)}
-                  aria-label={`Ir al paso ${step.number}: ${step.title}`}
-                />
-                {i < STEPS.length - 1 && (
-                  <div className={['process__line', i < active && 'process__line--done'].filter(Boolean).join(' ')} />
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Lista de pasos */}
-          <div ref={stepsContainerRef} className="process__steps">
-            {STEPS.map((step, i) => (
-              <div
-                key={step.number}
-                ref={(el) => { stepRefs.current[i] = el }}
-                className={['process__step', i === active && 'process__step--active'].filter(Boolean).join(' ')}
-                onClick={() => handleDotClick(i)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && handleDotClick(i)}
-                aria-expanded={i === active}
-              >
-                <span className="step-body__number" aria-hidden="true">
-                  Paso {step.number}
-                </span>
-                <h4 className="step-body__title heading-md">{step.title}</h4>
-                <div className="process__desc-wrap" aria-hidden={i !== active}>
-                  <div className="process__desc-inner">
-                    <p className="step-body__desc">{step.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ProcessSteps />
 
       </div>
     </section>

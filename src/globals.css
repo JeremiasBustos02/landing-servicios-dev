@@ -115,7 +115,7 @@
   /* Tipografía */
   .heading-xl {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.0rem, 5vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -647,19 +647,19 @@
 
   /* ── Testimonials ────────────────────────────────────────── */
   .testimonial-card {
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-card);
+    width: clamp(280px, 80vw, 400px);
+    flex-shrink: 0; 
+    scroll-snap-align: center;
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5rem;
-    height: auto;
-    /* GPU layer para que el scroll del carousel no cause repaint */
-    will-change: transform;
-    transition: transform var(--transition), box-shadow var(--transition);
+    height: auto; 
+    
+    background: var(--bg-white, #fff);
+    border: 1px solid var(--border-light, #eee);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   }
 
   .testimonial-card:hover {
@@ -843,8 +843,13 @@
   }
 
   @keyframes mesh-shimmer {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 0% 100%; }
+    0% {
+      background-position: 0% 0%;
+    }
+
+    100% {
+      background-position: 0% 100%;
+    }
   }
 
   .mesh-content {
@@ -971,26 +976,28 @@
   /* ── Process Layout ──────────────────────────────────────── */
   .process {
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+    flex-direction: column;
   }
 
-  /* ── Process Track (dots + lines) ───────────────────────── */
-  .process__track {
+  .process__step {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .process__step:hover .step-body__title {
+    color: var(--color-accent);
+  }
+
+  /* ── Process Indicator (dots + lines) ───────────────────────── */
+  .process__indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
-    padding-top: 0.2rem;
-    position: sticky;
-    top: 40vh;
-    align-self: flex-start;
-  }
-
-  .process__track-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-top: 0.15rem; 
   }
 
   .process__dot {
@@ -1002,9 +1009,7 @@
     padding: 0;
     cursor: pointer;
     flex-shrink: 0;
-    /* Solo transición de propiedades composited */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   }
 
   .process__dot--active {
@@ -1020,32 +1025,28 @@
 
   .process__line {
     width: 2px;
-    height: 5.5rem;
+    flex-grow: 1;
     background: var(--border-light);
     border-radius: 2px;
-    margin-top: 4px;
-    transition: background 0.4s ease;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    transition: background-color 0.4s ease;
+    min-height: 2.5rem;
   }
 
   .process__line--done {
     background: var(--color-accent);
   }
 
-  /* ── Process Steps List ──────────────────────────────────── */
-  .process__steps {
+  /* ── Process Content (Text) ──────────────────────────────────── */
+  .process__content {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1.5rem;
   }
 
-  .process__step {
-    padding-bottom: 2rem;
-    cursor: pointer;
-    /* Promocionar a capa GPU para evitar repaint en el expand */
-    will-change: opacity;
-  }
-
-  .process__step:last-child {
+  .process__step:last-child .process__content {
     padding-bottom: 0;
   }
 
@@ -1056,6 +1057,12 @@
 
   .process__step--active .step-body__title {
     color: var(--color-accent-dark);
+  }
+
+  .step-body__title {
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+    margin-bottom: 0; /* Quitamos el margin para controlarlo con el acordeón */
   }
 
   .step-body__number {
@@ -1076,19 +1083,16 @@
   .process__desc-wrap {
     overflow: hidden;
     max-height: 0;
-    /* Transición solo de propiedades compositor-friendly */
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity    0.35s ease;
+      opacity 0.35s ease;
     opacity: 0;
   }
 
   .process__step--active .process__desc-wrap {
-    /* Valor generoso para no cortar texto largo */
     max-height: 300px;
     opacity: 1;
   }
 
-  /* Quitamos el inner extra — ya no necesitamos overflow:hidden anidado */
   .process__desc-inner {
     /* vacío intencionalmente */
   }
@@ -1098,7 +1102,30 @@
     color: var(--text-secondary);
     line-height: 1.7;
     font-size: 0.9375rem;
-    /* Sin transform animado — lo maneja el padre */
+  }
+
+  .process__accordion {
+    display: grid;
+    /* Empieza con altura 0 */
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .process__step--active .process__accordion {
+    /* Al activarse, crece al tamaño exacto de su contenido */
+    grid-template-rows: 1fr;
+  }
+
+  .process__accordion-inner {
+    overflow: hidden; /* Oculta el texto mientras el grid está en 0fr */
+  }
+
+  .step-body__desc {
+    /* Le damos padding superior en lugar de margin, para que el 
+       grid-template-rows colapse perfectamente a cero sin dejar huecos */
+    padding-top: 0.75rem;
+    margin: 0;
+    color: var(--text-secondary);
   }
 
   /* ── Pillars (Metodología) ───────────────────────────────── */
@@ -1175,7 +1202,7 @@
     transform: translateY(32px);
     /* GPU-only properties → sin layout thrashing */
     transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-                transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: opacity, transform;
   }
 
@@ -1184,37 +1211,45 @@
     transform: translateY(0);
   }
 
-  .reveal-fade:nth-child(1) { transition-delay: 0ms; }
-  .reveal-fade:nth-child(2) { transition-delay: 120ms; }
-  .reveal-fade:nth-child(3) { transition-delay: 240ms; }
-  .reveal-fade:nth-child(4) { transition-delay: 360ms; }
+  .reveal-fade:nth-child(1) {
+    transition-delay: 0ms;
+  }
 
-  /* ── Carrusel Infinito de Testimonios ────────────────────── */
+  .reveal-fade:nth-child(2) {
+    transition-delay: 120ms;
+  }
+
+  .reveal-fade:nth-child(3) {
+    transition-delay: 240ms;
+  }
+
+  .reveal-fade:nth-child(4) {
+    transition-delay: 360ms;
+  }
+
+  /* ── Carrusel Simple y Estético ────────────────────── */
   .carousel-container {
-    width: 100%;
-    /*
-      overflow-x: auto permite el scroll nativo del drag en JS.
-      Ocultamos la scrollbar con scrollbar-width.
-    */
+    width: 100vw; /* Usamos viewport width para que rompa el contenedor y vaya de lado a lado */
+    margin-left: 50%;
+    transform: translateX(-50%);
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: none;          /* Firefox */
-    -ms-overflow-style: none;       /* IE/Edge */
-    position: relative;
-    padding-block: 1rem;
-    /* Momentum scroll nativo en iOS */
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+    -ms-overflow-style: none; /* Oculta scrollbar en Edge */
+    padding-block: 2rem; /* Espacio para las sombras de las cards */
     -webkit-overflow-scrolling: touch;
-    /* Forzar compositor layer */
-    transform: translateZ(0);
-    will-change: scroll-position;
-    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    /* Permitir scroll horizontal; evitar que el navegador cancele el gesto */
-    touch-action: pan-x;
+    
+    /* Magia del Scroll Snap Nativo */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    /* Efecto de desvanecimiento elegante en los bordes */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
   }
 
   .carousel-container::-webkit-scrollbar {
-    display: none;                  /* Chrome/Safari */
+    display: none;
   }
 
   .carousel-track {
@@ -1222,21 +1257,7 @@
     align-items: stretch;
     gap: 1.5rem;
     width: max-content;
-    /* Animación CSS para auto-scroll */
-    animation: scroll-infinite 40s linear infinite;
-    /* GPU layer propio para la animación */
-    will-change: transform;
-  }
-
-  /* La clase .group ya no pausa; el JS maneja pause/resume */
-  .carousel-track:focus-within {
-    animation-play-state: paused;
-  }
-
-  @keyframes scroll-infinite {
-    to {
-      transform: translateX(calc(-33.333%));
-    }
+    padding-inline: max(1rem, calc((100vw - 1200px) / 2)); 
   }
 
   .isolate-wrapper,
