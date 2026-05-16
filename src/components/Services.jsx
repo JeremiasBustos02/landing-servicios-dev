@@ -18,7 +18,7 @@ export default function Services() {
             <div key={i} className="pillar-card reveal-fade">
               <div className="flex items-center gap-4 mb-2">
                 <div className="pillar-card__icon">{pillar.icon}</div>
-                <h3 className="heading-md pillar-card__title leading-tight">{pillar.title}</h3>
+                <h3 className="heading-md pillar-card__title leading-tight ">{pillar.title}</h3>
               </div>
               <p className="pillar-card__desc mb-2">{pillar.description}</p>
 
@@ -46,8 +46,10 @@ export default function Services() {
         </div>
 
         <div className="services-divider reveal-fade items-start">
-          <span className="section-label-inv">El proceso</span>
-          <h3 className="heading-lg">¿Cómo es trabajar con nosotros?</h3>
+          <span className="section-label-inv">Rápido y sin vueltas</span>
+          <h3 className="heading-lg">
+            De tu idea al <span className="text-accent font-bold">mundo real</span> en 3 pasos
+          </h3>
         </div>
 
         <ProcessSteps />
