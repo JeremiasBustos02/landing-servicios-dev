@@ -18,7 +18,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
 
           <div className="col-span-2 md:col-span-1">
             <span className="footer-logo">milogo.</span>
@@ -53,6 +53,24 @@ export default function Footer() {
             <h4 className="footer-heading">Conectemos</h4>
             <ul>
               {FOOTER_LINKS.social.map(link => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="footer-link"
+                    target={link.external ? '_blank' : '_self'}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="footer-heading">Contacto</h4>
+            <ul>
+              {FOOTER_LINKS.contacto.map(link => (
                 <li key={link.name}>
                   <a
                     href={link.href}

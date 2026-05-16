@@ -22,8 +22,7 @@ export default function Contact() {
 
                         <h2 className="heading-xl">Hablemos.</h2>
                         <p className="lead">
-                            Cuéntanos sobre tu negocio y qué tenés en mente. Te respondemos rápido,
-                            sin compromiso y con una propuesta clara sobre la mesa.
+                            ¿Tenés dudas o consultas?, contanos de tu proyecto, estamos para ayudarte a transformarlo en realidad. Respondemos en menos de 24hs.
                         </p>
 
                         {/* Contenedor de las Mini-Cards */}
