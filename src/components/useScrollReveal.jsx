@@ -8,8 +8,7 @@ export function useScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
-            
-            // observer.unobserve(entry.target)
+            observer.unobserve(entry.target)
           }
         })
       },

@@ -324,48 +324,50 @@
     border-color: var(--border-green);
   }
 
-  .card-highlighted:hover .btn-primary-blur{
-    background: var(--bg-green-soft);
-    color: var(--color-accent-deep);
-    border-color: var(--border-green);
+  @media (hover: hover) and (pointer: fine) {
+    .card-highlighted:hover .btn-primary-blur {
+      background: var(--bg-green-soft);
+      color: var(--color-accent-deep);
+      border-color: var(--border-green);
+    }
+
+    .card:hover {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .card:hover .card__description,
+    .card:hover .text-price,
+    .card:hover .feature-list {
+      color: var(--bg-green-soft);
+    }
+
+    .card:hover .section-label,
+    .card:hover .section-label-inv {
+      background-color: var(--bg-green-soft);
+      color: var(--color-accent-deep);
+      border-color: var(--bg-green-soft);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .btn-secondary-blur {
+      background: var(--bg-green-soft);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--color-accent-deep);
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
+    }
+
+    .card:hover .feature-list li::before {
+      background-color: var(--bg-green-soft);
+    }
   }
 
   .card__description {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
-  }
-
-  .card:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
-    transform: translateY(-4px);
-  }
-
-  .card:hover .card__description,
-  .card:hover .text-price,
-  .card:hover .feature-list {
-    color: var(--bg-green-soft);
-  }
-
-  .card:hover .section-label,
-  .card:hover .section-label-inv {
-    background-color: var(--bg-green-soft);
-    color: var(--color-accent-deep);
-    border-color: var(--bg-green-soft);
-    transition: all 0.3s ease;
-  }
-
-  .card:hover .btn-secondary-blur {
-    background: var(--bg-green-soft);
-    border-color: rgba(255, 255, 255, 0.3);
-    color: var(--color-accent-deep);
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
-  }
-
-  .card:hover .feature-list li::before {
-    background-color: var(--bg-green-soft);
   }
 
   @media (min-width: 1440px) {
@@ -836,14 +838,6 @@
       transform 0.25s ease;
   }
 
-  .process-card:hover {
-    color: var(--bg-green-soft);
-    background: var(--color-accent);
-    border-color: var(--border-green);
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-3px);
-  }
-
   .process-card--active {
     background: var(--bg-green-soft);
     border-color: var(--color-accent);
@@ -908,26 +902,25 @@
     color: var(--color-accent-deep);
   }
 
-  /* Acordeón del body */
+  /* Acordeón del body - uses max-height for paint-free animation */
   .process-card__body {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
   }
 
   .process-card--active .process-card__body {
-    grid-template-rows: 1fr;
+    max-height: 500px;
   }
 
   .process-card__body-inner {
-    overflow: hidden;
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     transition:
-      opacity 0.3s ease 0.05s,
-      transform 0.3s ease 0.05s;
+      opacity 0.25s ease,
+      transform 0.25s ease;
   }
 
   .process-card--active .process-card__body-inner {
@@ -965,6 +958,15 @@
     color: var(--color-accent);
   }
 
+  @media (hover: hover) and (pointer: fine) {
+  .process-card:hover {
+    color: var(--bg-green-soft);
+    background: var(--color-accent);
+    border-color: var(--border-green);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+  }
+
   .process-card:hover .process-card__index,
   .process-card:hover .process-card__title,
   .process-card:hover .process-card__desc {
@@ -979,6 +981,7 @@
   .process-card:hover .process-card__arrow {
     color: var(--bg-green-soft);
   }
+}
 
   @media (max-width: 767px) {
     .process-card {
@@ -1008,9 +1011,11 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
-  .testimonial-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card-hover);
+  @media (hover: hover) and (pointer: fine) {
+    .testimonial-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+    }
   }
 
   .testimonial-text {
@@ -1100,9 +1105,9 @@
   }
 
   .faq-grid {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
   }
 
   .faq-content-inner {
@@ -1115,7 +1120,7 @@
     line-height: 1.7;
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
   }
 
   .faq-card.is-open {
@@ -1123,7 +1128,7 @@
   }
 
   .faq-card.is-open .faq-grid {
-    grid-template-rows: 1fr;
+    max-height: 400px;
   }
 
   .faq-card.is-open .faq-text {
@@ -1135,16 +1140,18 @@
     transform: rotate(180deg);
   }
 
-  .faq-card:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
-    transform: translateY(-2px);
-  }
+  @media (hover: hover) and (pointer: fine) {
+    .faq-card:hover {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+      transform: translateY(-2px);
+    }
 
-  .faq-card:hover .faq-summary,
-  .faq-card:hover .faq-text {
-    color: #ffffff;
+    .faq-card:hover .faq-summary,
+    .faq-card:hover .faq-text {
+      color: #ffffff;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -1586,9 +1593,11 @@
       box-shadow 0.25s ease;
   }
 
-  .pillar-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card-hover);
+  @media (hover: hover) and (pointer: fine) {
+    .pillar-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+    }
   }
 
   .pillar-card__title {
@@ -1665,11 +1674,20 @@
 
     .pillar-card {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
     }
 
     .btn-primary-blur,
     .btn-secondary-blur {
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar {
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
     }
 
     .reveal-fade {
