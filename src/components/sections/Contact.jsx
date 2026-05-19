@@ -1,6 +1,6 @@
 'use client'
 
-import { CONTACT_INFO } from '../data/constants'
+import { CONTACT_INFO } from '../../data/constants'
 
 export default function Contact() {
 

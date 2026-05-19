@@ -1,6 +1,6 @@
 'use client'
 
-import { TESTIMONIALS } from '../data/constants'
+import { TESTIMONIALS } from '../../data/constants'
 
 export default function TestimonialCarousel() {
   return (

@@ -1,0 +1,23 @@
+@layer base, components, utilities;
+
+@import "./base/tokens.css";
+
+@import "./base/reset.css" layer(base);
+
+@import "./ui/animations.css" layer(components);
+@import "./ui/typography.css" layer(components);
+@import "./ui/buttons.css" layer(components);
+@import "./ui/cards.css" layer(components);
+@import "./ui/mesh.css" layer(components);
+
+@import "./layout/navbar.css" layer(components);
+@import "./layout/footer.css" layer(components);
+
+@import "./sections/hero.css" layer(components);
+@import "./sections/services.css" layer(components);
+@import "./sections/testimonials.css" layer(components);
+@import "./sections/faq.css" layer(components);
+@import "./sections/cta.css" layer(components);
+@import "./sections/contact.css" layer(components);
+
+@import "./base/utilities.css" layer(utilities);

@@ -1,0 +1,48 @@
+.mesh-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-green-soft);
+  isolation: isolate;
+}
+
+.mesh-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-mobile {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mesh-mobile__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mesh-mobile__shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, transparent 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0.55) 55%, transparent 100%);
+  background-size: 100% 250%;
+  animation: mesh-shimmer 5s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-shimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+.mesh-content {
+  position: relative;
+  z-index: 10;
+}

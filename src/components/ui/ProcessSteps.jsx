@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { STEPS } from '../data/constants'
+import { STEPS } from '../../data/constants'
 
 export default function ProcessSteps() {
   const [active, setActive] = useState(null)

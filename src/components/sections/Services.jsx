@@ -1,7 +1,7 @@
 'use client'
 
-import { METHODOLOGY_PILLARS } from '../data/constants'
-import ProcessSteps from './ProcessSteps'
+import { METHODOLOGY_PILLARS } from '../../data/constants'
+import ProcessSteps from '../ui/ProcessSteps'
 
 export default function Services() {
   return (

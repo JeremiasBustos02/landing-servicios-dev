@@ -1,4 +1,4 @@
-import { FOOTER_LINKS } from '../data/constants'
+import { FOOTER_LINKS } from '../../data/constants'
 
 export default function Footer() {
   const year = new Date().getFullYear()

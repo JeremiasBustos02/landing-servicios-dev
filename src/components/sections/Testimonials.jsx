@@ -1,6 +1,6 @@
 'use client'
 
-import TestimonialCarousel from './TestimonialCarousel'
+import TestimonialCarousel from '../ui/TestimonialCarousel'
 
 export default function Testimonials() {
   return (

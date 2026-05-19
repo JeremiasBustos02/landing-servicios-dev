@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NAV_LINKS } from '../data/constants'
+import { NAV_LINKS } from '../../data/constants'
 
 export default function Navbar() {
   const [open,     setOpen]     = useState(false)

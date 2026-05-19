@@ -1,5 +1,5 @@
-import PricingCard from './PricingCard'
-import { PLANS } from '../data/constants'
+import PricingCard from '../ui/PricingCard'
+import { PLANS } from '../../data/constants'
 
 export default function Pricing() {
   return (

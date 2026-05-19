@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FAQS } from '../data/constants'
+import { FAQS } from '../../data/constants'
 
 const ChevronIcon = () => (
   <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4">
