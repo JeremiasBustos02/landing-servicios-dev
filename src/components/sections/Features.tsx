@@ -33,7 +33,7 @@ export default function Features() {
           ))}
         </div>
       </div>
-      <LiquidGlassCard className="flex flex-col justify-center rounded-2xl p-6 mx-auto">
+      <LiquidGlassCard className="flex flex-col justify-center rounded-2xl p-6 mx-auto h-full">
         <div className="flex items-center justify-between text-sm text-white/70">
           <span>Proceso</span>
           <span className="text-xs">En 3 pasos</span>

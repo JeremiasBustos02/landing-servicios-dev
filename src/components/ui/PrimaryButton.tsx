@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react'
+import '../../styles/ui/buttons.css' // Ajusta esta ruta según tu estructura
 
 type PrimaryButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string
@@ -8,7 +9,7 @@ export default function PrimaryButton({ label, className = '', ...props }: Prima
   return (
     <button
       type="button"
-      className={`group inline-flex items-center justify-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90 active:scale-[0.98] ${className}`}
+      className={`btn-primary group ${className}`.trim()}
       {...props}
     >
       {label}

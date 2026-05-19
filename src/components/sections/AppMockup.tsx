@@ -2,6 +2,7 @@ import LiquidGlassCard from '../ui/LiquidGlassCard'
 import { useState, useEffect } from 'react'
 import { PROJECTS, SITE } from '../../data/constants'
 import '../../styles/sections/app-mockup.css'
+import SectionEyebrow from '../ui/SectionEyebrow'
 
 export default function AppMockup() {
   const [active, setActive] = useState(0)
@@ -25,8 +26,10 @@ export default function AppMockup() {
 
   return (
     <section className="max-w-[100vw] mx-auto px-4 py-20 overflow-hidden">
+      <div className="flex justify-center items-start mb-6 md:mb-6">
+        <SectionEyebrow label="Proyectos" />
+      </div>
       <div className="relative w-full max-w-5xl mx-auto aspect-[16/9]">
-
         {PROJECTS.map((project, index) => (
           <div
             key={project.title}
@@ -62,11 +65,10 @@ export default function AppMockup() {
           <button
             key={index}
             onClick={() => setActive(index)}
-            className={`carousel-dot ${
-              active === index
+            className={`carousel-dot ${active === index
                 ? 'carousel-dot--active'
                 : 'carousel-dot--inactive'
-            }`}
+              }`}
             aria-label={`Ir a la diapositiva ${index + 1}`}
           />
         ))}

@@ -3,6 +3,7 @@ import { CONTACT_INFO, SITE, EASE } from '../../data/constants'
 import PrimaryButton from '../ui/PrimaryButton'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import '../../styles/sections/hero.css'
+import HeroSwitch from '../ui/HeroSwitch'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -35,23 +36,22 @@ export default function Hero() {
       animate="show"
       className="text-center pt-28 pb-20 px-6"
     >
-      <motion.div variants={fadeUp} className="flex justify-center">
-        <SectionEyebrow label="Desarrollo web & software" />
-      </motion.div>
+
+      <div className="flex justify-center mb-6">
+        <HeroSwitch />
+      </div>
+
       <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.9] mt-6">
-        <span className="block">Tu negocio merece</span>
-        <span className="block">una web que</span>
+        <span className="block">Diseñamos webs que</span>
         <span className="block animate-shiny hero-shiny-text">
-          realmente venda.
+          VENDEN por vos.
         </span>
       </motion.h1>
-      <motion.p variants={fadeUp} className="text-white/60 max-w-xl mx-auto mt-8">
-        Diseno y desarrollo web claro, rapido y sin vueltas. Resultados desde la primera semana.
-      </motion.p>
+
       <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a href={CONTACT_INFO.whatsappLink}>
-            <PrimaryButton label="Hablar por WhatsApp" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#pricing">
+            <PrimaryButton label="Ver planes" />
           </a>
           <a
             href="#services"
@@ -62,7 +62,7 @@ export default function Hero() {
         </div>
         <span className="text-xs text-white/40">Sin compromiso · Presupuesto en 24 hs</span>
       </motion.div>
-      <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4 text-white/60">
+      <motion.div variants={fadeUp} className="mt-4 flex items-center justify-center gap-4 text-white/60">
         <div className="flex -space-x-2">
           {SITE.socialProofInitials.map(initials => (
             <div

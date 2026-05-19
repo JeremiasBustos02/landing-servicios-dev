@@ -5,6 +5,7 @@
 @import './base/utilities.css';
 
 @import './ui/cards.css';
+@import './ui/buttons.css';
 
 @import './layout/navbar.css';
 @import './layout/footer.css';
