@@ -1,6 +1,10 @@
 export default function PricingCard({ title, description, price, features, highlighted = false }) {
   return (
-    <div className={`card flex flex-col justify-between ${highlighted ? 'card-highlighted scale-[1.02]' : ''}`}>
+    <div
+      className={`card flex h-full flex-col justify-between ${
+        highlighted ? 'card-highlighted scale-[1.02]' : ''
+      }`}
+    >
       <div>
         <span className={`mb-3 ${highlighted ? 'section-label-inv' : 'section-label'}`}>
           {title}
@@ -21,7 +25,9 @@ export default function PricingCard({ title, description, price, features, highl
 
       <a
         href="#contact"
-        className={`w-full justify-center ${highlighted ? 'btn-primary-blur' : 'btn-secondary-blur'}`}
+        className={`mt-6 w-full justify-center ${
+          highlighted ? 'btn-primary-blur' : 'btn-secondary-blur'
+        }`}
       >
         Empezar proyecto
       </a>
