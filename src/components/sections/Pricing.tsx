@@ -5,18 +5,6 @@ import PrimaryButton from '../ui/PrimaryButton'
 export default function Pricing() {
   return (
     <section id="pricing" className="relative max-w-6xl mx-auto py-24 px-6">
-      <style>
-        {`
-          .pricing-grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-          }
-          .pricing-pro {
-            box-shadow: 0 0 0 1px rgba(165, 243, 252, 0.35), 0 25px 60px rgba(34, 211, 238, 0.18);
-          }
-        `}
-      </style>
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />

@@ -5,7 +5,7 @@ const PROJECTS = [
   {
     title: 'Nova Fitness',
     category: 'Landing Premium',
-    image: '/ejemplo-web-1.webp' 
+    image: '/ejemplo-web-1.webp'
   },
   {
     title: 'Vertex Studio',
@@ -30,70 +30,64 @@ export default function AppMockup() {
     return () => clearInterval(interval)
   }, [])
 
+  const getPositionClass = (index: number): string => {
+    const diff = (index - active + PROJECTS.length) % PROJECTS.length
+
+    if (diff === 0) return 'carousel-card--active'
+    if (diff === 1) return 'carousel-card--next'
+    if (diff === PROJECTS.length - 1) return 'carousel-card--prev'
+    return 'carousel-card--hidden'
+  }
+
   return (
     <section className="max-w-[100vw] mx-auto px-4 py-20 overflow-hidden">
       <div className="relative w-full max-w-5xl mx-auto aspect-[16/9]">
-        
-        {PROJECTS.map((project, index) => {
-          const diff = (index - active + PROJECTS.length) % PROJECTS.length
-          
-          let positionClasses = ''
-          if (diff === 0) {
-            positionClasses = 'z-30 scale-100 opacity-100 translate-x-0'
-          } else if (diff === 1) {
-            positionClasses = 'z-20 scale-90 translate-x-[20%] md:translate-x-[30%] opacity-0'
-          } else if (diff === PROJECTS.length - 1) {
-            positionClasses = 'z-20 scale-90 -translate-x-[20%] md:-translate-x-[30%] opacity-0'
-          } else {
-            positionClasses = 'z-10 scale-75 opacity-0 translate-x-0'
-          }
 
-          return (
-            <div
-              key={project.title}
-              className={`absolute inset-0 transition-all duration-700 ease-out w-full h-full ${positionClasses}`}
-            >
-              <LiquidGlassCard className="w-full h-full rounded-[2rem] border border-white/10 overflow-hidden">
-                <div className="relative w-full h-full">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-top"
-                  />
+        {PROJECTS.map((project, index) => (
+          <div
+            key={project.title}
+            className={`carousel-card ${getPositionClass(index)}`}
+          >
+            <LiquidGlassCard className="w-full h-full rounded-[2rem] border border-white/10 overflow-hidden">
+              <div className="relative w-full h-full">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="carousel-image"
+                />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="carousel-gradient" />
 
-                  <div className="absolute bottom-0 left-0 p-6 md:p-10">
-                    <h3 className="text-2xl md:text-5xl font-bold text-white">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-white/70 mt-1 md:mt-2 text-sm md:text-xl font-medium">
-                      {project.category}
-                    </p>
-                  </div>
+                <div className="absolute bottom-0 left-0 p-6 md:p-10">
+                  <h3 className="text-2xl md:text-5xl font-bold text-white">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-white/70 mt-1 md:mt-2 text-sm md:text-xl font-medium">
+                    {project.category}
+                  </p>
                 </div>
-              </LiquidGlassCard>
-            </div>
-          )
-        })}
+              </div>
+            </LiquidGlassCard>
+          </div>
+        ))}
       </div>
 
-      <div className="flex justify-center items-center gap-3 mt-6">
+      <div className="carousel-indicators">
         {PROJECTS.map((_, index) => (
           <button
             key={index}
             onClick={() => setActive(index)}
-            className={`h-2 rounded-full transition-all duration-500 ease-out ${
-              active === index 
-                ? 'w-8 bg-white' 
-                : 'w-2 bg-white/30 hover:bg-white/50'
+            className={`carousel-dot ${
+              active === index
+                ? 'carousel-dot--active'
+                : 'carousel-dot--inactive'
             }`}
             aria-label={`Ir a la diapositiva ${index + 1}`}
           />
         ))}
       </div>
-      
+
     </section>
   )
 }

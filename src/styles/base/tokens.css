@@ -1,0 +1,73 @@
+:root {
+  /* === FONTS === */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* === BACKGROUNDS === */
+  --bg-primary: #0c0c0c;
+  --bg-white: rgba(255, 255, 255, 0.01);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-green-soft: rgba(34, 197, 94, 0.08);
+
+  /* === TEXT === */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.60);
+  --text-tertiary: rgba(255, 255, 255, 0.50);
+  --text-muted: rgba(255, 255, 255, 0.40);
+  --text-nav: rgba(255, 255, 255, 0.80);
+
+  /* === ACCENT COLORS === */
+  --color-accent: #22c55e;
+  --color-accent-dark: #25d366;
+  --color-accent-deep: #16a34a;
+  --color-accent-blue: #3d81e3;
+  --color-blue: #3b82f6;
+  --color-cyan: #a4f4fd;
+  --color-cyan-light: #a5f3fc;
+  --color-cyan-accent: #22d3ee;
+  --color-error: #f87171;
+  --color-success: #34d399;
+
+  /* === SHINY GRADIENT === */
+  --shiny-dark: #091020;
+  --shiny-mid: #0B2551;
+  --shiny-accent: #A4F4FD;
+  --shiny-center: #00d2ff;
+
+  /* === BORDERS === */
+  --border-light: rgba(255, 255, 255, 0.10);
+  --border-glass: rgba(255, 255, 255, 0.15);
+  --border-glass-top: rgba(255, 255, 255, 0.20);
+  --border-hover: rgba(255, 255, 255, 0.30);
+  --border-green: rgba(37, 211, 102, 0.30);
+  --border-green-hover: rgba(37, 211, 102, 0.40);
+
+  /* === GLASS === */
+  --glass-border-top: rgba(255, 255, 255, 0.45);
+  --glass-border-mid: rgba(255, 255, 255, 0.15);
+
+  /* === SHADOWS === */
+  --shadow-glass: rgba(0, 0, 0, 0.20);
+  --shadow-btn: rgba(0, 0, 0, 0.30);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-green: rgba(34, 197, 94, 0.20);
+  --shadow-green-btn: rgba(37, 211, 102, 0.15);
+
+  /* === BUTTONS === */
+  --btn-primary-blur-bg: rgba(34, 197, 94, 0.90);
+  --btn-hover-blur-bg: rgba(34, 197, 94, 0.10);
+
+  /* === MESH === */
+  --mesh-shimmer: rgba(255, 255, 255, 0.55);
+
+  /* === RADIUS === */
+  --radius-pill: 9999px;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+
+  /* === TRANSITIONS === */
+  --transition: 0.3s ease;
+}

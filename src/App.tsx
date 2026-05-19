@@ -42,7 +42,7 @@ export default function App() {
             transition={{ duration: 0.8, ease }}
             className="liquid-glass rounded-3xl p-16 text-center relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_60%)]" />
+            <div className="absolute inset-0 cta-radial-glow" />
             <div className="relative">
               <h2 className="text-3xl md:text-4xl font-semibold">Listo para convertir visitas en clientes?</h2>
               <p className="text-white/60 mt-4">Hablemos hoy y definamos un plan claro para tu proyecto.</p>

@@ -1,0 +1,20 @@
+.contact-input {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.contact-input::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}

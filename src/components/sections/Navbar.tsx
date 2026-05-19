@@ -11,15 +11,15 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease }}
-      className="mx-auto flex items-center justify-between px-6 py-6 max-w-6xl"
+      className="navbar"
     >
-      <div className="flex items-center gap-3">
+      <div className="navbar-brand">
         <BrandLogo />
-        <span className="text-sm font-semibold tracking-[0.4em] uppercase text-white/80">milogo.</span>
+        <span className="navbar-brand-text">milogo.</span>
       </div>
-      <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
+      <div className="navbar-links">
         {NAV_LINKS.map(link => (
-          <a key={link.href} href={link.href} className="transition-colors hover:text-white">
+          <a key={link.href} href={link.href} className="navbar-link">
             {link.label}
           </a>
         ))}

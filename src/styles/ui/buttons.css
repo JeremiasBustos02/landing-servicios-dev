@@ -48,29 +48,29 @@
   justify-content: center;
   gap: 0.6rem;
   padding: 0.85rem 2rem;
-  background: rgba(34, 197, 94, 0.9);
+  background: var(--btn-primary-blur-bg);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   transform: translateZ(0);
   will-change: transform;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-light);
+  border-top-color: var(--border-glass-top);
   border-radius: var(--radius-pill);
   color: #fff;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px var(--shadow-glass);
   transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .btn-primary-blur:hover {
-  background: rgba(34, 197, 94, 0.1);
+  background: var(--btn-hover-blur-bg);
   transform: translateY(-2px);
-  border-color: rgba(37, 211, 102, 0.4);
+  border-color: var(--border-green-hover);
   color: var(--color-accent-dark);
-  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.15);
+  box-shadow: 0 8px 32px var(--shadow-green-btn);
 }
 
 .btn-secondary-blur {
@@ -79,29 +79,29 @@
   justify-content: center;
   gap: 0.6rem;
   padding: 0.85rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-glass);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   transform: translateZ(0);
   will-change: transform;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-light);
+  border-top-color: var(--border-glass-top);
   border-radius: var(--radius-pill);
   color: #000;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 30px var(--shadow-btn);
   transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .btn-secondary-blur:hover {
-  background: rgba(34, 197, 94, 0.1);
+  background: var(--btn-hover-blur-bg);
   transform: translateY(-2px);
-  border-color: rgba(37, 211, 102, 0.4);
+  border-color: var(--border-green-hover);
   color: var(--color-accent-dark);
-  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.15);
+  box-shadow: 0 8px 32px var(--shadow-green-btn);
 }
 
 @media (max-width: 768px) {

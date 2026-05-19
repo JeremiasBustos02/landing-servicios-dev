@@ -1,0 +1,26 @@
+.cinematic-overlay {
+  background-image: radial-gradient(circle at top, rgba(59, 130, 246, 0.22), transparent 55%),
+    radial-gradient(circle at 20% 20%, rgba(164, 244, 253, 0.16), transparent 45%);
+}
+
+@keyframes shiny {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shiny {
+  animation: shiny 6s linear infinite;
+}
+
+.hero-shiny-text {
+  background-image: linear-gradient(to right, var(--shiny-dark) 0%, var(--shiny-mid) 12.5%, var(--shiny-accent) 32.5%, var(--shiny-center) 50%, var(--shiny-mid) 67.5%, var(--shiny-dark) 87.5%, var(--shiny-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: url(#c3-noise);
+}

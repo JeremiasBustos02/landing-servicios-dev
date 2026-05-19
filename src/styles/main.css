@@ -4,4 +4,20 @@
 @import './base/tokens.css';
 @import './base/utilities.css';
 
+@import './ui/typography.css';
+@import './ui/mesh.css';
+@import './ui/cards.css';
+@import './ui/buttons.css';
+@import './ui/animations.css';
+
+@import './layout/navbar.css';
+@import './layout/footer.css';
+
+@import './sections/hero.css';
+@import './sections/services.css';
 @import './sections/projects.css';
+@import './sections/testimonials.css';
+@import './sections/pricing.css';
+@import './sections/faq.css';
+@import './sections/cta.css';
+@import './sections/contact.css';

@@ -14,11 +14,11 @@ export default function Features() {
         </p>
         <div className="space-y-4">
           {METHODOLOGY_PILLARS.map((pillar, index) => (
-            <div key={index} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p className="text-sm text-white/60 mt-2">{pillar.description}</p>
+            <div key={index} className="pillar-card">
+              <p className="pillar-description">{pillar.description}</p>
               <div className="mt-4 space-y-2">
                 {pillar.features.map(feature => (
-                  <div key={feature.text} className="flex items-center gap-2 text-sm text-white/70">
+                  <div key={feature.text} className="pillar-feature">
                     {feature.type === 'check' ? (
                       <CheckCircle className="w-4 h-4 text-emerald-400" />
                     ) : (
@@ -39,12 +39,12 @@ export default function Features() {
         </div>
         <div className="mt-6 space-y-4">
           {STEPS.map(step => (
-            <div key={step.number} className="rounded-xl bg-white/5 p-4">
+            <div key={step.number} className="step-card">
               <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-[0.2em] text-white/40">Paso {step.number}</span>
-                <span className="text-xs text-white/50">{step.title}</span>
+                <span className="step-number">Paso {step.number}</span>
+                <span className="step-title">{step.title}</span>
               </div>
-              <p className="text-sm text-white/70 mt-2">{step.description}</p>
+              <p className="step-description">{step.description}</p>
             </div>
           ))}
         </div>

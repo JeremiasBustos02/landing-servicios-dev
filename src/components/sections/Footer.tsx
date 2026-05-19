@@ -5,8 +5,8 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="max-w-6xl mx-auto px-6 pb-16">
-      <div className="liquid-glass rounded-3xl p-10">
+    <footer className="footer">
+      <div className="liquid-glass footer-inner">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
           <div>
             <BrandLogo />
@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90"
+            className="footer-cta-btn"
           >
             Escribinos por WhatsApp
           </a>
@@ -24,11 +24,11 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12 text-sm text-white/70">
           <div>
-            <h4 className="text-white font-semibold mb-3">Servicios</h4>
+            <h4 className="footer-heading">Servicios</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.servicios.map(link => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors">
+                  <a href={link.href} className="footer-link">
                     {link.name}
                   </a>
                 </li>
@@ -36,11 +36,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Empresa</h4>
+            <h4 className="footer-heading">Empresa</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.empresa.map(link => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors">
+                  <a href={link.href} className="footer-link">
                     {link.name}
                   </a>
                 </li>
@@ -48,13 +48,13 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Conectemos</h4>
+            <h4 className="footer-heading">Conectemos</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.social.map(link => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-white transition-colors"
+                    className="footer-link"
                     target={link.external ? '_blank' : '_self'}
                     rel={link.external ? 'noopener noreferrer' : undefined}
                   >
@@ -65,13 +65,13 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Contacto</h4>
+            <h4 className="footer-heading">Contacto</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.contacto.map(link => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-white transition-colors"
+                    className="footer-link"
                     target={link.external ? '_blank' : '_self'}
                     rel={link.external ? 'noopener noreferrer' : undefined}
                   >
@@ -83,11 +83,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between text-xs text-white/40 gap-4">
+        <div className="footer-bottom">
           <span>&copy; {year} Nombre. Todos los derechos reservados.</span>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors">Terminos</a>
+            <a href="#" className="footer-link">Privacidad</a>
+            <a href="#" className="footer-link">Terminos</a>
           </div>
         </div>
       </div>

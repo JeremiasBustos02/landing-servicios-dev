@@ -39,37 +39,37 @@ export default function Contact() {
           <h3 className="text-lg font-semibold mb-6">Envianos un mensaje</h3>
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div>
-              <label htmlFor="name" className="block text-sm text-white/70 mb-2">
+              <label htmlFor="name" className="contact-label">
                 Nombre
               </label>
               <input
                 type="text"
                 id="name"
                 placeholder="Tu nombre"
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40"
+                className="contact-input"
                 required
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-white/70 mb-2">
+              <label htmlFor="email" className="contact-label">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
                 placeholder="tucorreo@ejemplo.com"
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40"
+                className="contact-input"
                 required
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm text-white/70 mb-2">
+              <label htmlFor="message" className="contact-label">
                 En que te podemos ayudar?
               </label>
               <textarea
                 id="message"
                 placeholder="Contame un poco sobre tu proyecto..."
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40 min-h-[140px]"
+                className="contact-input min-h-[140px]"
                 required
               />
             </div>

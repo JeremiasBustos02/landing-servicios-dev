@@ -1,3 +1,26 @@
+.liquid-glass {
+  background: var(--bg-white);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg, var(--glass-border-top) 0%, var(--glass-border-mid) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, var(--glass-border-mid) 80%, var(--glass-border-top) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
 .card {
   background: var(--bg-white);
   border: 1px solid var(--border-light);
@@ -68,7 +91,7 @@
   .card:hover {
     background-color: var(--color-accent);
     border-color: var(--color-accent);
-    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+    box-shadow: 0 8px 30px var(--shadow-green);
     transform: translateY(-4px);
   }
 
