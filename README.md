@@ -44,9 +44,9 @@ src/
 │   ├── layout/          # navbar.css, footer.css
 │   ├── sections/        # hero, services, testimonials, faq, cta, contact, pricing
 │   └── ui/              # animations, buttons, cards, mesh, typography
-├── App.jsx              # Componente raíz que ensambla todas las secciones
+├── App.tsx              # Componente raíz que ensambla todas las secciones
 ├── index.css            # Entry point CSS (Google Fonts + Tailwind + estilos locales)
-└── main.jsx             # Punto de entrada de React
+└── main.tsx             # Punto de entrada de React
 ```
 
 ## Secciones
