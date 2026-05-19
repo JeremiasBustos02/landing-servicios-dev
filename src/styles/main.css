@@ -1,1 +1,7 @@
 @layer base, components, utilities;
+
+@import './base/reset.css';
+@import './base/tokens.css';
+@import './base/utilities.css';
+
+@import './sections/projects.css';

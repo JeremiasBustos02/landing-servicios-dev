@@ -15,10 +15,6 @@ export default function Features() {
         <div className="space-y-4">
           {METHODOLOGY_PILLARS.map((pillar, index) => (
             <div key={index} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <div className="flex items-center gap-3">
-                <div className="text-white/80">{pillar.icon}</div>
-                <h3 className="text-base font-semibold">{pillar.title}</h3>
-              </div>
               <p className="text-sm text-white/60 mt-2">{pillar.description}</p>
               <div className="mt-4 space-y-2">
                 {pillar.features.map(feature => (

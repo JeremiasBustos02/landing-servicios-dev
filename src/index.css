@@ -2,18 +2,6 @@
 @import "tailwindcss";
 @import "./styles/main.css";
 
-html,
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  background-color: #0c0c0c;
-  color: white;
-}
-
-body {
-  min-height: 100vh;
-}
-
 .cinematic-overlay {
   background-image: radial-gradient(circle at top, rgba(59, 130, 246, 0.22), transparent 55%),
     radial-gradient(circle at 20% 20%, rgba(164, 244, 253, 0.16), transparent 45%);
