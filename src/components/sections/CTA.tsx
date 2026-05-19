@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import PrimaryButton from '../ui/PrimaryButton'
-import { CONTACT_INFO } from '../../data/constants'
+import { CONTACT_INFO, EASE } from '../../data/constants'
 import '../../styles/sections/cta.css'
 
 export default function CTA() {
@@ -10,7 +10,7 @@ export default function CTA() {
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+        transition={{ duration: 0.8, ease: EASE }}
         className="liquid-glass relative overflow-hidden rounded-3xl px-8 py-16 md:py-24 text-center"
       >
         <div className="absolute inset-0 cta-radial-glow" />
@@ -24,7 +24,7 @@ export default function CTA() {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href={CONTACT_INFO?.whatsappLink || "#"}>
+            <a href={CONTACT_INFO.whatsappLink}>
               <PrimaryButton label="Hablar por WhatsApp" />
             </a>
             <a

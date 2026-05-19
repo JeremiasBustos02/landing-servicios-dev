@@ -1,9 +1,8 @@
 import { motion } from 'motion/react'
-import { CONTACT_INFO } from '../../data/constants'
+import { CONTACT_INFO, SITE, EASE } from '../../data/constants'
 import PrimaryButton from '../ui/PrimaryButton'
 import SectionEyebrow from '../ui/SectionEyebrow'
-
-const ease = [0.21, 0.47, 0.32, 0.98] as const
+import '../../styles/sections/hero.css'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -12,7 +11,7 @@ const fadeUp = {
     y: 0,
     transition: {
       duration: 0.9,
-      ease,
+      ease: EASE,
     },
   },
 }
@@ -65,7 +64,7 @@ export default function Hero() {
       </motion.div>
       <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4 text-white/60">
         <div className="flex -space-x-2">
-          {['MS', 'LG', 'FM'].map(initials => (
+          {SITE.socialProofInitials.map(initials => (
             <div
               key={initials}
               className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs"

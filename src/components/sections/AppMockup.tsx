@@ -1,23 +1,7 @@
 import LiquidGlassCard from '../ui/LiquidGlassCard'
 import { useState, useEffect } from 'react'
-
-const PROJECTS = [
-  {
-    title: 'Nova Fitness',
-    category: 'Landing Premium',
-    image: '/ejemplo-web-1.webp'
-  },
-  {
-    title: 'Vertex Studio',
-    category: 'Web Corporativa',
-    image: '/ejemplo-web-2.png'
-  },
-  {
-    title: 'Lunexa Store',
-    category: 'E-commerce',
-    image: '/web-ejemplo-3.webp'
-  }
-]
+import { PROJECTS, SITE } from '../../data/constants'
+import '../../styles/sections/app-mockup.css'
 
 export default function AppMockup() {
   const [active, setActive] = useState(0)
@@ -25,7 +9,7 @@ export default function AppMockup() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive(prev => (prev + 1) % PROJECTS.length)
-    }, 4000)
+    }, SITE.carouselInterval)
 
     return () => clearInterval(interval)
   }, [])

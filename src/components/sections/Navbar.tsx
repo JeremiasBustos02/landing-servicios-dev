@@ -1,16 +1,15 @@
 import { motion } from 'motion/react'
-import { NAV_LINKS } from '../../data/constants'
+import { NAV_LINKS, EASE } from '../../data/constants'
 import BrandLogo from '../ui/BrandLogo'
 import PrimaryButton from '../ui/PrimaryButton'
-
-const ease = [0.21, 0.47, 0.32, 0.98] as const
+import '../../styles/layout/navbar.css'
 
 export default function Navbar() {
   return (
     <motion.nav
       initial={{ opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease }}
+      transition={{ duration: 0.8, ease: EASE }}
       className="navbar"
     >
       <div className="navbar-brand">

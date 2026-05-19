@@ -2,6 +2,7 @@ import SectionEyebrow from '../ui/SectionEyebrow'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
 import { METHODOLOGY_PILLARS, STEPS } from '../../data/constants'
 import { CheckCircle, XCircle } from 'lucide-react'
+import '../../styles/sections/services.css'
 
 export default function Features() {
   return (
@@ -13,8 +14,8 @@ export default function Features() {
           Procesos claros, resultados reales y una comunicacion directa para que sepas siempre en que punto estamos.
         </p>
         <div className="space-y-4">
-          {METHODOLOGY_PILLARS.map((pillar, index) => (
-            <div key={index} className="pillar-card">
+          {METHODOLOGY_PILLARS.map(pillar => (
+            <div key={pillar.iconName} className="pillar-card">
               <p className="pillar-description">{pillar.description}</p>
               <div className="mt-4 space-y-2">
                 {pillar.features.map(feature => (
