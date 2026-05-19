@@ -6,7 +6,7 @@ import { CheckCircle, XCircle } from 'lucide-react'
 export default function Features() {
   return (
     <section id="services" className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-16 items-center">
-      <div className="space-y-6">
+      <div className="space-y-6 flex flex-col justify-center items-center md:items-start">
         <SectionEyebrow label="Metodologia" />
         <h2 className="text-3xl md:text-4xl font-semibold">Nuestra metodologia.</h2>
         <p className="text-white/60">
@@ -36,7 +36,7 @@ export default function Features() {
           ))}
         </div>
       </div>
-      <LiquidGlassCard className="rounded-2xl p-6">
+      <LiquidGlassCard className="flex flex-col justify-center rounded-2xl p-6 mx-auto">
         <div className="flex items-center justify-between text-sm text-white/70">
           <span>Proceso</span>
           <span className="text-xs">En 3 pasos</span>

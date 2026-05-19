@@ -30,7 +30,6 @@ export default function App() {
         <Hero />
         <AppMockup />
         <Features />
-        <Testimonials />
         <CTA />
         <Pricing />
         <FAQ />
