@@ -20,7 +20,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<SwitchOption>('software')
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0c0c0c] text-white">
+    <div data-theme={activeTab} className="relative min-h-screen overflow-x-hidden bg-[#0c0c0c] text-white">
       <SVGNoiseFilters />
       <CinematicBackground />
 

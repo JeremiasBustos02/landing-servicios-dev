@@ -6,6 +6,7 @@
 
 @import './ui/cards.css';
 @import './ui/buttons.css';
+@import './ui/hero-switch.css';
 
 @import './layout/navbar.css';
 @import './layout/footer.css';

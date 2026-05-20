@@ -30,8 +30,7 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
       className="text-center pt-28 pb-20 px-6"
     >
       <div className="flex justify-center mb-6">
-        {/* El switch modifica el estado que vive en App.tsx */}
-        <HeroSwitch activeTab={activeTab} setActiveTab={setActiveTab} />
+       <HeroSwitch activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
 
       {activeTab === 'software' ? (
@@ -57,10 +56,10 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
         </div>
       ) : (
         <div key="cyber-hero">
-          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.9] mt-6">
-            <span className="block">Blindamos tu infraestructura crítica</span>
-            <span className="block text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]">
-              antes de que el ataque ocurra.
+          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tight leading-[0.9] mt-6">
+            <span className="block">La tranquilidad empieza</span>
+            <span className="block animate-shiny hero-shiny-text-cyber">
+              con CIBERSEGURIDAD.
             </span>
           </motion.h1>
 
