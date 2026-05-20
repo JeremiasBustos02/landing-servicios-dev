@@ -17,7 +17,6 @@ import Footer from './components/sections/Footer'
 export type SwitchOption = 'software' | 'cyber'
 
 export default function App() {
-  // El estado global de la OnePage vive acá
   const [activeTab, setActiveTab] = useState<SwitchOption>('software')
 
   return (
@@ -28,20 +27,14 @@ export default function App() {
       <div className="relative z-10">
         <Navbar />
         
-        {/* Pasamos el estado y la función para que el Switch lo pueda cambiar */}
         <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
-        
-        {/* 
-          A partir de acá, podés pasarle `activeTab` como prop a cualquier componente 
-          que necesite cambiar su contenido (Precios, Características, FAQ, etc.)
-        */}
         <AppMockup activeTab={activeTab} />
         <Features activeTab={activeTab} />
         <CTA activeTab={activeTab} />
         <Pricing activeTab={activeTab} />
         
         <FAQ activeTab={activeTab} />
-        <Contact activeTab={activeTab} />
+        <Contact />
         <FinalCTA activeTab={activeTab} />
         <Footer />
       </div>

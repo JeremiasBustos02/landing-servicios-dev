@@ -35,7 +35,7 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
       </div>
 
       {activeTab === 'software' ? (
-        <div key="software-content"> 
+        <div key="software-hero">
           <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.9] mt-6">
             <span className="block">Diseñamos webs que</span>
             <span className="block animate-shiny hero-shiny-text">
@@ -56,25 +56,24 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
           </motion.div>
         </div>
       ) : (
-        // CONTENIDO DE CIBERSEGURIDAD
-        <div key="cyber-content">
+        <div key="cyber-hero">
           <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.9] mt-6">
-            <span className="block">Protegemos tu infraestructura</span>
+            <span className="block">Blindamos tu infraestructura crítica</span>
             <span className="block text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]">
-              Antes de que ocurra.
+              antes de que el ataque ocurra.
             </span>
           </motion.h1>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#audit">
-                <PrimaryButton label="Solicitar Auditoría" className='btn-primary'/>
+              <a href="#contact">
+                <PrimaryButton label="Solicitar escaneo inicial" className="btn-primary" />
               </a>
-              <a href="#security-services" className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition">
-                Nuestros servicios
+              <a href="#services" className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition">
+                Ver servicios de ciberseguridad
               </a>
             </div>
-            <span className="text-xs text-white/40">Monitoreo 24/7 · Reporte técnico inicial sin costo</span>
+            <span className="text-xs text-white/40">Monitoreo 24/7 · Reporte técnico inicial en 48 hs</span>
           </motion.div>
         </div>
       )}
