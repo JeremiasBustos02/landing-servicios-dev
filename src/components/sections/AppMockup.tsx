@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
+import MacMockup from '../ui/MacMockup'
 import { motion } from 'motion/react'
-import { useState, useEffect } from 'react'
-import { PROJECTS, SITE, EASE } from '../../data/constants'
+import { PROJECTS, EASE } from '../../data/constants'
 import '../../styles/sections/app-mockup.css'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import { SwitchOption } from '../../App'
@@ -19,25 +20,29 @@ const fadeUp = {
   },
 }
 
+const showcaseProjects = [
+  {
+    id: 1,
+    img: PROJECTS[0]?.image || '/ejemplo-web-1.webp',
+    title: PROJECTS[0]?.title || 'Proyecto 1',
+    features: ['Diseño responsivo', 'Optimización SEO', 'Alta conversión'],
+  },
+  {
+    id: 2,
+    img: PROJECTS[1]?.image || '/ejemplo-web-2.png',
+    title: PROJECTS[1]?.title || 'Proyecto 2',
+    features: ['Panel administrativo', 'Integración pagos', 'Gestión usuarios'],
+  },
+  {
+    id: 3,
+    img: PROJECTS[2]?.image || '/web-ejemplo-3.webp',
+    title: PROJECTS[2]?.title || 'Proyecto 3',
+    features: ['E-commerce completo', 'Carrito inteligente', 'Dashboard analytics'],
+  },
+]
+
 export default function AppMockup({ activeTab }: AppMockupProps) {
-  const [active, setActive] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActive(prev => (prev + 1) % PROJECTS.length)
-    }, SITE.carouselInterval)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const getPositionClass = (index: number): string => {
-    const diff = (index - active + PROJECTS.length) % PROJECTS.length
-
-    if (diff === 0) return 'carousel-card--active'
-    if (diff === 1) return 'carousel-card--next'
-    if (diff === PROJECTS.length - 1) return 'carousel-card--prev'
-    return 'carousel-card--hidden'
-  }
+  const [activeIndex, setActiveIndex] = useState(0)
 
   return activeTab === 'software' ? (
     <motion.section
@@ -51,49 +56,29 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Proyectos" />
       </div>
-      <div className="relative w-full max-w-5xl mx-auto aspect-[16/9]">
-        {PROJECTS.map((project, index) => (
-          <div
-            key={project.title}
-            className={`carousel-card ${getPositionClass(index)}`}
-          >
-            <LiquidGlassCard className="w-full h-full rounded-[2rem] border border-white/10 overflow-hidden">
-              <div className="relative w-full h-full">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="carousel-image"
-                />
+      <div className="flex flex-col items-center gap-8 max-w-5xl mx-auto">
+        <MacMockup
+          src={showcaseProjects[activeIndex].img}
+          alt={showcaseProjects[activeIndex].title}
+          title={showcaseProjects[activeIndex].title}
+          features={showcaseProjects[activeIndex].features}
+        />
 
-                <div className="carousel-gradient" />
-
-                <div className="absolute bottom-0 left-0 p-6 md:p-10">
-                  <h3 className="text-2xl md:text-5xl font-bold text-white">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-white/70 mt-1 md:mt-2 text-sm md:text-xl font-medium">
-                    {project.category}
-                  </p>
-                </div>
-              </div>
-            </LiquidGlassCard>
-          </div>
-        ))}
-      </div>
-
-      <div className="carousel-indicators">
-        {PROJECTS.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActive(index)}
-            className={`carousel-dot ${active === index
-              ? 'carousel-dot--active'
-              : 'carousel-dot--inactive'
+        <div className="flex items-center gap-3">
+          {showcaseProjects.map((project, index) => (
+            <button
+              key={project.id}
+              onClick={() => setActiveIndex(index)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeIndex === index
+                  ? 'bg-white text-black'
+                  : 'bg-white/10 text-white/60 hover:bg-white/20 hover:text-white'
               }`}
-            aria-label={`Ir a la diapositiva ${index + 1}`}
-          />
-        ))}
+            >
+              {project.title}
+            </button>
+          ))}
+        </div>
       </div>
 
     </motion.section>
