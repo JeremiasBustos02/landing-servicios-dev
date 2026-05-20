@@ -3,7 +3,7 @@
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 0.375rem;
+    padding: 0.25rem;
     border-radius: var(--radius-pill);
 
     background: var(--bg-white);
@@ -13,7 +13,7 @@
     overflow: hidden;
     
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     margin: 0 auto;
 }
 .hero-switch::before {
@@ -39,10 +39,10 @@
 
 .hero-switch__indicator {
     position: absolute;
-    top: 0.375rem;
-    bottom: 0.375rem;
-    left: 0.375rem;
-    width: calc(50% - 0.375rem);
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    width: calc(50% - 0.25rem);
 
     background: rgba(var(--ui-switch-accent-rgb) / 0.2); 
     border: 1px solid rgba(var(--ui-switch-accent-rgb) / 0.5); 
@@ -71,8 +71,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.625rem 0.5rem;
-    font-size: 0.812.5rem;
+    padding: 0.5rem 0.4rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-muted);
     background: transparent;
@@ -81,7 +81,7 @@
     cursor: pointer;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     
-    white-space: normal; 
+    white-space: nowrap; 
 }
 
 .hero-switch__btn--active {
@@ -94,5 +94,17 @@
         padding: 0.625rem 1.5rem;
         font-size: 0.875rem;
         white-space: nowrap;
+    }
+
+    .hero-switch {
+        padding: 0.375rem;
+        max-width: 400px;
+    }
+
+    .hero-switch__indicator {
+        top: 0.375rem;
+        bottom: 0.375rem;
+        left: 0.375rem;
+        width: calc(50% - 0.375rem);
     }
 }
