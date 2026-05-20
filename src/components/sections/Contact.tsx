@@ -1,7 +1,17 @@
-import { CONTACT_INFO } from '../../data/constants'
+import { motion } from 'motion/react'
+import { CONTACT_INFO, EASE } from '../../data/constants'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import PrimaryButton from '../ui/PrimaryButton'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+}
 
 export default function Contact() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +40,14 @@ export default function Contact() {
   }
 }
   return (
-    <section id="contact" className="max-w-6xl mx-auto py-20 px-6">
+    <motion.section
+      id="contact"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-6xl mx-auto py-20 px-6"
+    >
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
         <div className="flex flex-col gap-6 text-left">
           <SectionEyebrow label="Contacto" />
@@ -107,6 +124,6 @@ export default function Contact() {
           </form>
         </LiquidGlassCard>
       </div>
-    </section>
+    </motion.section>
   )
 }

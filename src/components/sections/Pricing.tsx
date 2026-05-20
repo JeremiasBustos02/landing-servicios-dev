@@ -1,4 +1,5 @@
-import { PLANS } from '../../data/constants'
+import { motion } from 'motion/react'
+import { PLANS, EASE } from '../../data/constants'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import PrimaryButton from '../ui/PrimaryButton'
 import { SwitchOption } from '../../App'
@@ -47,9 +48,26 @@ const CYBER_PLANS = [
   },
 ]
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+}
+
 export default function Pricing({ activeTab }: PricingProps) {
   return activeTab === 'software' ? (
-    <section key="software-pricing" id="pricing" className="relative max-w-6xl mx-auto py-10 px-6">
+    <motion.section
+      key="software-pricing"
+      id="pricing"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="relative max-w-6xl mx-auto py-10 px-6"
+    >
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
@@ -84,9 +102,17 @@ export default function Pricing({ activeTab }: PricingProps) {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   ) : (
-    <section key="cyber-pricing" id="pricing" className="relative max-w-6xl mx-auto py-10 px-6">
+    <motion.section
+      key="cyber-pricing"
+      id="pricing"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="relative max-w-6xl mx-auto py-10 px-6"
+    >
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
@@ -121,6 +147,6 @@ export default function Pricing({ activeTab }: PricingProps) {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }

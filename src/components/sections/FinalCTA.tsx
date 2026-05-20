@@ -1,20 +1,32 @@
 import { motion } from 'motion/react'
+import { useLenis } from 'lenis/react'
 import { CONTACT_INFO, EASE } from '../../data/constants'
 import PrimaryButton from '../ui/PrimaryButton'
 import { SwitchOption } from '../../App'
-
 interface FinalCTAProps {
   activeTab: SwitchOption;
 }
-
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+}
 export default function FinalCTA({ activeTab }: FinalCTAProps) {
+  const lenis = useLenis()
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    e.preventDefault()
+    lenis?.scrollTo(target)
+  }
   return activeTab === 'software' ? (
     <section key="software-final-cta" className="max-w-6xl mx-auto px-6 py-12">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: EASE }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
         className="liquid-glass rounded-3xl p-16 text-center relative overflow-hidden"
       >
         <div className="absolute inset-0 cta-radial-glow" />
@@ -38,10 +50,10 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
   ) : (
     <section key="cyber-final-cta" className="max-w-6xl mx-auto px-6 py-12">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: EASE }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
         className="liquid-glass rounded-3xl p-16 text-center relative overflow-hidden"
       >
         <div className="absolute inset-0 cta-radial-glow" />
@@ -54,6 +66,7 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
             </a>
             <a
               href="#pricing"
+              onClick={(e) => handleScroll(e, '#pricing')}
               className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
             >
               Ver planes

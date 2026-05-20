@@ -1,5 +1,6 @@
+import { motion } from 'motion/react'
 import { useState } from 'react'
-import { FAQS } from '../../data/constants'
+import { FAQS, EASE } from '../../data/constants'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import { SwitchOption } from '../../App'
 
@@ -36,13 +37,30 @@ const CYBER_FAQS = [
   },
 ]
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+}
+
 export default function FAQ({ activeTab }: FAQProps) {
   const [active, setActive] = useState<number | null>(null)
 
   const toggle = (index: number) => setActive(active === index ? null : index)
 
   return activeTab === 'software' ? (
-    <section key="software-faq" id="faq" className="max-w-6xl mx-auto py-20 px-6">
+    <motion.section
+      key="software-faq"
+      id="faq"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-6xl mx-auto py-20 px-6"
+    >
       <div className="text-center flex flex-col items-center gap-4 mb-12">
         <SectionEyebrow label="FAQ" />
         <h2 className="text-3xl md:text-4xl font-semibold">Preguntas frecuentes</h2>
@@ -77,9 +95,17 @@ export default function FAQ({ activeTab }: FAQProps) {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   ) : (
-    <section key="cyber-faq" id="faq" className="max-w-6xl mx-auto py-20 px-6">
+    <motion.section
+      key="cyber-faq"
+      id="faq"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-6xl mx-auto py-20 px-6"
+    >
       <div className="text-center flex flex-col items-center gap-4 mb-12">
         <SectionEyebrow label="FAQ" />
         <h2 className="text-3xl md:text-4xl font-semibold">Preguntas frecuentes de ciberseguridad</h2>
@@ -114,6 +140,6 @@ export default function FAQ({ activeTab }: FAQProps) {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import { ReactLenis } from 'lenis/react'
 import SVGNoiseFilters from './components/ui/SVGNoiseFilters'
 import CinematicBackground from './components/ui/CinematicBackground'
 import Navbar from './components/sections/Navbar'
@@ -20,24 +21,26 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<SwitchOption>('software')
 
   return (
-    <div data-theme={activeTab} className="relative min-h-screen overflow-x-hidden bg-[#0c0c0c] text-white">
-      <SVGNoiseFilters />
-      <CinematicBackground />
+    <ReactLenis root>
+      <div data-theme={activeTab} className="relative min-h-screen bg-[#0c0c0c] text-white">
+        <SVGNoiseFilters />
+        <CinematicBackground />
 
-      <div className="relative z-10">
-        <Navbar />
-        
-        <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
-        <AppMockup activeTab={activeTab} />
-        <Features activeTab={activeTab} />
-        <CTA activeTab={activeTab} />
-        <Pricing activeTab={activeTab} />
-        
-        <FAQ activeTab={activeTab} />
-        <Contact />
-        <FinalCTA activeTab={activeTab} />
-        <Footer />
+        <div className="relative z-10">
+          <Navbar />
+
+          <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
+          <AppMockup activeTab={activeTab} />
+          <Features activeTab={activeTab} />
+          <CTA activeTab={activeTab} />
+          <Pricing activeTab={activeTab} />
+
+          <FAQ activeTab={activeTab} />
+          <Contact />
+          <FinalCTA activeTab={activeTab} />
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ReactLenis>
   )
 }

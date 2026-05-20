@@ -1,6 +1,7 @@
 import SectionEyebrow from '../ui/SectionEyebrow'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
-import { METHODOLOGY_PILLARS, STEPS } from '../../data/constants'
+import { motion } from 'motion/react'
+import { METHODOLOGY_PILLARS, STEPS, EASE } from '../../data/constants'
 import { CheckCircle, XCircle } from 'lucide-react'
 import '../../styles/sections/services.css'
 import { SwitchOption } from '../../App'
@@ -48,9 +49,26 @@ const CYBER_FEATURES = [
   },
 ]
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+}
+
 export default function Features({ activeTab }: FeaturesProps) {
   return activeTab === 'software' ? (
-    <section key="software-features" id="services" className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-2 gap-16 items-center">
+    <motion.section
+      key="software-features"
+      id="services"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-2 gap-16 items-center"
+    >
       <div className="space-y-6 flex flex-col justify-center items-center md:items-start">
         <SectionEyebrow label="Metodologia" />
         <h2 className="text-3xl md:text-4xl font-semibold">Nuestra metodologia.</h2>
@@ -94,9 +112,17 @@ export default function Features({ activeTab }: FeaturesProps) {
           ))}
         </div>
       </LiquidGlassCard>
-    </section>
+    </motion.section>
   ) : (
-    <section key="cyber-features" id="services" className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-1 gap-16 items-center">
+    <motion.section
+      key="cyber-features"
+      id="services"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-1 gap-16 items-center"
+    >
       <div className="space-y-6 flex flex-col justify-center items-center md:items-start w-full">
         <SectionEyebrow label="Ciberseguridad" />
         <h2 className="text-3xl md:text-4xl font-semibold">Defensa activa, evidencia medible.</h2>
@@ -123,6 +149,6 @@ export default function Features({ activeTab }: FeaturesProps) {
 
       </div>
      
-    </section>
+    </motion.section>
   )
 }
