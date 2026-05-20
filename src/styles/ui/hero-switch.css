@@ -11,8 +11,11 @@
     backdrop-filter: blur(4px);
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
     overflow: hidden;
+    
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
-
 .hero-switch::before {
     content: '';
     position: absolute;
@@ -67,8 +70,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.625rem 1.5rem;
-    font-size: 0.875rem;
+    padding: 0.625rem 0.5rem;
+    font-size: 0.812.5rem;
     font-weight: 500;
     color: var(--text-muted);
     background: transparent;
@@ -76,10 +79,20 @@
     border-radius: var(--radius-pill);
     cursor: pointer;
     transition: color 0.3s ease, text-shadow 0.3s ease;
-    white-space: nowrap;
+    
+    white-space: normal; 
+    text-center: center;
 }
 
 .hero-switch__btn--active {
     color: var(--text-primary);
     text-shadow: 0 0 12px rgba(61, 129, 227, 0.7);
+}
+
+@media (min-width: 640px) {
+    .hero-switch__btn {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
 }
