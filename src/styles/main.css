@@ -1,1 +1,18 @@
 @layer base, components, utilities;
+
+@import './base/reset.css';
+@import './base/tokens.css';
+@import './base/utilities.css';
+
+@import './ui/cards.css';
+@import './ui/buttons.css';
+
+@import './layout/navbar.css';
+@import './layout/footer.css';
+
+@import './sections/hero.css';
+@import './sections/services.css';
+@import './sections/pricing.css';
+@import './sections/cta.css';
+@import './sections/contact.css';
+@import './sections/app-mockup.css';

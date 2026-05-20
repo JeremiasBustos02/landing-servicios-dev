@@ -1,61 +1,11 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #0c0c0c;
+  color: white;
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--text-primary);
-  background-color: var(--bg-white);
-}
-
-img,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-[id] {
-  scroll-margin-top: 80px;
-}
-
-/* Layout helpers base */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--section-pad-x);
-}
-
-.section {
-  padding: var(--section-pad-y) var(--section-pad-x);
+  min-height: 100vh;
 }

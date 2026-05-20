@@ -1,30 +1,20 @@
-.input-field {
+.contact-input {
   width: 100%;
-  padding: 1rem 1.25rem;
-  background-color: var(--bg-white);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
-  font-family: var(--font-body);
-  font-size: 1rem;
+  border-radius: var(--radius-xl);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
   color: var(--text-primary);
-  outline: none;
-  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-.input-field::placeholder {
+.contact-input::placeholder {
   color: var(--text-muted);
 }
 
-.input-field:hover {
-  border-color: #D1D5DB;
-}
-
-.input-field:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
-}
-
-textarea.input-field {
-  min-height: 120px;
-  resize: vertical;
+.contact-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
 }

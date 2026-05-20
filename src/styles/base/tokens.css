@@ -1,38 +1,73 @@
 :root {
-  --color-accent: #22C55E;
-  --color-accent-dark: #16A34A;
-  --color-accent-deep: #14532D;
-  --color-footer: #050505;
-  --color-error: #EF4444;
-  --color-error-dark: #B91C1C;
+  /* === FONTS === */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 
-  --bg-white: #FFFFFF;
-  --bg-off-white: #FAFAF8;
-  --bg-green-soft: #F0FDF4;
+  /* === BACKGROUNDS === */
+  --bg-primary: #0c0c0c;
+  --bg-white: rgba(255, 255, 255, 0.01);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-green-soft: rgba(34, 197, 94, 0.08);
 
-  --text-primary: #0A0A0A;
-  --text-secondary: #6B7280;
-  --text-muted: #9CA3AF;
-  --text-on-dark-muted: #86EFAC;
+  /* === TEXT === */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.60);
+  --text-tertiary: rgba(255, 255, 255, 0.50);
+  --text-muted: rgba(255, 255, 255, 0.40);
+  --text-nav: rgba(255, 255, 255, 0.80);
 
-  --border-light: #E5E7EB;
-  --border-green: #BBF7D0;
+  /* === ACCENT COLORS === */
+  --color-accent: #22c55e;
+  --color-accent-dark: #25d366;
+  --color-accent-deep: #16a34a;
+  --color-accent-blue: #3d81e3;
+  --color-blue: #3b82f6;
+  --color-cyan: #a4f4fd;
+  --color-cyan-light: #a5f3fc;
+  --color-cyan-accent: #22d3ee;
+  --color-error: #f87171;
+  --color-success: #34d399;
 
-  --font-display: 'Sora', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  /* === SHINY GRADIENT === */
+  --shiny-dark: #091020;
+  --shiny-mid: #0B2551;
+  --shiny-accent: #A4F4FD;
+  --shiny-center: #00d2ff;
 
-  --max-width: 1152px;
-  --section-pad-y: clamp(2rem, 5vh, 5rem);
-  --section-pad-x: 1.5rem;
+  /* === BORDERS === */
+  --border-light: rgba(255, 255, 255, 0.10);
+  --border-glass: rgba(255, 255, 255, 0.15);
+  --border-glass-top: rgba(255, 255, 255, 0.20);
+  --border-hover: rgba(255, 255, 255, 0.30);
+  --border-green: rgba(37, 211, 102, 0.30);
+  --border-green-hover: rgba(37, 211, 102, 0.40);
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* === GLASS === */
+  --glass-border-top: rgba(255, 255, 255, 0.45);
+  --glass-border-mid: rgba(255, 255, 255, 0.15);
+
+  /* === SHADOWS === */
+  --shadow-glass: rgba(0, 0, 0, 0.20);
+  --shadow-btn: rgba(0, 0, 0, 0.30);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-green: rgba(34, 197, 94, 0.20);
+  --shadow-green-btn: rgba(37, 211, 102, 0.15);
+
+  /* === BUTTONS === */
+  --btn-primary-blur-bg: rgba(34, 197, 94, 0.90);
+  --btn-hover-blur-bg: rgba(34, 197, 94, 0.10);
+
+  /* === MESH === */
+  --mesh-shimmer: rgba(255, 255, 255, 0.55);
+
+  /* === RADIUS === */
   --radius-pill: 9999px;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
 
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.10);
-
-  --transition: 0.2s ease;
+  /* === TRANSITIONS === */
+  --transition: 0.3s ease;
 }

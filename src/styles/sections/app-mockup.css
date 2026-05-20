@@ -1,0 +1,82 @@
+.carousel-card {
+  position: absolute;
+  inset: 0;
+  transition: all 0.7s ease-out;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-card--active {
+  z-index: 30;
+  transform: scale(1) translateX(0);
+  opacity: 1;
+}
+
+.carousel-card--next {
+  z-index: 20;
+  transform: scale(0.9) translateX(20%);
+  opacity: 0;
+}
+
+.carousel-card--prev {
+  z-index: 20;
+  transform: scale(0.9) translateX(-20%);
+  opacity: 0;
+}
+
+.carousel-card--hidden {
+  z-index: 10;
+  transform: scale(0.75) translateX(0);
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .carousel-card--next {
+    transform: scale(0.9) translateX(30%);
+  }
+
+  .carousel-card--prev {
+    transform: scale(0.9) translateX(-30%);
+  }
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-dot {
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.5s ease-out;
+}
+
+.carousel-dot--active {
+  width: 2rem;
+  background: var(--text-primary);
+}
+
+.carousel-dot--inactive {
+  width: 0.5rem;
+  background: rgba(255, 255, 255, 0.30);
+}
+
+.carousel-dot--inactive:hover {
+  background: rgba(255, 255, 255, 0.50);
+}
+
+.carousel-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), transparent);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}

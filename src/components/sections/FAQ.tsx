@@ -27,18 +27,25 @@ export default function FAQ() {
         {FAQS.map((faq, index) => (
           <div
             key={faq.pregunta}
-            className={`liquid-glass rounded-2xl border border-white/10 p-5 transition ${active === index ? 'bg-white/5' : ''}`}
+            className={`liquid-glass-card rounded-2xl border border-white/10 transition-colors overflow-hidden ${
+              active === index ? 'bg-white/5' : ''
+            }`}
           >
             <button
-              className="w-full flex items-center justify-between text-left text-sm font-medium"
+              className="w-full flex items-center justify-between text-left text-sm font-medium p-5 cursor-pointer outline-none"
               onClick={() => toggle(index)}
             >
               {faq.pregunta}
-              <span className={`transition-transform ${active === index ? 'rotate-180' : ''}`}>
+              <span className={`transition-transform duration-300 ${active === index ? 'rotate-180' : ''}`}>
                 <ChevronIcon />
               </span>
             </button>
-            {active === index && <p className="text-sm text-white/60 mt-4">{faq.respuesta}</p>}
+            
+            {active === index && (
+              <div className="px-5 pb-5">
+                <p className="text-sm text-white/60">{faq.respuesta}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>

@@ -4,11 +4,31 @@ import PrimaryButton from '../ui/PrimaryButton'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
 
 export default function Contact() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    alert('¡Mensaje de prueba! Mas adelante lo conectamos a un servicio de emails.')
-  }
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault()
 
+  const form = event.currentTarget
+  const formData = new FormData(form)
+
+  try {
+    const response = await fetch('https://formspree.io/f/TU_FORM_ID', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+
+    if (response.ok) {
+      alert('Mail enviado correctamente')
+      form.reset()
+    } else {
+      alert('Error al enviar el mensaje')
+    }
+  } catch (error) {
+    alert('Error al enviar el mensaje')
+  }
+}
   return (
     <section id="contact" className="max-w-6xl mx-auto py-20 px-6">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
@@ -37,43 +57,53 @@ export default function Contact() {
 
         <LiquidGlassCard className="rounded-2xl border border-white/10 p-8">
           <h3 className="text-lg font-semibold mb-6">Envianos un mensaje</h3>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-5"
+            >
             <div>
-              <label htmlFor="name" className="block text-sm text-white/70 mb-2">
+              <label htmlFor="name" className="contact-label">
                 Nombre
               </label>
               <input
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Tu nombre"
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40"
+                className="contact-input"
                 required
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-white/70 mb-2">
+              <label htmlFor="email" className="contact-label">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="tucorreo@ejemplo.com"
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40"
+                className="contact-input"
                 required
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm text-white/70 mb-2">
+              <label htmlFor="message" className="contact-label">
                 En que te podemos ayudar?
               </label>
               <textarea
                 id="message"
+                name="message"
                 placeholder="Contame un poco sobre tu proyecto..."
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40 min-h-[140px]"
+                className="contact-input min-h-[140px]"
                 required
               />
             </div>
-            <PrimaryButton label="Enviar mensaje" className="w-full justify-center" />
+           <PrimaryButton
+              type="submit"
+              label="Enviar mensaje"
+              className="w-full justify-center"
+            />
           </form>
         </LiquidGlassCard>
       </div>
