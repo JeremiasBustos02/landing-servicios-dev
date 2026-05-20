@@ -1,13 +1,16 @@
 "use client"
 
-import { useState } from 'react'
 import '../../styles/ui/hero-switch.css'
 
 type SwitchOption = 'software' | 'cyber'
 
-export default function HeroSwitch() {
-  const [activeTab, setActiveTab] = useState<SwitchOption>('software')
+// Definimos la interfaz de las props
+interface HeroSwitchProps {
+  activeTab: SwitchOption;
+  setActiveTab: (tab: SwitchOption) => void;
+}
 
+export default function HeroSwitch({ activeTab, setActiveTab }: HeroSwitchProps) {
   return (
     <div className="hero-switch" role="tablist">
       <div 

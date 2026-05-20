@@ -1,4 +1,4 @@
 .cta-radial-glow {
-  background: radial-gradient(circle at top, rgba(61, 129, 227, 0.25), transparent 70%);
+  background: radial-gradient(circle at top, rgba(var(--accent-primary-rgb) / 0.25), transparent 70%);
   pointer-events: none;
 }

@@ -25,14 +25,34 @@
   --color-cyan: #a4f4fd;
   --color-cyan-light: #a5f3fc;
   --color-cyan-accent: #22d3ee;
+  --accent-primary-rgb: 61 129 227;
+  --accent-cyan-rgb: 34 211 238;
+  --ui-hover-accent-rgb: 61 129 227;
+  --ui-hover-glow-rgb: 34 211 238;
+  --ui-switch-accent-rgb: 61 129 227;
+  --ui-switch-glow-rgb: 34 211 238;
   --color-error: #f87171;
   --color-success: #34d399;
 
-  /* === SHINY GRADIENT === */
+/* === SHINY GRADIENT (Software - Azul) === */
   --shiny-dark: #091020;
   --shiny-mid: #0B2551;
   --shiny-accent: #A4F4FD;
   --shiny-center: #00d2ff;
+
+  /* === SHINY GRADIENT CYBER  === */
+   /*
+  --shiny-cyber-dark: #1a0505;
+  --shiny-cyber-mid: #450a0a;
+  --shiny-cyber-accent: #fca5a5;
+  --shiny-cyber-center: #ef4444;*/
+
+  /* === SHINY GRADIENT CYBER (Opción B: Verde / Hacker) === */
+  --shiny-cyber-dark: #062010;
+  --shiny-cyber-mid: #14532d;
+  --shiny-cyber-accent: #86efac;
+  --shiny-cyber-center: #22c55e;
+  
 
   /* === BORDERS === */
   --border-light: rgba(255, 255, 255, 0.10);
@@ -70,4 +90,30 @@
 
   /* === TRANSITIONS === */
   --transition: 0.3s ease;
+
+  /* === CINEMATIC OVERLAY (Software - Azul) === */
+  --cinematic-overlay-outer: rgba(59, 130, 246, 0.22);
+  --cinematic-overlay-inner: rgba(164, 244, 253, 0.16);
+}
+
+[data-theme="cyber"] {
+  --shiny-dark: var(--shiny-cyber-dark);
+  --shiny-mid: var(--shiny-cyber-mid);
+  --shiny-accent: var(--shiny-cyber-accent);
+  --shiny-center: var(--shiny-cyber-center);
+
+  --color-accent-blue: var(--shiny-cyber-center);
+  --color-blue: var(--shiny-cyber-mid);
+  --color-cyan: var(--shiny-cyber-accent);
+  --color-cyan-light: var(--shiny-cyber-accent);
+  --color-cyan-accent: var(--shiny-cyber-center);
+  --accent-primary-rgb: 34 197 94;
+  --accent-cyan-rgb: 134 239 172;
+  --ui-hover-accent-rgb: 34 197 94;
+  --ui-hover-glow-rgb: 134 239 172;
+  --ui-switch-accent-rgb: 34 197 94;
+  --ui-switch-glow-rgb: 134 239 172;
+
+  --cinematic-overlay-outer: rgba(34, 197, 94, 0.22);
+  --cinematic-overlay-inner: rgba(134, 239, 172, 0.16);
 }
