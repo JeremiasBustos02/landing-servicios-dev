@@ -51,11 +51,11 @@ export default function Hero() {
       <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#pricing">
-            <PrimaryButton label="Ver planes" />
+            <PrimaryButton label="Ver planes" className='btn-primary'/>
           </a>
           <a
             href="#services"
-            className="liquid-glass rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
+            className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
           >
             ¿Cómo trabajamos?
           </a>

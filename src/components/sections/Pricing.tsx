@@ -35,7 +35,7 @@ export default function Pricing() {
                 </div>
               ))}
             </div>
-            <PrimaryButton label="Empezar proyecto" className="w-full justify-center mt-6" />
+            <PrimaryButton label="Empezar proyecto" className="liquid-glass-card w-full justify-center mt-6" />
           </div>
         ))}
       </div>

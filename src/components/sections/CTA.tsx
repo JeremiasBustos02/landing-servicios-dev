@@ -29,7 +29,7 @@ export default function CTA() {
             </a>
             <a
               href="#contact"
-              className="rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 hover:bg-white/5 transition-colors"
+              className="liquid-glass-card rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 hover:bg-white/5 transition-colors"
             >
               Agendar una llamada
             </a>

@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react'
+import '../../styles/ui/cards.css' // Asegúrate de que apunte a tu CSS
 
 type LiquidGlassCardProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode
@@ -6,7 +7,7 @@ type LiquidGlassCardProps = HTMLAttributes<HTMLDivElement> & {
 
 export default function LiquidGlassCard({ children, className = '', ...props }: LiquidGlassCardProps) {
   return (
-    <div className={`liquid-glass ${className}`} {...props}>
+    <div className={`liquid-glass ${className}`.trim()} {...props}>
       {children}
     </div>
   )

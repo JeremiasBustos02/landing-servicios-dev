@@ -22,7 +22,7 @@ export default function FinalCTA() {
             </a>
             <button
               type="button"
-              className="liquid-glass rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
+              className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
             >
               Ver planes
             </button>
@@ -32,3 +32,4 @@ export default function FinalCTA() {
     </section>
   )
 }
+git
