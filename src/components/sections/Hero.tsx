@@ -30,22 +30,21 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
       className="text-center pt-28 pb-20 px-6"
     >
       <div className="flex justify-center mb-6">
-       <HeroSwitch activeTab={activeTab} setActiveTab={setActiveTab} />
+        <HeroSwitch activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
 
       {activeTab === 'software' ? (
         <div key="software-hero">
-          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.9] mt-6">
-            <span className="block">Diseñamos webs que</span>
-            <span className="block animate-shiny hero-shiny-text">
-              VENDEN por vos.
-            </span>
+          <motion.h1 variants={fadeUp} className="text-[2.5rem] sm:text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] mt-6 text-balance mx-auto">
+            Diseñamos webs que
+            <br className="hidden sm:block" />
+            <span className="animate-shiny hero-shiny-text"> VENDEN por vos.</span>
           </motion.h1>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="#pricing">
-                <PrimaryButton label="Ver planes" className='btn-primary'/>
+                <PrimaryButton label="Ver planes" className='btn-primary' />
               </a>
               <a href="#services" className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition">
                 ¿Cómo trabajamos?
@@ -56,11 +55,10 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
         </div>
       ) : (
         <div key="cyber-hero">
-          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tight leading-[0.9] mt-6">
-            <span className="block">La tranquilidad empieza</span>
-            <span className="block animate-shiny hero-shiny-text-cyber">
-              con CIBERSEGURIDAD.
-            </span>
+          <motion.h1 variants={fadeUp} className="text-[2.5rem] sm:text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] mt-6 text-balance">
+            La tranquilidad empieza
+            <br className="hidden sm:block" /> con
+            <span className="animate-shiny hero-shiny-text-cyber"> CIBERSEGURIDAD.</span>
           </motion.h1>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
