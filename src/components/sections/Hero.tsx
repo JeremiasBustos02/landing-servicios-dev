@@ -1,7 +1,6 @@
 import { motion } from 'motion/react'
-import { CONTACT_INFO, SITE, EASE } from '../../data/constants'
+import { SITE, EASE } from '../../data/constants'
 import PrimaryButton from '../ui/PrimaryButton'
-import SectionEyebrow from '../ui/SectionEyebrow'
 import '../../styles/sections/hero.css'
 import HeroSwitch from '../ui/HeroSwitch'
 
