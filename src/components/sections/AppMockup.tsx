@@ -1,12 +1,22 @@
 import LiquidGlassCard from '../ui/LiquidGlassCard'
+import { motion } from 'motion/react'
 import { useState, useEffect } from 'react'
-import { PROJECTS, SITE } from '../../data/constants'
+import { PROJECTS, SITE, EASE } from '../../data/constants'
 import '../../styles/sections/app-mockup.css'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import { SwitchOption } from '../../App'
 
 interface AppMockupProps {
   activeTab: SwitchOption;
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
 }
 
 export default function AppMockup({ activeTab }: AppMockupProps) {
@@ -30,7 +40,14 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
   }
 
   return activeTab === 'software' ? (
-    <section key="software-app-mockup" className="max-w-[100vw] mx-auto px-4 pt-20 pb-5 overflow-hidden">
+    <motion.section
+      key="software-app-mockup"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-[100vw] mx-auto px-4 pt-20 pb-5 overflow-hidden"
+    >
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Proyectos" />
       </div>
@@ -79,9 +96,16 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
         ))}
       </div>
 
-    </section>
+    </motion.section>
   ) : (
-    <section key="cyber-app-mockup" className="max-w-[100vw] mx-auto px-4 pt-20 pb-5 overflow-hidden">
+    <motion.section
+      key="cyber-app-mockup"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeUp}
+      className="max-w-[100vw] mx-auto px-4 pt-20 pb-5 overflow-hidden"
+    >
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Monitoreo" />
       </div>
@@ -189,6 +213,6 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
           </div>
         </LiquidGlassCard>
       </div>
-    </section>
+    </motion.section>
   )
 }
