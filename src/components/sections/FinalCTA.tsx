@@ -9,7 +9,7 @@ interface FinalCTAProps {
 
 export default function FinalCTA({ activeTab }: FinalCTAProps) {
   return activeTab === 'software' ? (
-    <section key="software-final-cta" className="max-w-6xl mx-auto px-6 py-32">
+    <section key="software-final-cta" className="max-w-6xl mx-auto px-6 py-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
       </motion.div>
     </section>
   ) : (
-    <section key="cyber-final-cta" className="max-w-6xl mx-auto px-6 py-32">
+    <section key="cyber-final-cta" className="max-w-6xl mx-auto px-6 py-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

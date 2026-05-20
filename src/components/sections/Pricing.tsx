@@ -49,7 +49,7 @@ const CYBER_PLANS = [
 
 export default function Pricing({ activeTab }: PricingProps) {
   return activeTab === 'software' ? (
-    <section key="software-pricing" id="pricing" className="relative max-w-6xl mx-auto py-24 px-6">
+    <section key="software-pricing" id="pricing" className="relative max-w-6xl mx-auto py-10 px-6">
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
@@ -86,7 +86,7 @@ export default function Pricing({ activeTab }: PricingProps) {
       </div>
     </section>
   ) : (
-    <section key="cyber-pricing" id="pricing" className="relative max-w-6xl mx-auto py-24 px-6">
+    <section key="cyber-pricing" id="pricing" className="relative max-w-6xl mx-auto py-10 px-6">
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />

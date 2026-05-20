@@ -10,7 +10,7 @@ interface CTAProps {
 
 export default function CTA({ activeTab }: CTAProps) {
   return activeTab === 'software' ? (
-    <section key="software-cta" className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+    <section key="software-cta" className="max-w-6xl mx-auto px-6 py-5 md:py-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function CTA({ activeTab }: CTAProps) {
       </motion.div>
     </section>
   ) : (
-    <section key="cyber-cta" className="max-w-6xl mx-auto px-6 py-20 md:py-32">
+    <section key="cyber-cta" className="max-w-6xl mx-auto px-6 py-5 md:py-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

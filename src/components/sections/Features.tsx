@@ -48,30 +48,9 @@ const CYBER_FEATURES = [
   },
 ]
 
-const CYBER_STEPS = [
-  {
-    number: '01',
-    title: 'Detectar y mapear',
-    description:
-      'Inventariamos la superficie de ataque y correlacionamos señales para encontrar brechas reales.',
-  },
-  {
-    number: '02',
-    title: 'Contener y mitigar',
-    description:
-      'Aplicamos controles, reglas y hardening para reducir el riesgo inmediato.',
-  },
-  {
-    number: '03',
-    title: 'Recuperar y fortalecer',
-    description:
-      'Entregamos un plan claro de remediacion y mejoras continuas de seguridad.',
-  },
-]
-
 export default function Features({ activeTab }: FeaturesProps) {
   return activeTab === 'software' ? (
-    <section key="software-features" id="services" className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section key="software-features" id="services" className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-2 gap-16 items-center">
       <div className="space-y-6 flex flex-col justify-center items-center md:items-start">
         <SectionEyebrow label="Metodologia" />
         <h2 className="text-3xl md:text-4xl font-semibold">Nuestra metodologia.</h2>
@@ -117,7 +96,7 @@ export default function Features({ activeTab }: FeaturesProps) {
       </LiquidGlassCard>
     </section>
   ) : (
-    <section key="cyber-features" id="services" className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-1 gap-16 items-center">
+    <section key="cyber-features" id="services" className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-1 gap-16 items-center">
       <div className="space-y-6 flex flex-col justify-center items-center md:items-start w-full">
         <SectionEyebrow label="Ciberseguridad" />
         <h2 className="text-3xl md:text-4xl font-semibold">Defensa activa, evidencia medible.</h2>

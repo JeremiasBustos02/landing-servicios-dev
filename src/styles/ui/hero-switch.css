@@ -30,6 +30,7 @@
             var(--glass-border-mid) 80%,
             var(--glass-border-top) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
@@ -81,7 +82,6 @@
     transition: color 0.3s ease, text-shadow 0.3s ease;
     
     white-space: normal; 
-    text-center: center;
 }
 
 .hero-switch__btn--active {

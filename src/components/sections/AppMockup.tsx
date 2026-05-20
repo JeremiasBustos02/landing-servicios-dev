@@ -30,7 +30,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
   }
 
   return activeTab === 'software' ? (
-    <section key="software-app-mockup" className="max-w-[100vw] mx-auto px-4 py-20 overflow-hidden">
+    <section key="software-app-mockup" className="max-w-[100vw] mx-auto px-4 pt-20 pb-5 overflow-hidden">
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Proyectos" />
       </div>
@@ -81,7 +81,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
 
     </section>
   ) : (
-    <section key="cyber-app-mockup" className="max-w-[100vw] mx-auto px-4 py-20 overflow-hidden">
+    <section key="cyber-app-mockup" className="max-w-[100vw] mx-auto px-4 pt-20 pb-5 overflow-hidden">
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Monitoreo" />
       </div>
