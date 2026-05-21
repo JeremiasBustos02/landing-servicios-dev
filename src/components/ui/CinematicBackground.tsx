@@ -83,15 +83,24 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
       chromaticAberration: 0,
     })
 
+    const observer = new MutationObserver(() => {
+      const branding = document.querySelector('[class*="neat"], [class*="firecms"]');
+      if (branding && branding.tagName === 'A') {
+        branding.remove();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
     return () => {
       gradient.destroy()
+      observer.disconnect()
     }
   }, [activeTab])
 
   return (
     <>
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <canvas ref={canvasRef} id="gradient" className="w-full h-full opacity-90 mix-blend-screen"></canvas>
+        <canvas ref={canvasRef} id="gradient" className="w-full h-full opacity-30 mix-blend-screen"></canvas>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0c0c0c_80%)] opacity-80 pointer-events-none"></div>
       </div>
       <div className="hidden md:block pointer-events-none fixed inset-y-0 left-1/2 -translate-x-[calc(50%+36rem)] w-px bg-white/10 z-[5]" />

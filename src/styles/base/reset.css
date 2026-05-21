@@ -9,3 +9,11 @@ body {
 body {
   min-height: 100vh;
 }
+
+body:has(.firecms-neat-branding),
+.firecms-neat-branding,
+#gradient-container-id + a, 
+#gradient + a {
+    display: none !important;
+    pointer-events: none !important;
+}
