@@ -4,6 +4,7 @@ import { NAV_LINKS, EASE } from '../../data/constants'
 import BrandLogo from '../ui/BrandLogo'
 import PrimaryButton from '../ui/PrimaryButton'
 import '../../styles/layout/navbar.css'
+
 export default function Navbar() {
   const lenis = useLenis()
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
