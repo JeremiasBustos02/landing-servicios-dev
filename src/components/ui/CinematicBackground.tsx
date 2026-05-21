@@ -13,7 +13,6 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
     const styles = getComputedStyle(themeRoot)
 
     const getVar = (name: string) => styles.getPropertyValue(name).trim()
-    const colorDark = getVar('--shiny-dark') || '#0c0c0c'
     const colorMid = getVar('--shiny-mid') || '#0b2551'
     const colorAccent = getVar('--shiny-accent') || '#a4f4fd'
 

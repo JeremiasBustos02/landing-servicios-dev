@@ -98,7 +98,7 @@ export default function Pricing({ activeTab }: PricingProps) {
                 </div>
               ))}
             </div>
-            <PrimaryButton label="Empezar proyecto" className="liquid-glass-card w-full justify-center mt-6" />
+            <PrimaryButton label="Empezar proyecto" className="w-full justify-center mt-6" />
           </div>
         ))}
       </div>
@@ -143,7 +143,7 @@ export default function Pricing({ activeTab }: PricingProps) {
                 </div>
               ))}
             </div>
-            <PrimaryButton label="Solicitar evaluacion" className="liquid-glass-card w-full justify-center mt-6" />
+            <PrimaryButton label="Solicitar evaluacion" className="w-full justify-center mt-6" />
           </div>
         ))}
       </div>
