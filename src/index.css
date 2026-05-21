@@ -29,3 +29,22 @@ html.lenis {
 body {
   overflow-x: hidden;
 }
+
+#gradient ~ a, 
+#gradient ~ div[style*="position: fixed"], 
+#gradient ~ div[style*="z-index"] {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
+body:has(.firecms-neat-branding),
+.firecms-neat-branding,
+#gradient-container-id + a, 
+#gradient + a {
+    display: none !important;
+    pointer-events: none !important;
+}
