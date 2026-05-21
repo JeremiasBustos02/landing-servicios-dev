@@ -13,7 +13,6 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
     const styles = getComputedStyle(themeRoot)
 
     const getVar = (name: string) => styles.getPropertyValue(name).trim()
-    const colorDark = getVar('--shiny-dark') || '#0c0c0c'
     const colorMid = getVar('--shiny-mid') || '#0b2551'
     const colorAccent = getVar('--shiny-accent') || '#a4f4fd'
 
@@ -92,7 +91,7 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
   return (
     <>
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <canvas ref={canvasRef} id="gradient" className="w-full h-full opacity-60 mix-blend-screen"></canvas>
+        <canvas ref={canvasRef} id="gradient" className="w-full h-full opacity-90 mix-blend-screen"></canvas>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0c0c0c_80%)] opacity-80 pointer-events-none"></div>
       </div>
       <div className="hidden md:block pointer-events-none fixed inset-y-0 left-1/2 -translate-x-[calc(50%+36rem)] w-px bg-white/10 z-[5]" />

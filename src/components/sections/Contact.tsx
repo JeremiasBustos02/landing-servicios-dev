@@ -51,8 +51,8 @@ export default function Contact() {
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
         <div className="flex flex-col gap-6 text-left">
           <SectionEyebrow label="Contacto" />
-          <h2 className="text-3xl md:text-4xl font-semibold">Hablemos.</h2>
-          <p className="text-white/60">
+          <h2 className="text-3xl md:text-5xl font-bold">Hablemos.</h2>
+          <p className="text-lg text-white/60">
             Tenes dudas o consultas? Contanos de tu proyecto. Respondemos en menos de 24 hs.
           </p>
 
@@ -73,7 +73,7 @@ export default function Contact() {
         </div>
 
         <LiquidGlassCard className="rounded-2xl border border-white/10 p-8">
-          <h3 className="text-lg font-semibold mb-6">Envianos un mensaje</h3>
+          <h3 className="text-2xl font-bold mb-4">Envianos un mensaje</h3>
           <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-5"

@@ -63,8 +63,8 @@ export default function FAQ({ activeTab }: FAQProps) {
     >
       <div className="text-center flex flex-col items-center gap-4 mb-12">
         <SectionEyebrow label="FAQ" />
-        <h2 className="text-3xl md:text-4xl font-semibold">Preguntas frecuentes</h2>
-        <p className="text-white/60 max-w-2xl">
+        <h2 className="text-3xl md:text-5xl font-bold">Preguntas frecuentes</h2>
+        <p className="text-lg text-white/60">
           Resolvemos tus dudas mas comunes para que te sientas seguro de elegirnos.
         </p>
       </div>
@@ -108,8 +108,8 @@ export default function FAQ({ activeTab }: FAQProps) {
     >
       <div className="text-center flex flex-col items-center gap-4 mb-12">
         <SectionEyebrow label="FAQ" />
-        <h2 className="text-3xl md:text-4xl font-semibold">Preguntas frecuentes de ciberseguridad</h2>
-        <p className="text-white/60 max-w-2xl">
+        <h2 className="text-3xl md:text-5xl font-bold">Preguntas frecuentes de ciberseguridad</h2>
+        <p className="text-lg text-white/60">
           Respondemos dudas sobre tiempos, metodologias y compliance para equipos tecnicos y directivos.
         </p>
       </div>
