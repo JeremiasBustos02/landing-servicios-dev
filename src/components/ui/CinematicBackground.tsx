@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 import { NeatGradient } from '@firecms/neat'
-import { SITE } from '../../data/constants'
 
 export default function CinematicBackground({ activeTab }: { activeTab: 'software' | 'cyber' }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -17,31 +16,29 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
     const colorDark = getVar('--shiny-dark') || '#0c0c0c'
     const colorMid = getVar('--shiny-mid') || '#0b2551'
     const colorAccent = getVar('--shiny-accent') || '#a4f4fd'
-    const colorCenter = getVar('--shiny-center') || '#00d2ff'
-    const colorSoft = getVar('--color-cyan-light') || colorAccent
 
     const gradient = new NeatGradient({
       ref: canvasRef.current,
       colors: [
+        { color: '#000000', enabled: true },
         { color: colorDark, enabled: true },
         { color: colorMid, enabled: true },
-        { color: colorAccent, enabled: true },
-        { color: colorCenter, enabled: true },
-        { color: colorSoft, enabled: false },
+        { color: colorAccent, enabled: true }, 
+        { color: '#050505', enabled: true }, 
       ],
-      speed: 3,
+      speed: 2,
       horizontalPressure: 5,
       verticalPressure: 7,
       waveFrequencyX: 2,
       waveFrequencyY: 2,
       waveAmplitude: 8,
-      shadows: 6,
-      highlights: 8,
+      shadows: 9,
+      highlights: 5, 
       colorBrightness: 1,
-      colorSaturation: 7,
+      colorSaturation: 6,
       wireframe: false,
       colorBlending: 10,
-      backgroundColor: colorDark,
+      backgroundColor: '#000000',
       backgroundAlpha: 1,
       grainScale: 3,
       grainSparsity: 0,
@@ -95,7 +92,7 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
   return (
     <>
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <canvas ref={canvasRef} id="gradient" className="w-full h-full opacity-50 mix-blend-screen"></canvas>
+        <canvas ref={canvasRef} id="gradient" className="w-full h-full opacity-60 mix-blend-screen"></canvas>
       </div>
       <div className="hidden md:block pointer-events-none fixed inset-y-0 left-1/2 -translate-x-[calc(50%+36rem)] w-px bg-white/10 z-[5]" />
       <div className="hidden md:block pointer-events-none fixed inset-y-0 left-1/2 translate-x-[calc(-50%+36rem)] w-px bg-white/10 z-[5]" />
