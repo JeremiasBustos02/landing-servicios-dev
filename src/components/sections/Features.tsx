@@ -97,8 +97,8 @@ export default function Features({ activeTab }: FeaturesProps) {
       </div>
       <LiquidGlassCard className="flex flex-col justify-center rounded-2xl p-6 mx-auto h-full">
         <div className="flex items-center justify-between text-sm text-white/70">
-          <span>Proceso</span>
-          <span className="text-xs">En 3 pasos</span>
+          <span className="text-lg font-semibold">Proceso</span>
+          <span className="text-xs ">En 3 pasos</span>
         </div>
         <div className="mt-6 space-y-4">
           {STEPS.map(step => (

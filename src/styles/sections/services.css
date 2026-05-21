@@ -1,7 +1,8 @@
 .pillar-card {
   border-radius: var(--radius-2xl);
   border: 1px solid var(--border-light);
-  background: var(--bg-glass);
+  background-color: rgba(12, 12, 12, 0.85);
+  backdrop-filter: blur(16px);
   padding: 1rem;
 }
 
@@ -21,7 +22,8 @@
 
 .step-card {
   border-radius: var(--radius-xl);
-  background: var(--bg-glass);
+  background-color: rgba(12, 12, 12, 0.85);
+  backdrop-filter: blur(16px);
   padding: 1rem;
 }
 
