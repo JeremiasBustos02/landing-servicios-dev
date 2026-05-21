@@ -71,8 +71,8 @@ export default function Pricing({ activeTab }: PricingProps) {
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
-          <h2 className="text-3xl md:text-4xl font-semibold mt-4">Soluciones para cada etapa.</h2>
-          <p className="text-white/60 mt-3 max-w-md">
+          <h2 className="text-3xl md:text-5xl font-bold mt-4">Soluciones para cada etapa.</h2>
+          <p className="text-lg text-white/60 mt-2">
             Desde una landing simple hasta sistemas completos y escalables.
           </p>
         </div>
@@ -81,24 +81,32 @@ export default function Pricing({ activeTab }: PricingProps) {
         {PLANS.map(plan => (
           <div
             key={plan.title}
-            className={`liquid-glass rounded-2xl border border-white/10 p-6 flex flex-col justify-between h-full hover:-translate-y-2 transition-all duration-500 ${
-              plan.highlighted ? 'pricing-pro border-cyan-200/40' : ''
+            className={`liquid-glass rounded-3xl border border-white/10 p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 transition-all duration-500 ${
+              plan.highlighted ? 'pricing-pro border-[var(--shiny-center)]/50' : ''
             }`}
           >
-            <div>
-              <p className="text-sm text-white/70">{plan.title}</p>
-              <h3 className="text-4xl font-bold mt-3">{plan.price}</h3>
-              <p className="text-white/50 mt-2">{plan.description}</p>
+            <div className="h-[140px]">
+              <h3 className="text-xl lg:text-2xl font-bold text-white tracking-tight">{plan.title}</h3>
+              <p className="text-white/60 mt-3 leading-relaxed">{plan.description}</p>
             </div>
-            <div className="space-y-2 text-sm text-white/70 mt-6">
+
+            <div className="mt-4 mb-6 pb-6 border-b border-white/10 shrink-0">
+              <span className="text-3xl lg:text-4xl font-extrabold text-white tracking-tighter whitespace-nowrap">
+                {plan.price}
+              </span>
+            </div>
+
+            <div className="space-y-3 text-sm text-[var(--text-primary)] flex-grow">
               {plan.features.map(feature => (
-                <div key={feature} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  {feature}
+                <div key={feature} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
+                  <span className="leading-tight">{feature}</span>
                 </div>
               ))}
             </div>
-            <PrimaryButton label="Empezar proyecto" className="w-full justify-center mt-6" />
+
+            {/* Botón */}
+            <PrimaryButton label="Empezar proyecto" className="w-full justify-center mt-8 shrink-0" />
           </div>
         ))}
       </div>
@@ -116,34 +124,41 @@ export default function Pricing({ activeTab }: PricingProps) {
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
-          <h2 className="text-3xl md:text-4xl font-semibold mt-4">Seguridad real en cada etapa.</h2>
-          <p className="text-white/60 mt-3 max-w-md">
+          <h2 className="text-3xl md:text-5xl font-bold mt-2">Seguridad real en cada etapa.</h2>
+          <p className="text-lg text-white/60 mt-2">
             Paquetes diseñados para cubrir desde un primer diagnostico hasta defensa continua.
           </p>
         </div>
       </div>
-      <div className="pricing-grid relative z-10 mt-12 ">
+      <div className="pricing-grid relative z-10 mt-8 ">
         {CYBER_PLANS.map(plan => (
           <div
             key={plan.title}
-            className={`liquid-glass rounded-2xl border border-white/10 p-6 flex flex-col justify-between h-full hover:-translate-y-2 transition-all duration-500 ${
-              plan.highlighted ? 'pricing-pro border-red-400/40' : ''
+            className={`liquid-glass rounded-3xl border border-white/10 p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 transition-all duration-500 ${
+              plan.highlighted ? 'pricing-pro border-[var(--shiny-center)]/50' : ''
             }`}
           >
-            <div>
-              <p className="text-sm text-white/70">{plan.title}</p>
-              <h3 className="text-4xl font-bold mt-3">{plan.price}</h3>
-              <p className="text-white/50 mt-2">{plan.description}</p>
+            <div className="h-[140px]">
+              <h3 className="text-xl lg:text-1xl font-bold text-white tracking-tight">{plan.title}</h3>
+              <p className="text-white/60 mt-3 leading-relaxed">{plan.description}</p>
             </div>
-            <div className="space-y-2 text-sm text-white/70 mt-6">
+
+            <div className="mt-4 mb-6 pb-6 border-b border-white/10 shrink-0">
+              <span className="text-2xl lg:text-3xl font-extrabold text-white tracking-tighter whitespace-nowrap">
+                {plan.price}
+              </span>
+            </div>
+
+            <div className="space-y-3 text-sm text-[var(--text-primary)] flex-grow">
               {plan.features.map(feature => (
-                <div key={feature} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  {feature}
+                <div key={feature} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
+                  <span className="leading-tight">{feature}</span>
                 </div>
               ))}
             </div>
-            <PrimaryButton label="Solicitar evaluacion" className="w-full justify-center mt-6" />
+
+            <PrimaryButton label="Solicitar evaluacion" className="w-full justify-center mt-8 shrink-0" />
           </div>
         ))}
       </div>

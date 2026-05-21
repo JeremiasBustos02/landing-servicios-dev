@@ -7,8 +7,8 @@
 }
 
 .pillar-description {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 1rem;
+  color: var(--text-primary);
   margin-top: 0.5rem;
 }
 
@@ -18,6 +18,13 @@
   gap: 0.5rem;
   font-size: 0.875rem;
   color: var(--text-secondary);
+}
+
+.process-card {
+  border-radius: var(--radius-2xl);
+  background-color: rgba(12, 12, 12, 0.55);
+  backdrop-filter: blur(16px);
+  padding: 1rem;
 }
 
 .step-card {
@@ -35,8 +42,8 @@
 }
 
 .step-title {
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
+  font-size: 1rem;
+  color: var(--text-primary);
 }
 
 .step-description {
