@@ -24,7 +24,7 @@ export default function App() {
     <ReactLenis root>
       <div data-theme={activeTab} className="relative min-h-screen bg-[#0c0c0c] text-white">
         <SVGNoiseFilters />
-        <CinematicBackground />
+        <CinematicBackground activeTab={activeTab} />
 
         <div className="relative z-10">
           <Navbar />
