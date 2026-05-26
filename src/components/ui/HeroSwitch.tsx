@@ -1,5 +1,3 @@
-"use client"
-
 import '../../styles/ui/hero-switch.css'
 
 type SwitchOption = 'software' | 'cyber'
