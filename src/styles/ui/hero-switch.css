@@ -108,3 +108,9 @@
         width: calc(50% - 0.375rem);
     }
 }
+
+@media (max-width: 768px) {
+    .hero-switch {
+        backdrop-filter: blur(2px);
+    }
+}

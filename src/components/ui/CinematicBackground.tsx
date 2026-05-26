@@ -14,6 +14,8 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
     const colorMid = getVar('--shiny-mid') || '#0b2551'
     const colorAccent = getVar('--shiny-accent') || '#a4f4fd'
 
+    const isMobile = window.innerWidth < 768
+
     const gradient = new NeatGradient({
       ref: canvasRef.current,
       colors: [
@@ -23,25 +25,25 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
         { color: colorAccent, enabled: true }, 
         { color: '#050505', enabled: true }, 
       ],
-      speed: 2,
-      horizontalPressure: 5,
-      verticalPressure: 7,
-      waveFrequencyX: 2,
-      waveFrequencyY: 2,
-      waveAmplitude: 8,
-      shadows: 5,
-      highlights: 9, 
+      speed: isMobile ? 0.5 : 2,
+      horizontalPressure: isMobile ? 3 : 5,
+      verticalPressure: isMobile ? 4 : 7,
+      waveFrequencyX: isMobile ? 1 : 2,
+      waveFrequencyY: isMobile ? 1 : 2,
+      waveAmplitude: isMobile ? 4 : 8,
+      shadows: isMobile ? 2 : 5,
+      highlights: isMobile ? 4 : 9, 
       colorBrightness: 1,
       colorSaturation: 6,
       wireframe: false,
       colorBlending: 10,
       backgroundColor: colorMid,
       backgroundAlpha: 1,
-      grainScale: 3,
+      grainScale: isMobile ? 1 : 3,
       grainSparsity: 0,
-      grainIntensity: 0.3,
-      grainSpeed: 1,
-      resolution: 1,
+      grainIntensity: isMobile ? 0 : 0.3,
+      grainSpeed: isMobile ? 0 : 1,
+      resolution: isMobile ? 0.6 : 1,
       yOffset: 0,
       yOffsetWaveMultiplier: 5.5,
       yOffsetColorMultiplier: 5.2,

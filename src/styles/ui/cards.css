@@ -51,3 +51,10 @@
   mask-composite: exclude;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .liquid-glass,
+  .liquid-glass-card {
+    backdrop-filter: blur(8px);
+  }
+}
