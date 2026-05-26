@@ -25,7 +25,7 @@ export default function App() {
         <SVGNoiseFilters />
         <CinematicBackground activeTab={activeTab} />
 
-        <div className="relative z-10">
+        <main className="relative z-10">
           <Navbar />
 
           <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -38,7 +38,7 @@ export default function App() {
           <Contact />
           <FinalCTA activeTab={activeTab} />
           <Footer />
-        </div>
+        </main>
       </div>
       </LazyMotion>
     </ReactLenis>

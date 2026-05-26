@@ -55,6 +55,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
     >
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Proyectos" />
+        <h2 className="sr-only">Proyectos</h2>
       </div>
       <div className="flex flex-col items-center gap-8 max-w-5xl mx-auto">
         <MacMockup
@@ -94,6 +95,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
     >
       <div className="flex justify-center items-start mb-6 md:mb-6">
         <SectionEyebrow label="Monitoreo" />
+        <h2 className="sr-only">Monitoreo</h2>
       </div>
       <div className="relative w-full max-w-5xl mx-auto aspect-[4/5] sm:aspect-[5/6] md:aspect-[16/9]">
         <LiquidGlassCard className="w-full h-full rounded-[2rem] border border-white/10 overflow-hidden min-w-0 min-h-0">
