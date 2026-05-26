@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { useLenis } from 'lenis/react'
 import { FOOTER_LINKS, EASE } from '../../data/constants'
 import BrandLogo from '../ui/BrandLogo'
@@ -23,7 +23,7 @@ export default function Footer() {
     lenis?.scrollTo(target)
   }
   return (
-    <motion.footer
+    <m.footer
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
@@ -119,11 +119,11 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© {year} Nombre. Todos los derechos reservados.</span>
           <div className="flex gap-6">
-            <a href="#" className="footer-link" onClick={(e) => handleScroll(e, '#')}>Privacidad</a>
-            <a href="#" className="footer-link" onClick={(e) => handleScroll(e, '#')}>Terminos</a>
+            <button type="button" className="footer-link" onClick={() => lenis?.scrollTo(0)}>Privacidad</button>
+            <button type="button" className="footer-link" onClick={() => lenis?.scrollTo(0)}>Terminos</button>
           </div>
         </div>
       </div>
-    </motion.footer>
+    </m.footer>
   )
 }

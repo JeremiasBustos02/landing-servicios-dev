@@ -1,8 +1,8 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { useLenis } from 'lenis/react'
 import { CONTACT_INFO, EASE } from '../../data/constants'
 import PrimaryButton from '../ui/PrimaryButton'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 interface FinalCTAProps {
   activeTab: SwitchOption;
 }
@@ -22,7 +22,7 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
   }
   return activeTab === 'software' ? (
     <section key="software-final-cta" className="max-w-6xl mx-auto px-6 py-12">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
@@ -45,11 +45,11 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
             </button>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   ) : (
     <section key="cyber-final-cta" className="max-w-6xl mx-auto px-6 py-12">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
@@ -73,7 +73,7 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
             </a>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   )
 }

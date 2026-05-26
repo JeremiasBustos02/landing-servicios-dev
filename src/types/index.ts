@@ -1,3 +1,5 @@
+export type SwitchOption = 'software' | 'cyber'
+
 export interface Plan {
   title: string
   description: string

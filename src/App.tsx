@@ -1,6 +1,5 @@
-"use client"
-
 import { useState } from 'react'
+import { LazyMotion, domAnimation } from 'motion/react'
 import { ReactLenis } from 'lenis/react'
 import SVGNoiseFilters from './components/ui/SVGNoiseFilters'
 import CinematicBackground from './components/ui/CinematicBackground'
@@ -14,14 +13,14 @@ import FAQ from './components/sections/FAQ'
 import Contact from './components/sections/Contact'
 import FinalCTA from './components/sections/FinalCTA'
 import Footer from './components/sections/Footer'
-
-export type SwitchOption = 'software' | 'cyber'
+import type { SwitchOption } from './types'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<SwitchOption>('software')
 
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true , syncTouch: true, touchMultiplier: 1.5,}}>
+      <LazyMotion features={domAnimation}>
       <div data-theme={activeTab} className="relative min-h-screen bg-[#0c0c0c] text-white">
         <SVGNoiseFilters />
         <CinematicBackground activeTab={activeTab} />
@@ -41,6 +40,7 @@ export default function App() {
           <Footer />
         </div>
       </div>
+      </LazyMotion>
     </ReactLenis>
   )
 }

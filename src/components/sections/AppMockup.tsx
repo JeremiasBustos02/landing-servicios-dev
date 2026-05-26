@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
 import MacMockup from '../ui/MacMockup'
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { PROJECTS, EASE } from '../../data/constants'
 import '../../styles/sections/app-mockup.css'
 import SectionEyebrow from '../ui/SectionEyebrow'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 
 interface AppMockupProps {
   activeTab: SwitchOption;
@@ -45,7 +45,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return activeTab === 'software' ? (
-    <motion.section
+    <m.section
       key="software-app-mockup"
       initial="hidden"
       whileInView="show"
@@ -67,6 +67,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
         <div className="flex items-center gap-3">
           {showcaseProjects.map((project, index) => (
             <button
+              type="button"
               key={project.id}
               onClick={() => setActiveIndex(index)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -81,9 +82,9 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
         </div>
       </div>
 
-    </motion.section>
+    </m.section>
   ) : (
-    <motion.section
+    <m.section
       key="cyber-app-mockup"
       initial="hidden"
       whileInView="show"
@@ -99,9 +100,9 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
           <div className="relative w-full h-full bg-[#0b0f14]/80 min-w-0 min-h-0 flex flex-col">
             <div className="flex items-center justify-between px-3 sm:px-4 md:px-5 py-2 md:py-3 border-b border-white/10 min-w-0 gap-2">
               <div className="flex items-center gap-2 shrink-0">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+                <span className="size-2.5 rounded-full bg-red-400/80" />
+                <span className="size-2.5 rounded-full bg-amber-300/80" />
+                <span className="size-2.5 rounded-full bg-emerald-400/80" />
               </div>
               <span className="text-[10px] sm:text-xs text-white/40 font-mono min-w-0 truncate max-w-[55%] md:max-w-none">
                 secure-scan@core
@@ -116,14 +117,14 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-white/40">Registro en vivo</p>
                   <div className="mt-2 min-h-0 flex-1 overflow-hidden">
                     <div className="h-full overflow-x-auto overflow-y-auto space-y-2 font-mono text-[10px] sm:text-xs text-white/60 whitespace-pre-wrap break-words pr-1">
-                      <div className="text-white/80">[00:00:14] Iniciando escaneo de superficie...</div>
+                      <div className="text-white/80">[00:00:14] Iniciando escaneo de superficie…</div>
                       <div>[00:00:21] Enumerando hosts y servicios expuestos</div>
                       <div className="text-emerald-400">[OK] 214 hosts detectados</div>
                       <div className="text-amber-300">[WARN] 17 puertos con configuracion debil</div>
                       <div className="text-red-400">[CRITICAL] 3 vulnerabilidades con CVSS &gt; 8.5</div>
                       <div>[00:00:46] Correlacionando logs y eventos SIEM</div>
                       <div className="text-cyan-300">[INFO] Vector probable: API /auth/login</div>
-                      <div className="text-white/50">[00:01:02] Generando plan de remediacion...</div>
+                      <div className="text-white/50">[00:01:02] Generando plan de remediacion…</div>
                     </div>
                   </div>
                 </div>
@@ -131,7 +132,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-white/40">Cobertura</p>
                   <p className="text-xs text-white/70 mt-2 break-words">Red interna, VPN, endpoints, cloud</p>
                   <div className="mt-3 flex items-center gap-2 min-w-0">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span className="size-2 rounded-full bg-emerald-400" />
                     <span className="text-[10px] text-white/60 truncate">74% superficie auditada</span>
                   </div>
                 </div>
@@ -156,14 +157,14 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
               <div className="hidden md:grid md:grid-cols-[1.2fr_0.8fr] gap-4 lg:gap-6 p-6 lg:p-10 h-full min-h-0 min-w-0">
                 <div className="min-w-0 min-h-0 overflow-hidden">
                   <div className="h-full overflow-x-auto overflow-y-auto space-y-2 font-mono text-sm text-white/60 whitespace-pre-wrap break-words pr-1">
-                    <div className="text-white/80">[00:00:14] Iniciando escaneo de superficie...</div>
+                    <div className="text-white/80">[00:00:14] Iniciando escaneo de superficie…</div>
                     <div>[00:00:21] Enumerando hosts y servicios expuestos</div>
                     <div className="text-emerald-400">[OK] 214 hosts detectados</div>
                     <div className="text-amber-300">[WARN] 17 puertos con configuracion debil</div>
                     <div className="text-red-400">[CRITICAL] 3 vulnerabilidades con CVSS &gt; 8.5</div>
                     <div>[00:00:46] Correlacionando logs y eventos SIEM</div>
                     <div className="text-cyan-300">[INFO] Vector probable: API /auth/login</div>
-                    <div className="text-white/50">[00:01:02] Generando plan de remediacion...</div>
+                    <div className="text-white/50">[00:01:02] Generando plan de remediacion…</div>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 lg:gap-4 min-w-0">
@@ -171,7 +172,7 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
                     <p className="text-xs uppercase tracking-[0.2em] text-white/40">Cobertura</p>
                     <p className="text-sm text-white/70 mt-2 break-words">Red interna, VPN, endpoints, cloud</p>
                     <div className="mt-4 flex items-center gap-2 min-w-0">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400" />
+<span className="size-2 rounded-full bg-emerald-400" />
                       <span className="text-xs text-white/60 truncate">74% superficie auditada</span>
                     </div>
                   </div>
@@ -198,6 +199,6 @@ export default function AppMockup({ activeTab }: AppMockupProps) {
           </div>
         </LiquidGlassCard>
       </div>
-    </motion.section>
+    </m.section>
   )
 }

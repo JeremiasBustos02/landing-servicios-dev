@@ -48,8 +48,8 @@ export default function MacMockup({
       >
         <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{title}</h3>
         <ul className="space-y-2">
-          {features.map((f, i) => (
-            <li key={i} className="text-sm text-white/80">
+          {features.map((f) => (
+            <li key={f} className="text-sm text-white/80">
               {f}
             </li>
           ))}
