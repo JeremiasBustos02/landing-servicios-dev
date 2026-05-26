@@ -8,9 +8,20 @@ export interface Plan {
   highlighted?: boolean
 }
 
-export interface NavLink {
+export interface NavSubItem {
   href: string
   label: string
+}
+
+export interface NavGroup {
+  title: string
+  items: NavSubItem[]
+}
+
+export interface NavLink {
+  href?: string
+  label: string
+  groups?: NavGroup[]
 }
 
 export interface FAQ {

@@ -64,8 +64,28 @@ export const PLANS: Plan[] = [
 ]
 
 export const NAV_LINKS: NavLink[] = [
-  { href: '#services', label: 'Servicios' },
-  { href: '#testimonials', label: 'Testimonios' },
+  {
+    label: 'Servicios',
+    groups: [
+      {
+        title: 'Desarrollo de software',
+        items: [
+          { href: '#services', label: 'Landing page' },
+          { href: '#services', label: 'Web profesional' },
+          { href: '#services', label: 'Sistema a medida / SaaS' },
+        ],
+      },
+      {
+        title: 'Ciberseguridad',
+        items: [
+          { href: '#services', label: 'Auditoría de riesgo inicial' },
+          { href: '#services', label: 'Pentesting caja negra/blanca' },
+          { href: '#services', label: 'SecOps continuo' },
+        ],
+      },
+    ],
+  },
+  { href: '#process', label: 'Cómo trabajamos' },
   { href: '#pricing', label: 'Precios' },
   { href: '#faq', label: 'FAQ' },
 ]
