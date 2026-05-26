@@ -1,9 +1,9 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { useLenis } from 'lenis/react'
 import PrimaryButton from '../ui/PrimaryButton'
 import { CONTACT_INFO, EASE } from '../../data/constants'
 import '../../styles/sections/cta.css'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 interface CTAProps {
   activeTab: SwitchOption;
 }
@@ -23,7 +23,7 @@ export default function CTA({ activeTab }: CTAProps) {
   }
   return activeTab === 'software' ? (
     <section key="software-cta" className="max-w-6xl mx-auto px-6 py-5 md:py-12">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
@@ -51,11 +51,11 @@ export default function CTA({ activeTab }: CTAProps) {
             </a>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   ) : (
     <section key="cyber-cta" className="max-w-6xl mx-auto px-6 py-5 md:py-12">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
@@ -83,7 +83,7 @@ export default function CTA({ activeTab }: CTAProps) {
             </a>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   )
 }

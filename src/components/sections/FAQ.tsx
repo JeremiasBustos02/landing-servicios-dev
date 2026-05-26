@@ -1,11 +1,11 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { useState } from 'react'
 import { FAQS, EASE } from '../../data/constants'
 import SectionEyebrow from '../ui/SectionEyebrow'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 
 const ChevronIcon = () => (
-  <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-4 h-4">
+  <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="size-4">
     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
 )
@@ -52,7 +52,7 @@ export default function FAQ({ activeTab }: FAQProps) {
   const toggle = (index: number) => setActive(active === index ? null : index)
 
   return activeTab === 'software' ? (
-    <motion.section
+    <m.section
       key="software-faq"
       id="faq"
       initial="hidden"
@@ -78,6 +78,7 @@ export default function FAQ({ activeTab }: FAQProps) {
             }`}
           >
             <button
+              type="button"
               className="w-full flex items-center justify-between text-left text-sm font-medium p-5 cursor-pointer outline-none"
               onClick={() => toggle(index)}
             >
@@ -95,9 +96,9 @@ export default function FAQ({ activeTab }: FAQProps) {
           </div>
         ))}
       </div>
-    </motion.section>
+    </m.section>
   ) : (
-    <motion.section
+    <m.section
       key="cyber-faq"
       id="faq"
       initial="hidden"
@@ -123,6 +124,7 @@ export default function FAQ({ activeTab }: FAQProps) {
             }`}
           >
             <button
+              type="button"
               className="w-full flex items-center justify-between text-left text-sm font-medium p-5 cursor-pointer outline-none"
               onClick={() => toggle(index)}
             >
@@ -140,6 +142,6 @@ export default function FAQ({ activeTab }: FAQProps) {
           </div>
         ))}
       </div>
-    </motion.section>
+    </m.section>
   )
 }

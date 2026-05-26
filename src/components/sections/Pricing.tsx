@@ -1,8 +1,8 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { PLANS, EASE } from '../../data/constants'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import PrimaryButton from '../ui/PrimaryButton'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 
 interface PricingProps {
   activeTab: SwitchOption;
@@ -59,7 +59,7 @@ const fadeUp = {
 
 export default function Pricing({ activeTab }: PricingProps) {
   return activeTab === 'software' ? (
-    <motion.section
+    <m.section
       key="software-pricing"
       id="pricing"
       initial="hidden"
@@ -99,7 +99,7 @@ export default function Pricing({ activeTab }: PricingProps) {
             <div className="space-y-3 text-sm text-[var(--text-primary)] flex-grow">
               {plan.features.map(feature => (
                 <div key={feature} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
                   <span className="leading-tight">{feature}</span>
                 </div>
               ))}
@@ -110,9 +110,9 @@ export default function Pricing({ activeTab }: PricingProps) {
           </div>
         ))}
       </div>
-    </motion.section>
+    </m.section>
   ) : (
-    <motion.section
+    <m.section
       key="cyber-pricing"
       id="pricing"
       initial="hidden"
@@ -152,7 +152,7 @@ export default function Pricing({ activeTab }: PricingProps) {
             <div className="space-y-3 text-sm text-[var(--text-primary)] flex-grow">
               {plan.features.map(feature => (
                 <div key={feature} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
                   <span className="leading-tight">{feature}</span>
                 </div>
               ))}
@@ -162,6 +162,6 @@ export default function Pricing({ activeTab }: PricingProps) {
           </div>
         ))}
       </div>
-    </motion.section>
+    </m.section>
   )
 }

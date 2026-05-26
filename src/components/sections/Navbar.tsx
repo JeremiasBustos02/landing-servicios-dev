@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { useLenis } from 'lenis/react'
 import { NAV_LINKS, EASE } from '../../data/constants'
 import BrandLogo from '../ui/BrandLogo'
@@ -17,7 +17,7 @@ export default function Navbar() {
     lenis?.scrollTo(target)
   }
   return (
-    <motion.nav
+    <m.nav
       initial={{ opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: EASE }}
@@ -44,6 +44,6 @@ export default function Navbar() {
           <PrimaryButton label="Contacto" />
         </a>
       </div>
-    </motion.nav>
+    </m.nav>
   )
 }

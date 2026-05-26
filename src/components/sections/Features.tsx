@@ -1,10 +1,10 @@
 import SectionEyebrow from '../ui/SectionEyebrow'
 import LiquidGlassCard from '../ui/LiquidGlassCard'
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { METHODOLOGY_PILLARS, STEPS, EASE } from '../../data/constants'
 import { CheckCircle, XCircle } from 'lucide-react'
 import '../../styles/sections/services.css'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 
 interface FeaturesProps {
   activeTab: SwitchOption;
@@ -60,7 +60,7 @@ const fadeUp = {
 
 export default function Features({ activeTab }: FeaturesProps) {
   return activeTab === 'software' ? (
-    <motion.section
+    <m.section
       key="software-features"
       id="services"
       initial="hidden"
@@ -69,7 +69,7 @@ export default function Features({ activeTab }: FeaturesProps) {
       variants={fadeUp}
       className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-2 gap-16 items-center"
     >
-      <div className="space-y-4 flex flex-col justify-center items-center md:items-start">
+      <div className="flex flex-col justify-center items-center md:items-start gap-4">
         <SectionEyebrow label="Metodologia" />
         <h2 className="text-3xl md:text-5xl font-bold">Nuestra metodologia.</h2>
         <p className="text-lg text-white/60">
@@ -83,9 +83,9 @@ export default function Features({ activeTab }: FeaturesProps) {
                 {pillar.features.map(feature => (
                   <div key={feature.text} className="pillar-feature">
                     {feature.type === 'check' ? (
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle className="size-4 text-emerald-400" />
                     ) : (
-                      <XCircle className="w-4 h-4 text-rose-400" />
+                      <XCircle className="size-4 text-rose-400" />
                     )}
                     <span>{feature.text}</span>
                   </div>
@@ -117,9 +117,9 @@ export default function Features({ activeTab }: FeaturesProps) {
           ))}
         </div>
       </LiquidGlassCard>
-    </motion.section>
+    </m.section>
   ) : (
-    <motion.section
+    <m.section
       key="cyber-features"
       id="services"
       initial="hidden"
@@ -128,7 +128,7 @@ export default function Features({ activeTab }: FeaturesProps) {
       variants={fadeUp}
       className="max-w-6xl mx-auto py-10 px-6 grid md:grid-cols-1 gap-16 items-center"
     >
-      <div className="space-y-6 flex flex-col justify-center items-center md:items-start w-full">
+      <div className="flex flex-col justify-center items-center md:items-start w-full gap-6">
         <SectionEyebrow label="Ciberseguridad" />
         <h2 className="text-3xl md:text-5xl font-bold">Defensa activa, evidencia medible.</h2>
         <p className="text-lg text-white/60">
@@ -146,7 +146,7 @@ export default function Features({ activeTab }: FeaturesProps) {
               <div className="mt-auto space-y-3">
                 {feature.highlights.map(highlight => (
                   <div key={highlight} className="flex flex-row text-sm text-[var(--text-primary)] gap-2 items-start">
-                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="size-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span className="leading-tight">{highlight}</span>
                   </div>
                 ))}
@@ -157,6 +157,6 @@ export default function Features({ activeTab }: FeaturesProps) {
 
       </div>
      
-    </motion.section>
+    </m.section>
   )
 }

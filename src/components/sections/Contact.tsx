@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { CONTACT_INFO, EASE } from '../../data/constants'
 import SectionEyebrow from '../ui/SectionEyebrow'
 import PrimaryButton from '../ui/PrimaryButton'
@@ -40,7 +40,7 @@ export default function Contact() {
   }
 }
   return (
-    <motion.section
+    <m.section
       id="contact"
       initial="hidden"
       whileInView="show"
@@ -124,6 +124,6 @@ export default function Contact() {
           </form>
         </LiquidGlassCard>
       </div>
-    </motion.section>
+    </m.section>
   )
 }

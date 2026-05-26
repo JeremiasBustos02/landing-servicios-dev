@@ -1,10 +1,9 @@
-"use client"
-import { motion } from 'motion/react'
+import { m } from 'motion/react'
 import { useLenis } from 'lenis/react'
 import { SITE, EASE } from '../../data/constants'
 import PrimaryButton from '../ui/PrimaryButton'
 import HeroSwitch from '../ui/HeroSwitch'
-import { SwitchOption } from '../../App'
+import type { SwitchOption } from '../../types'
 import '../../styles/sections/hero.css'
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -25,7 +24,7 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
     lenis?.scrollTo(target)
   }
   return (
-    <motion.section
+    <m.section
       id="hero"
       initial="hidden"
       animate="show"
@@ -37,12 +36,12 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
         </div>
         {activeTab === 'software' ? (
           <div key="software-hero">
-            <motion.h1 variants={fadeUp} className="text-[2.5rem] sm:text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] mt-6 text-balance mx-auto">
+            <m.h1 variants={fadeUp} className="text-[2.5rem] sm:text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] mt-6 text-balance mx-auto">
               Diseñamos webs que
               <br className="hidden sm:block" />
               <span className="animate-shiny hero-shiny-text"> VENDEN por vos.</span>
-            </motion.h1>
-            <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
+            </m.h1>
+            <m.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#pricing" onClick={(e) => handleScroll(e, '#pricing')}>
                   <PrimaryButton label="Ver planes" className='btn-primary' />
@@ -56,16 +55,16 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
                 </a>
               </div>
               <span className="text-xs text-white/40">Sin compromiso · Presupuesto en 24 hs</span>
-            </motion.div>
+            </m.div>
           </div>
         ) : (
           <div key="cyber-hero">
-            <motion.h1 variants={fadeUp} className="text-[2.5rem] sm:text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] mt-6 text-balance">
+            <m.h1 variants={fadeUp} className="text-[2.5rem] sm:text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] mt-6 text-balance">
               La tranquilidad empieza
               <br className="hidden sm:block" /> con
               <span className="animate-shiny hero-shiny-text-cyber"> CIBERSEGURIDAD.</span>
-            </motion.h1>
-            <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
+            </m.h1>
+            <m.div variants={fadeUp} className="mt-8 flex flex-col items-center gap-4">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#contact" onClick={(e) => handleScroll(e, '#contact')}>
                   <PrimaryButton label="Solicitar escaneo inicial" className="btn-primary" />
@@ -79,13 +78,13 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
                 </a>
               </div>
               <span className="text-xs text-white/40">Monitoreo 24/7 · Reporte técnico inicial en 48 hs</span>
-            </motion.div>
+            </m.div>
           </div>
         )}
-        <motion.div variants={fadeUp} className="mt-4 flex items-center justify-center gap-4 text-white/60">
+        <m.div variants={fadeUp} className="mt-4 flex items-center justify-center gap-4 text-white/60">
           <div className="flex -space-x-2">
             {SITE.socialProofInitials.map(initials => (
-              <div key={initials} className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs">
+              <div key={initials} className="size-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs">
                 {initials}
               </div>
             ))}
@@ -93,8 +92,8 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
           <span className="text-sm">
             <strong className="text-white">+12 negocios</strong> ya confían en nosotros
           </span>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   )
 }
