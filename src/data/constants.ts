@@ -22,6 +22,7 @@ export const SITE = {
 
 export const PLANS: Plan[] = [
   {
+    id: 'software-landing',
     title: 'Landing Page',
     description:
       'Diseñada para convertir visitas en consultas. La opción rápida para quienes necesitan empezar a vender ya.',
@@ -35,6 +36,7 @@ export const PLANS: Plan[] = [
     ],
   },
   {
+    id: 'software-web-profesional',
     title: 'Web Profesional',
     description:
       'Tu negocio escalado al mundo digital. Una presencia sólida que genera confianza y automatiza tus procesos.',
@@ -49,6 +51,7 @@ export const PLANS: Plan[] = [
     highlighted: true,
   },
   {
+    id: 'software-saas',
     title: 'Sistema a medida / SaaS',
     description:
       'Herramientas potentes para problemas específicos. Digitalizamos tu operativa para que dejes de perder tiempo.',
@@ -70,17 +73,17 @@ export const NAV_LINKS: NavLink[] = [
       {
         title: 'Desarrollo de software',
         items: [
-          { href: '#services', label: 'Landing page' },
-          { href: '#services', label: 'Web profesional' },
-          { href: '#services', label: 'Sistema a medida / SaaS' },
+          { href: '#pricing-software', label: 'Landing page', tab: 'software' },
+          { href: '#pricing-software', label: 'Web profesional', tab: 'software' },
+          { href: '#pricing-software', label: 'Sistema a medida / SaaS', tab: 'software' },
         ],
       },
       {
         title: 'Ciberseguridad',
         items: [
-          { href: '#services', label: 'Auditoría de riesgo inicial' },
-          { href: '#services', label: 'Pentesting caja negra/blanca' },
-          { href: '#services', label: 'SecOps continuo' },
+          { href: '#pricing-cyber', label: 'Auditoría de riesgo inicial', tab: 'cyber' },
+          { href: '#pricing-cyber', label: 'Pentesting caja negra/blanca', tab: 'cyber' },
+          { href: '#pricing-cyber', label: 'SecOps continuo', tab: 'cyber' },
         ],
       },
     ],

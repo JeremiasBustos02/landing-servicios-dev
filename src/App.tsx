@@ -33,7 +33,7 @@ export default function App() {
         <CinematicBackground activeTab={activeTab} />
 
         <main className="relative z-10">
-          <Navbar />
+          <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
           <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
           <AppMockup activeTab={activeTab} />

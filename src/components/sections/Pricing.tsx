@@ -10,6 +10,7 @@ interface PricingProps {
 
 const CYBER_PLANS = [
   {
+    id: 'cyber-auditoria',
     title: 'Auditoria de riesgo inicial',
     description:
       'Radiografia completa de tu superficie de ataque y un roadmap de remediacion priorizado.',
@@ -22,6 +23,7 @@ const CYBER_PLANS = [
     ],
   },
   {
+    id: 'cyber-pentesting',
     title: 'Pentesting caja negra/blanca',
     description:
       'Simulacion de ataques reales sobre apps, APIs y redes internas.',
@@ -35,6 +37,7 @@ const CYBER_PLANS = [
     highlighted: true,
   },
   {
+    id: 'cyber-secops',
     title: 'SecOps continuo',
     description:
       'Monitoreo, hardening y respuesta a incidentes con SLA claro.',
@@ -61,13 +64,14 @@ export default function Pricing({ activeTab }: PricingProps) {
   return activeTab === 'software' ? (
     <m.section
       key="software-pricing"
-      id="pricing"
+      id="pricing-software"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeUp}
       className="relative max-w-6xl mx-auto py-10 px-6"
     >
+      <span id="pricing" />
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
@@ -81,6 +85,7 @@ export default function Pricing({ activeTab }: PricingProps) {
         {PLANS.map(plan => (
           <div
             key={plan.title}
+            id={plan.id}
             className={`liquid-glass rounded-3xl border border-white/10 p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 transition-all duration-500 ${
               plan.highlighted ? 'pricing-pro border-[var(--shiny-center)]/50' : ''
             }`}
@@ -114,13 +119,14 @@ export default function Pricing({ activeTab }: PricingProps) {
   ) : (
     <m.section
       key="cyber-pricing"
-      id="pricing"
+      id="pricing-cyber"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeUp}
       className="relative max-w-6xl mx-auto py-10 px-6"
     >
+      <span id="pricing" />
       <div className="flex items-center justify-between">
         <div>
           <SectionEyebrow label="Planes" />
@@ -134,6 +140,7 @@ export default function Pricing({ activeTab }: PricingProps) {
         {CYBER_PLANS.map(plan => (
           <div
             key={plan.title}
+            id={plan.id}
             className={`liquid-glass rounded-3xl border border-white/10 p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 transition-all duration-500 ${
               plan.highlighted ? 'pricing-pro border-[var(--shiny-center)]/50' : ''
             }`}

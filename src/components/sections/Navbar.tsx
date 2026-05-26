@@ -5,18 +5,32 @@ import { NAV_LINKS, EASE } from '../../data/constants'
 import BrandLogo from '../ui/BrandLogo'
 import PrimaryButton from '../ui/PrimaryButton'
 import { Menu, X } from 'lucide-react'
+import type { SwitchOption } from '../../types'
 import '../../styles/layout/navbar.css'
 
-export default function Navbar() {
+interface NavbarProps {
+  activeTab: SwitchOption;
+  setActiveTab: (tab: SwitchOption) => void;
+}
+
+export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   const lenis = useLenis()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null)
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null)
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string, itemTab?: SwitchOption) => {
     if (!target.startsWith('#')) return
     e.preventDefault()
     setMobileOpen(false)
     setExpandedGroup(null)
+
+    if (itemTab && itemTab !== activeTab) {
+      setPendingScroll(target)
+      setActiveTab(itemTab)
+      return
+    }
+
     if (target === '#') {
       lenis?.scrollTo(0)
       return
@@ -31,6 +45,15 @@ export default function Navbar() {
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [mobileOpen])
+
+  useEffect(() => {
+    if (!pendingScroll) return
+    const raf = requestAnimationFrame(() => {
+      lenis?.scrollTo(pendingScroll)
+      setPendingScroll(null)
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [pendingScroll, lenis])
 
   return (
     <m.nav
@@ -66,13 +89,13 @@ export default function Navbar() {
                         </p>
                         <div className="flex flex-col gap-1">
                           {group.items.map(item => (
-                            <a
-                              key={item.label}
-                              href={item.href}
-                              role="menuitem"
-                              className="navbar-dropdown-item"
-                              onClick={(e) => handleScroll(e, item.href)}
-                            >
+                              <a
+                                key={item.label}
+                                href={item.href}
+                                role="menuitem"
+                                className="navbar-dropdown-item"
+                                onClick={(e) => handleScroll(e, item.href, item.tab)}
+                              >
                               {item.label}
                             </a>
                           ))}
@@ -148,7 +171,7 @@ export default function Navbar() {
                             key={item.label}
                             href={item.href}
                             className="navbar-mobile-link navbar-mobile-link--sub"
-                            onClick={(e) => handleScroll(e, item.href)}
+                            onClick={(e) => handleScroll(e, item.href, item.tab)}
                           >
                             {item.label}
                           </a>

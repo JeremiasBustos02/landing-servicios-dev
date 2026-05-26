@@ -1,6 +1,7 @@
 export type SwitchOption = 'software' | 'cyber'
 
 export interface Plan {
+  id?: string
   title: string
   description: string
   price: string
@@ -11,6 +12,7 @@ export interface Plan {
 export interface NavSubItem {
   href: string
   label: string
+  tab: SwitchOption
 }
 
 export interface NavGroup {
