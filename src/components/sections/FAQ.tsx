@@ -1,8 +1,8 @@
 import { m } from 'motion/react'
 import { useState } from 'react'
-import { FAQS, EASE } from '../../data/constants'
-import SectionEyebrow from '../ui/SectionEyebrow'
-import type { SwitchOption } from '../../types'
+import { FAQS, CYBER_FAQS, fadeUp } from '@/data'
+import SectionEyebrow from '@/components/ui/SectionEyebrow'
+import type { SwitchOption } from '@/types'
 
 const ChevronIcon = () => (
   <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="size-4">
@@ -12,38 +12,6 @@ const ChevronIcon = () => (
 
 interface FAQProps {
   activeTab: SwitchOption;
-}
-
-const CYBER_FAQS = [
-  {
-    pregunta: 'Cuanto tarda una auditoria completa?',
-    respuesta:
-      'Entre 7 y 15 dias segun el alcance. Definimos un cronograma claro y entregables semanales para que veas avances reales.',
-  },
-  {
-    pregunta: 'El pentesting afecta mis sistemas en produccion?',
-    respuesta:
-      'No. Coordinamos ventanas seguras y usamos metodologias de hackeo etico para minimizar impacto. Probamos primero en entornos controlados si aplica.',
-  },
-  {
-    pregunta: 'Que estandares y marcos utilizan?',
-    respuesta:
-      'Trabajamos con OWASP, MITRE ATT&CK y NIST, ajustando el enfoque a tu industria y requisitos de compliance.',
-  },
-  {
-    pregunta: 'Que incluye el informe final?',
-    respuesta:
-      'Un reporte ejecutivo, detalle tecnico con evidencia, severidad CVSS y un plan de remediacion priorizado con re-testeo de hallazgos criticos.',
-  },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
 }
 
 export default function FAQ({ activeTab }: FAQProps) {

@@ -1,6 +1,7 @@
 export type SwitchOption = 'software' | 'cyber'
 
 export interface Plan {
+  id?: string
   title: string
   description: string
   price: string
@@ -11,6 +12,7 @@ export interface Plan {
 export interface NavSubItem {
   href: string
   label: string
+  tab: SwitchOption
 }
 
 export interface NavGroup {
@@ -76,6 +78,12 @@ export interface ContactInfo {
   email: string
   whatsapp: string
   whatsappLink: string
+}
+
+export interface CyberFeature {
+  title: string
+  description: string
+  highlights: string[]
 }
 
 export interface ProjectData {

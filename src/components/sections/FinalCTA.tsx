@@ -1,25 +1,14 @@
 import { m } from 'motion/react'
-import { useLenis } from 'lenis/react'
-import { CONTACT_INFO, EASE } from '../../data/constants'
-import PrimaryButton from '../ui/PrimaryButton'
-import type { SwitchOption } from '../../types'
+import { useScrollTo } from '@/hooks'
+import { CONTACT_INFO, fadeUp } from '@/data'
+import PrimaryButton from '@/components/ui/PrimaryButton'
+import type { SwitchOption } from '@/types'
 interface FinalCTAProps {
   activeTab: SwitchOption;
 }
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
-}
+
 export default function FinalCTA({ activeTab }: FinalCTAProps) {
-  const lenis = useLenis()
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    e.preventDefault()
-    lenis?.scrollTo(target)
-  }
+  const { handleClick } = useScrollTo()
   return activeTab === 'software' ? (
     <section key="software-final-cta" className="max-w-6xl mx-auto px-6 py-12">
       <m.div
@@ -66,7 +55,7 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
             </a>
             <a
               href="#pricing"
-              onClick={(e) => handleScroll(e, '#pricing')}
+              onClick={(e) => handleClick(e, '#pricing')}
               className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
             >
               Ver planes

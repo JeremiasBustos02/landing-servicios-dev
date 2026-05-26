@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react'
-import '../../styles/ui/buttons.css' // Ajusta esta ruta según tu estructura
+import '@/styles/ui/buttons.css'
 
 type PrimaryButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string

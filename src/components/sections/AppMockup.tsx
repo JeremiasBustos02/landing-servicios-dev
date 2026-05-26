@@ -1,23 +1,14 @@
 import { useState } from 'react'
-import LiquidGlassCard from '../ui/LiquidGlassCard'
-import MacMockup from '../ui/MacMockup'
+import LiquidGlassCard from '@/components/ui/LiquidGlassCard'
+import MacMockup from '@/components/ui/MacMockup'
 import { m } from 'motion/react'
-import { PROJECTS, EASE } from '../../data/constants'
-import '../../styles/sections/app-mockup.css'
-import SectionEyebrow from '../ui/SectionEyebrow'
-import type { SwitchOption } from '../../types'
+import { PROJECTS, fadeUp } from '@/data'
+import '@/styles/sections/app-mockup.css'
+import SectionEyebrow from '@/components/ui/SectionEyebrow'
+import type { SwitchOption } from '@/types'
 
 interface AppMockupProps {
   activeTab: SwitchOption;
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
 }
 
 const showcaseProjects = [

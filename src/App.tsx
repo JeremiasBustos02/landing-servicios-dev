@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import { LazyMotion, domAnimation } from 'motion/react'
 import { ReactLenis } from 'lenis/react'
-import SVGNoiseFilters from './components/ui/SVGNoiseFilters'
-import CinematicBackground from './components/ui/CinematicBackground'
-import Navbar from './components/sections/Navbar'
-import Hero from './components/sections/Hero'
-import AppMockup from './components/sections/AppMockup'
-import Features from './components/sections/Features'
-import Pricing from './components/sections/Pricing'
-import CTA from './components/sections/CTA'
-import FAQ from './components/sections/FAQ'
-import Contact from './components/sections/Contact'
-import FinalCTA from './components/sections/FinalCTA'
-import Footer from './components/sections/Footer'
-import type { SwitchOption } from './types'
+import SVGNoiseFilters from '@/components/ui/SVGNoiseFilters'
+import CinematicBackground from '@/components/ui/CinematicBackground'
+import Navbar from '@/components/sections/Navbar'
+import Hero from '@/components/sections/Hero'
+import AppMockup from '@/components/sections/AppMockup'
+import Features from '@/components/sections/Features'
+import Pricing from '@/components/sections/Pricing'
+import CTA from '@/components/sections/CTA'
+import FAQ from '@/components/sections/FAQ'
+import Contact from '@/components/sections/Contact'
+import FinalCTA from '@/components/sections/FinalCTA'
+import Footer from '@/components/sections/Footer'
+import type { SwitchOption } from '@/types'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<SwitchOption>('software')
@@ -33,7 +33,7 @@ export default function App() {
         <CinematicBackground activeTab={activeTab} />
 
         <main className="relative z-10">
-          <Navbar />
+          <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
           <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
           <AppMockup activeTab={activeTab} />

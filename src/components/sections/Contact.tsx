@@ -1,17 +1,8 @@
 import { m } from 'motion/react'
-import { CONTACT_INFO, EASE } from '../../data/constants'
-import SectionEyebrow from '../ui/SectionEyebrow'
-import PrimaryButton from '../ui/PrimaryButton'
-import LiquidGlassCard from '../ui/LiquidGlassCard'
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
-}
+import { CONTACT_INFO, fadeUp } from '@/data'
+import SectionEyebrow from '@/components/ui/SectionEyebrow'
+import PrimaryButton from '@/components/ui/PrimaryButton'
+import LiquidGlassCard from '@/components/ui/LiquidGlassCard'
 
 export default function Contact() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
