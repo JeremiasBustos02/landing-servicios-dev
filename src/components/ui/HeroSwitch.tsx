@@ -1,6 +1,5 @@
-import '../../styles/ui/hero-switch.css'
-
-type SwitchOption = 'software' | 'cyber'
+import '@/styles/ui/hero-switch.css'
+import type { SwitchOption } from '@/types'
 
 // Definimos la interfaz de las props
 interface HeroSwitchProps {

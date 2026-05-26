@@ -1,27 +1,10 @@
 import { m } from 'motion/react'
-import { useLenis } from 'lenis/react'
-import { FOOTER_LINKS, EASE } from '../../data/constants'
-import BrandLogo from '../ui/BrandLogo'
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
-}
+import { useScrollTo } from '@/hooks'
+import { FOOTER_LINKS, fadeUp } from '@/data'
+import BrandLogo from '@/components/ui/BrandLogo'
 export default function Footer() {
   const year = new Date().getFullYear()
-  const lenis = useLenis()
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    if (!target.startsWith('#')) return
-    e.preventDefault()
-    if (target === '#') {
-      lenis?.scrollTo(0)
-      return
-    }
-    lenis?.scrollTo(target)
-  }
+  const { handleClick, scrollTo } = useScrollTo()
   return (
     <m.footer
       initial="hidden"
@@ -40,7 +23,7 @@ export default function Footer() {
           </div>
           <a
             href="#contact"
-            onClick={(e) => handleScroll(e, '#contact')}
+            onClick={(e) => handleClick(e, '#contact')}
             className="footer-cta-btn"
           >
             Escribinos por WhatsApp
@@ -55,7 +38,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     className="footer-link"
-                    onClick={(e) => handleScroll(e, link.href)}
+                    onClick={(e) => handleClick(e, link.href)}
                   >
                     {link.name}
                   </a>
@@ -71,7 +54,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     className="footer-link"
-                    onClick={(e) => handleScroll(e, link.href)}
+                    onClick={(e) => handleClick(e, link.href)}
                   >
                     {link.name}
                   </a>
@@ -87,7 +70,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     className="footer-link"
-                    onClick={(e) => handleScroll(e, link.href)}
+                    onClick={(e) => handleClick(e, link.href)}
                     target={link.external ? '_blank' : '_self'}
                     rel={link.external ? 'noopener noreferrer' : undefined}
                   >
@@ -105,7 +88,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     className="footer-link"
-                    onClick={(e) => handleScroll(e, link.href)}
+                    onClick={(e) => handleClick(e, link.href)}
                     target={link.external ? '_blank' : '_self'}
                     rel={link.external ? 'noopener noreferrer' : undefined}
                   >
@@ -119,8 +102,8 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© {year} Nombre. Todos los derechos reservados.</span>
           <div className="flex gap-6">
-            <button type="button" className="footer-link" onClick={() => lenis?.scrollTo(0)}>Privacidad</button>
-            <button type="button" className="footer-link" onClick={() => lenis?.scrollTo(0)}>Terminos</button>
+            <button type="button" className="footer-link" onClick={() => scrollTo(0)}>Privacidad</button>
+            <button type="button" className="footer-link" onClick={() => scrollTo(0)}>Terminos</button>
           </div>
         </div>
       </div>

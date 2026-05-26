@@ -80,6 +80,12 @@ export interface ContactInfo {
   whatsappLink: string
 }
 
+export interface CyberFeature {
+  title: string
+  description: string
+  highlights: string[]
+}
+
 export interface ProjectData {
   title: string
   category: string

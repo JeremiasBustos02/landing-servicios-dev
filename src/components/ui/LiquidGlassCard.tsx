@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react'
-import '../../styles/ui/cards.css'
+import '@/styles/ui/cards.css'
 
 type LiquidGlassCardProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode

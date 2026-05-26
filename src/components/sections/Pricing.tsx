@@ -1,63 +1,11 @@
 import { m } from 'motion/react'
-import { PLANS, EASE } from '../../data/constants'
-import SectionEyebrow from '../ui/SectionEyebrow'
-import PrimaryButton from '../ui/PrimaryButton'
-import type { SwitchOption } from '../../types'
+import { PLANS, CYBER_PLANS, fadeUp } from '@/data'
+import SectionEyebrow from '@/components/ui/SectionEyebrow'
+import PlanCard from '@/components/ui/PlanCard'
+import type { SwitchOption } from '@/types'
 
 interface PricingProps {
   activeTab: SwitchOption;
-}
-
-const CYBER_PLANS = [
-  {
-    id: 'cyber-auditoria',
-    title: 'Auditoria de riesgo inicial',
-    description:
-      'Radiografia completa de tu superficie de ataque y un roadmap de remediacion priorizado.',
-    price: '700 – 1200 USD',
-    features: [
-      'Inventario de activos y accesos',
-      'Analisis de configuracion y permisos',
-      'Reporte ejecutivo + tecnico',
-      'Plan de mitigacion en 7 dias',
-    ],
-  },
-  {
-    id: 'cyber-pentesting',
-    title: 'Pentesting caja negra/blanca',
-    description:
-      'Simulacion de ataques reales sobre apps, APIs y redes internas.',
-    price: '1500 – 3500 USD',
-    features: [
-      'OWASP + pruebas personalizadas',
-      'Hallazgos con CVSS y evidencia',
-      'Reunion de cierre con tu equipo',
-      'Re-testeo de vulnerabilidades criticas',
-    ],
-    highlighted: true,
-  },
-  {
-    id: 'cyber-secops',
-    title: 'SecOps continuo',
-    description:
-      'Monitoreo, hardening y respuesta a incidentes con SLA claro.',
-    price: 'Desde 900 USD/mes',
-    features: [
-      'Alertas 24/7 y playbooks activos',
-      'SIEM + correlacion de eventos',
-      'Remediacion mensual priorizada',
-      'Reportes para compliance y auditoria',
-    ],
-  },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
 }
 
 export default function Pricing({ activeTab }: PricingProps) {
@@ -83,36 +31,7 @@ export default function Pricing({ activeTab }: PricingProps) {
       </div>
       <div className="pricing-grid relative z-10 mt-12 ">
         {PLANS.map(plan => (
-          <div
-            key={plan.title}
-            id={plan.id}
-            className={`liquid-glass rounded-3xl border border-white/10 p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 transition-all duration-500 ${
-              plan.highlighted ? 'pricing-pro border-[var(--shiny-center)]/50' : ''
-            }`}
-          >
-            <div className="h-[140px]">
-              <h3 className="text-xl lg:text-2xl font-bold text-white tracking-tight">{plan.title}</h3>
-              <p className="text-white/60 mt-3 leading-relaxed">{plan.description}</p>
-            </div>
-
-            <div className="mt-4 mb-6 pb-6 border-b border-white/10 shrink-0">
-              <span className="text-3xl lg:text-4xl font-extrabold text-white tracking-tighter whitespace-nowrap">
-                {plan.price}
-              </span>
-            </div>
-
-            <div className="space-y-3 text-sm text-[var(--text-primary)] flex-grow">
-              {plan.features.map(feature => (
-                <div key={feature} className="flex items-start gap-3">
-                  <span className="size-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
-                  <span className="leading-tight">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Botón */}
-            <PrimaryButton label="Empezar proyecto" className="w-full justify-center mt-8 shrink-0" />
-          </div>
+          <PlanCard key={plan.title} plan={plan} buttonLabel="Empezar proyecto" variant="software" />
         ))}
       </div>
     </m.section>
@@ -138,35 +57,7 @@ export default function Pricing({ activeTab }: PricingProps) {
       </div>
       <div className="pricing-grid relative z-10 mt-8 ">
         {CYBER_PLANS.map(plan => (
-          <div
-            key={plan.title}
-            id={plan.id}
-            className={`liquid-glass rounded-3xl border border-white/10 p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 transition-all duration-500 ${
-              plan.highlighted ? 'pricing-pro border-[var(--shiny-center)]/50' : ''
-            }`}
-          >
-            <div className="h-[140px]">
-              <h3 className="text-xl lg:text-1xl font-bold text-white tracking-tight">{plan.title}</h3>
-              <p className="text-white/60 mt-3 leading-relaxed">{plan.description}</p>
-            </div>
-
-            <div className="mt-4 mb-6 pb-6 border-b border-white/10 shrink-0">
-              <span className="text-2xl lg:text-3xl font-extrabold text-white tracking-tighter whitespace-nowrap">
-                {plan.price}
-              </span>
-            </div>
-
-            <div className="space-y-3 text-sm text-[var(--text-primary)] flex-grow">
-              {plan.features.map(feature => (
-                <div key={feature} className="flex items-start gap-3">
-                  <span className="size-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
-                  <span className="leading-tight">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <PrimaryButton label="Solicitar evaluacion" className="w-full justify-center mt-8 shrink-0" />
-          </div>
+          <PlanCard key={plan.title} plan={plan} buttonLabel="Solicitar evaluacion" variant="cyber" />
         ))}
       </div>
     </m.section>

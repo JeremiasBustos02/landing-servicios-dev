@@ -1,26 +1,15 @@
 import { m } from 'motion/react'
-import { useLenis } from 'lenis/react'
-import PrimaryButton from '../ui/PrimaryButton'
-import { CONTACT_INFO, EASE } from '../../data/constants'
-import '../../styles/sections/cta.css'
-import type { SwitchOption } from '../../types'
+import { useScrollTo } from '@/hooks'
+import PrimaryButton from '@/components/ui/PrimaryButton'
+import { CONTACT_INFO, fadeUp } from '@/data'
+import '@/styles/sections/cta.css'
+import type { SwitchOption } from '@/types'
 interface CTAProps {
   activeTab: SwitchOption;
 }
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE },
-  },
-}
+
 export default function CTA({ activeTab }: CTAProps) {
-  const lenis = useLenis()
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    e.preventDefault()
-    lenis?.scrollTo(target)
-  }
+  const { handleClick } = useScrollTo()
   return activeTab === 'software' ? (
     <section key="software-cta" className="max-w-6xl mx-auto px-6 py-5 md:py-12">
       <m.div
@@ -44,7 +33,7 @@ export default function CTA({ activeTab }: CTAProps) {
             </a>
             <a
               href="#contact"
-              onClick={(e) => handleScroll(e, '#contact')}
+              onClick={(e) => handleClick(e, '#contact')}
               className="liquid-glass-card rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 hover:bg-white/5 transition-colors"
             >
               Agendar una llamada
@@ -76,7 +65,7 @@ export default function CTA({ activeTab }: CTAProps) {
             </a>
             <a
               href="#contact"
-              onClick={(e) => handleScroll(e, '#contact')}
+              onClick={(e) => handleClick(e, '#contact')}
               className="liquid-glass-card rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 hover:bg-white/5 transition-colors"
             >
               Agendar reunion tecnica
