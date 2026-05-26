@@ -34,14 +34,14 @@
   --color-error: #f87171;
   --color-success: #34d399;
 
-/* === SHINY GRADIENT (Software - Azul) === */
-  --shiny-dark: #091020;
-  --shiny-mid: #195586;
-  --shiny-accent: #A4F4FD;
-  --shiny-center: #00d2ff;
+  /* === SHINY GRADIENT (Software - Azul) === */
+  --shiny-dark: #0d1520;
+  --shiny-mid: #259ceb;
+  --shiny-accent: #7dd3fc;
+  --shiny-center: #38bdf8;
 
   /* === SHINY GRADIENT CYBER  === */
-   /*
+  /*
   --shiny-cyber-dark: #1a0505;
   --shiny-cyber-mid: #450a0a;
   --shiny-cyber-accent: #fca5a5;
@@ -52,7 +52,7 @@
   --shiny-cyber-mid: #14532d;
   --shiny-cyber-accent: #86efac;
   --shiny-cyber-center: #22c55e;
-  
+
 
   /* === BORDERS === */
   --border-light: rgba(255, 255, 255, 0.10);

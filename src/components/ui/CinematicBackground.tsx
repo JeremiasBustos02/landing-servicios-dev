@@ -11,19 +11,18 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
     const styles = getComputedStyle(themeRoot)
 
     const getVar = (name: string) => styles.getPropertyValue(name).trim()
-    const colorMid = getVar('--shiny-mid') || '#0b2551'
-    const colorAccent = getVar('--shiny-accent') || '#a4f4fd'
+    const colorMid = getVar('--shiny-mid') || '#259ceb'
+    const colorAccent = getVar('--shiny-accent') || '#259ceb'
 
     const isMobile = window.innerWidth < 768
 
     const gradient = new NeatGradient({
       ref: canvasRef.current,
       colors: [
-        { color: '#000000', enabled: true },
+        { color: '#020617', enabled: true },
         { color: colorMid, enabled: true },
         { color: colorMid, enabled: true },
-        { color: colorAccent, enabled: true }, 
-        { color: '#050505', enabled: true }, 
+        { color: colorAccent, enabled: true },
       ],
       speed: isMobile ? 0.5 : 2,
       horizontalPressure: isMobile ? 3 : 5,
@@ -32,7 +31,7 @@ export default function CinematicBackground({ activeTab }: { activeTab: 'softwar
       waveFrequencyY: isMobile ? 1 : 2,
       waveAmplitude: isMobile ? 4 : 8,
       shadows: isMobile ? 2 : 5,
-      highlights: isMobile ? 4 : 9, 
+      highlights: isMobile ? 4 : 9,
       colorBrightness: 1,
       colorSaturation: 6,
       wireframe: false,
