@@ -19,7 +19,14 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<SwitchOption>('software')
 
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true , syncTouch: true, touchMultiplier: 1.5,}}>
+    <ReactLenis
+      root
+      options={{
+        smoothWheel: true,
+        syncTouch: false,
+        touchMultiplier: 1,
+      }}
+    >
       <LazyMotion features={domAnimation}>
       <div data-theme={activeTab} className="relative min-h-screen bg-[#0c0c0c] text-white">
         <SVGNoiseFilters />

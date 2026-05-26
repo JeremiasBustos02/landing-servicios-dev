@@ -46,3 +46,9 @@
 .navbar-link:hover {
   color: var(--text-primary);
 }
+
+@media (max-width: 768px) {
+  .navbar-pinned {
+    backdrop-filter: blur(8px) !important;
+  }
+}
