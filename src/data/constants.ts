@@ -203,11 +203,11 @@ export const PROJECTS: ProjectData[] = [
   {
     title: 'Vertex Studio',
     category: 'Web Corporativa',
-    image: '/ejemplo-web-2.png',
+    image: '/ejemplo-web-2.webp',
   },
   {
     title: 'Lunexa Store',
     category: 'E-commerce',
-    image: '/web-ejemplo-3.webp',
+    image: '/ejemplo-web-3.webp',
   },
 ]

@@ -15,12 +15,12 @@ export default function MacMockup({
   title,
   features,
   screenTop = '2%',
-  screenLeft = '10.2%',
-  screenWidth = '79.5%',
+  screenLeft = '11.7%',
+  screenWidth = '77%',
   screenHeight = '88%',
 }: MacMockupProps) {
   return (
-    <div className="group relative aspect-[4608/2675] w-full max-w-5xl mx-auto overflow-hidden">
+    <div className="group relative aspect-[16/9] w-full max-w-5xl mx-auto overflow-hidden">
       <div
         className="absolute overflow-hidden"
         style={{
@@ -57,7 +57,7 @@ export default function MacMockup({
       </div>
 
       <img
-        src="/mac-book.png"
+        src="/mac-book.webp"
         alt="MacBook mockup"
         className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none z-20"
         draggable={false}

@@ -29,13 +29,13 @@ const showcaseProjects = [
   },
   {
     id: 2,
-    img: PROJECTS[1]?.image || '/ejemplo-web-2.png',
+    img: PROJECTS[1]?.image || '/ejemplo-web-2.webp',
     title: PROJECTS[1]?.title || 'Proyecto 2',
     features: ['Panel administrativo', 'Integración pagos', 'Gestión usuarios'],
   },
   {
     id: 3,
-    img: PROJECTS[2]?.image || '/web-ejemplo-3.webp',
+    img: PROJECTS[2]?.image || '/ejemplo-web-3.webp',
     title: PROJECTS[2]?.title || 'Proyecto 3',
     features: ['E-commerce completo', 'Carrito inteligente', 'Dashboard analytics'],
   },
