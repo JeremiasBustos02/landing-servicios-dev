@@ -26,12 +26,13 @@ export default function FinalCTA({ activeTab }: FinalCTAProps) {
             <a href={CONTACT_INFO.whatsappLink}>
               <PrimaryButton label="Escribinos por WhatsApp" />
             </a>
-            <button
-              type="button"
+            <a
+              href="#pricing"
+              onClick={(e) => handleClick(e, '#pricing')}
               className="liquid-glass-card rounded-full px-5 py-3 text-sm text-white/80 hover:text-white transition"
             >
               Ver planes
-            </button>
+            </a>
           </div>
         </div>
       </m.div>
