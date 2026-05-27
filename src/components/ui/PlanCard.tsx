@@ -1,10 +1,11 @@
 import type { Plan } from '@/types'
 import PrimaryButton from '@/components/ui/PrimaryButton'
+import { CONTACT_INFO } from '@/data/contact'
 
 interface PlanCardProps {
-  plan: Plan;
-  buttonLabel: string;
-  variant?: 'software' | 'cyber';
+  plan: Plan
+  buttonLabel: string
+  variant?: 'software' | 'cyber'
 }
 
 const variantStyles = {
@@ -18,8 +19,16 @@ const variantStyles = {
   },
 } as const
 
-export default function PlanCard({ plan, buttonLabel, variant = 'software' }: PlanCardProps) {
+export default function PlanCard({
+  plan,
+  buttonLabel,
+  variant = 'software',
+}: PlanCardProps) {
   const styles = variantStyles[variant]
+
+  const whatsappLink = `${CONTACT_INFO.whatsappBaseUrl}?text=${encodeURIComponent(
+    plan.whatsappMessage
+  )}`
 
   return (
     <div
@@ -29,12 +38,19 @@ export default function PlanCard({ plan, buttonLabel, variant = 'software' }: Pl
       }`}
     >
       <div className="h-[140px]">
-        <h3 className={`${styles.title} font-bold text-white tracking-tight`}>{plan.title}</h3>
-        <p className="text-white/60 mt-3 leading-relaxed">{plan.description}</p>
+        <h3 className={`${styles.title} font-bold text-white tracking-tight`}>
+          {plan.title}
+        </h3>
+
+        <p className="text-white/60 mt-3 leading-relaxed">
+          {plan.description}
+        </p>
       </div>
 
       <div className="mt-4 mb-6 pb-6 border-b border-white/10 shrink-0">
-        <span className={`${styles.price} font-extrabold text-white tracking-tighter whitespace-nowrap`}>
+        <span
+          className={`${styles.price} font-extrabold text-white tracking-tighter whitespace-nowrap`}
+        >
           {plan.price}
         </span>
       </div>
@@ -48,7 +64,16 @@ export default function PlanCard({ plan, buttonLabel, variant = 'software' }: Pl
         ))}
       </div>
 
-      <PrimaryButton label={buttonLabel} className="w-full justify-center mt-8 shrink-0" />
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <PrimaryButton
+          label={buttonLabel}
+          className="w-full justify-center mt-8 shrink-0"
+        />
+      </a>
     </div>
   )
 }
