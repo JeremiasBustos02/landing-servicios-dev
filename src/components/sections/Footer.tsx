@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="liquid-glass footer-inner">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
           <div>
-            <BrandLogo />
+            <BrandLogo className="h-20 w-auto" />
             <p className="text-white/60 mt-3 max-w-sm">
               Desarrollo web y software a medida para negocios que buscan resultados reales, sin tecnicismos.
             </p>
@@ -100,7 +100,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {year} Nombre. Todos los derechos reservados.</span>
+          <span>© {year} Buveg. Todos los derechos reservados.</span>
           <div className="flex gap-6">
             <button type="button" className="footer-link" onClick={() => scrollTo(0)}>Privacidad</button>
             <button type="button" className="footer-link" onClick={() => scrollTo(0)}>Terminos</button>

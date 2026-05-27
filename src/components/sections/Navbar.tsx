@@ -191,8 +191,8 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
     >
       <div className="navbar">
         <div className="navbar-brand">
-          <BrandLogo />
-          <span className="navbar-brand-text">milogo.</span>
+          <BrandLogo className="h-10 w-auto" />
+          <span className="navbar-brand-text">buveg</span>
         </div>
 
         <div className="navbar-links">

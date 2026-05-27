@@ -1,7 +1,7 @@
 import type { ContactInfo } from '@/types'
 
 export const CONTACT_INFO: ContactInfo = {
-  email: 'hola@midominio.com',
+  email: 'contacto@buveg.com.ar',
   whatsapp: '+54 9 2266 483093',
   whatsappBaseUrl: 'https://wa.me/5492266483093',
 }

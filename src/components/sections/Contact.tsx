@@ -56,7 +56,7 @@ export default function Contact() {
             </LiquidGlassCard>
             <LiquidGlassCard className="rounded-2xl border border-white/10 p-5">
               <p className="text-xs uppercase tracking-[0.2em] text-white/40">WhatsApp</p>
-              <a href={CONTACT_INFO.whatsappLink} className="block text-lg font-semibold mt-2">
+              <a href={CONTACT_INFO.whatsapp} className="block text-lg font-semibold mt-2">
                 {CONTACT_INFO.whatsapp}
               </a>
             </LiquidGlassCard>
