@@ -55,6 +55,9 @@ export default function Hero({ activeTab, setActiveTab }: HeroProps) {
       className="text-center px-6 min-h-[100dvh] flex flex-col justify-center items-center"
     >
       <div className="flex flex-col items-center">
+
+        <div className="text-lg font-bold text-white/80 mb-2">Creá o protegé tu negocio</div>
+
         <div className="flex justify-center mb-6">
           <HeroSwitch activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
