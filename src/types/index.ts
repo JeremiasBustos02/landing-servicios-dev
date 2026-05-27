@@ -77,7 +77,7 @@ export interface FooterLinks {
 export interface ContactInfo {
   email: string
   whatsapp: string
-  whatsappLink: string
+  whatsappBaseUrl: string
 }
 
 export interface CyberFeature {
@@ -90,4 +90,13 @@ export interface ProjectData {
   title: string
   category: string
   image: string
+}
+
+export interface Plan {
+  title: string
+  description: string
+  price: string
+  features: string[]
+  highlighted?: boolean
+  whatsappMessage: string
 }
