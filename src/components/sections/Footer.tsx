@@ -24,9 +24,9 @@ export default function Footer() {
           <a
             href="#contact"
             onClick={(e) => handleClick(e, '#contact')}
-            className="footer-cta-btn"
+            className="btn-primary"
           >
-            Escribinos por WhatsApp
+            Contacto
           </a>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12 text-sm text-white/70">
